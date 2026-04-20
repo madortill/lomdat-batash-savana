@@ -12,7 +12,7 @@ const Instructions = ({ onSendData }) => {
     return (
         <div className="instructions-page">
             {/* <h1>{introTitle}</h1> */}
-            <p>This is lomdat Savana!!!</p>
+            <p>This is lomdat Savana!</p>
         </div>
     );
 };
