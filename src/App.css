@@ -11,6 +11,10 @@
     width: 5vw;
 }
 
+.back-btn:hover {
+    cursor: pointer;
+}
+
 ::selection {
     background-color: #C5571C;
     color: white;
