@@ -1,0 +1,38 @@
+{
+    "he": {
+        "general": [
+            {
+                "text": "חזור",
+                "id": "backBtn"
+            },
+            {
+                "text": "הבא",
+                "id": "nextBtn"
+            }
+        ],
+        "infoPageLanguage": [
+            {
+                "id": "infoTitle",
+                "text": "הוראות לתפעול לומדת סוואנה"
+            }
+        ]
+    },
+    "en": {
+        "general": [
+            {
+                "text": "Back",
+                "id": "backBtn"
+            },
+            {
+                "text": "Next",
+                "id": "nextBtn"
+            }
+        ],
+        "infoPageLanguage": [
+            {
+                "id": "infoTitle",
+                "text": "Operating Instructions for the Savana vehicle"
+            }
+        ]
+    }
+}
