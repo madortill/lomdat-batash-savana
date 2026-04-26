@@ -10,7 +10,7 @@
                 "id": "nextBtn"
             }
         ],
-        "infoPageLanguage": [
+        "Instructions": [
             {
                 "id": "infoTitle",
                 "text": "הוראות לתפעול לומדת סוואנה"
@@ -28,7 +28,7 @@
                 "id": "nextBtn"
             }
         ],
-        "infoPageLanguage": [
+        "Instructions": [
             {
                 "id": "infoTitle",
                 "text": "Operating Instructions for the Savana vehicle"

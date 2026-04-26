@@ -1,16 +1,16 @@
-import { useState } from "react";
-import InstructionsLanguage from "./Instructions/InstructionsLanguage";
+// import { useState } from "react";
+// import Instructions from "./Instructions/Instructions";
 
-const InstructionsControl = () => {
+// const InstructionsControl = () => {
 
-    const [step, setStep] = useState(0);
+//     const [step, setStep] = useState(0);
 
-    return (
-        <div className="practice-container">
-            {step === 0 && <InstructionsLanguage />}
-        </div>
-    );
-};
+//     return (
+//         <div className="practice-container">
+//             {step === 0 && <Instructions />}
+//         </div>
+//     );
+// };
 
-export default InstructionsControl;
+// export default InstructionsControl;
 
