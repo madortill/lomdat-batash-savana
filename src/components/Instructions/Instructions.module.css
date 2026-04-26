@@ -1,25 +1,27 @@
 .instructionsGal {
+    position: absolute;
     width: clamp(15rem, 14vw, 20rem);
     position: absolute;
-    top: clamp(35rem, 64vh, 40rem);
-    right: clamp(35rem, 45vw, 50rem);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
 }
 
 .textBox {
     position: absolute;
-    width: 512px;
-    height: 354px;
+    width: 30vw;
+    height: 30vh;
     background-color: #4769A7;
     border-radius: 30px;
+    text-align: center;
     position: relative;
-    top: clamp(5rem, 20vh, 15rem);
+    top: clamp(9rem, 26vh, 18rem);
     margin: 0 auto;
 }
 
 .bubbleText {
     position: absolute;
     color: #FFF2B4;
-    text-align: center;
     font-family: Assistant;
     font-size: clamp(1rem, 5vw, 1.5rem);
     font-style: normal;
