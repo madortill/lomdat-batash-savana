@@ -1,10 +1,3 @@
-p {
-    position: absolute;
-    top: 5%;
-    left: 38%;
-    font-size: 3vw;
-}
-
 .instructionsGal {
     width: clamp(15rem, 14vw, 20rem);
     position: absolute;
@@ -13,13 +6,14 @@ p {
 }
 
 .textBox {
+    position: absolute;
     width: 512px;
     height: 354px;
     background-color: #4769A7;
     border-radius: 30px;
     position: relative;
     top: clamp(5rem, 20vh, 15rem);
-    right: clamp(-24rem, -38vw, -24rem);
+    margin: 0 auto;
 }
 
 .bubbleText {
@@ -27,7 +21,7 @@ p {
     color: #FFF2B4;
     text-align: center;
     font-family: Assistant;
-    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-size: clamp(1rem, 5vw, 1.5rem);
     font-style: normal;
     font-weight: 600;
     line-height: normal;

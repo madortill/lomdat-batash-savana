@@ -24,3 +24,40 @@
     background-color: #C5571C;
     color: white;
 }
+
+.main-header-text {
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #073799;
+    font-family: Rubik;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.next-btn {
+    position: absolute;
+    background-color: #E69907;
+    width: 6vw;
+    height: 6vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 5px;
+    bottom: 7vh;
+    left: 5vw;
+}
+
+.next-btn-text {
+    color: #FFF2B4;
+    font-size: 2vw;
+    pointer-events: none;
+    font-family: Assistant;
+    font-weight: 800;
+}
