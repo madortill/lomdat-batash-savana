@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    direction: rtl;
 }
 
 .app {
@@ -9,11 +10,26 @@
     width: 100vw;
 }
 
-.back-btn {
+.backBtnDiv {
     position: absolute;
-    right: 1.5vw;
+    right: 2vw;
     top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.back-btn {
     width: 4.2vw;
+}
+
+.back-btn-text {
+    font-family: Assistant, sans-serif;
+    font-weight: 700;
+    color: #073799;
+    font-size: 1vw;
 }
 
 .back-btn:hover {
@@ -64,6 +80,6 @@
     color: #FFF2B4;
     font-size: 1.5vw;
     pointer-events: none;
-    font-family: Assistant;
+    font-family: Assistant, sans-serif;
     font-weight: 800;
 }

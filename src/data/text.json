@@ -12,8 +12,26 @@
         ],
         "Instructions": [
             {
-                "id": "infoTitle",
+                "id": "instructionsTitle",
                 "text": "הוראות לתפעול לומדת סוואנה"
+            },
+            {
+                "id": "instructionsBubbleTextLanguage",
+                "text": "היי, שלום! אני גל הגלגל ואני אלווה אתכם במהלך הלומדה ואתן לכם עצות וטיפים. בחרו את השפה בה תרצו להמשיך:"
+            },
+            {
+                "id": "instructionsBubbleTextAudio",
+                "text1": "תרצו להמשיך עם קריינות?",
+                "text2": "תוכלו לשנות את בחירתכם בהמשך בלחיצה על אייקון הרמקול",
+                "yesAudio": "המשך עם קריינות",
+                "noAudio": "המשך ללא קריינות"
+            },
+            {
+                "id": "instructionsButtons",
+                "textBubble": "במהלך הלומדה תוכלו להתקדם קדימה ולחזור אחורה באמצעות כפתורים. תוכלו גם לנווט אחורה וקדימה באמצעות תפריט הניווט שבצד ימין למטה של המסך.",
+                "nextBtn": "לחצו עליי כדי להתקדם!",
+                "backBtn": "לחצו עליי כדי לחזור אחורה!",
+                "nav": "בעזרתי תוכלו לקפוץ בין נושאים מאופשרים"
             }
         ]
     },
@@ -30,7 +48,7 @@
         ],
         "Instructions": [
             {
-                "id": "infoTitle",
+                "id": "instructionsTitle",
                 "text": "Operating Instructions for the Savana vehicle"
             }
         ]
