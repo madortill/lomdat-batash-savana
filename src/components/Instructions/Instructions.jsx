@@ -7,7 +7,7 @@ import backButton from "../../assets/img/backBtn.svg";
 import noAudio from "../../assets/img/noAudio.svg";
 import audio from "../../assets/img/audio.svg";
 
-// SVG imgs
+// language selection
 const LanguageIcon = ({ circleColor, textColor, label }) => (
     <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_25_60)">
