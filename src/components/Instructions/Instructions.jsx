@@ -19,7 +19,7 @@ const LanguageIcon = ({ circleColor, textColor, label }) => (
             dominantBaseline="middle" 
             textAnchor="middle" 
             fill={textColor} 
-            fontSize="1.3vw" 
+            fontSize="clamp(1rem, 2vw, 1.5rem)" 
             fontWeight="700"
             fontFamily="Assistant"
         >
@@ -50,7 +50,7 @@ const Instructions = () => {
     const languages = [
         { id: 'HE', label: 'עב' },
         { id: 'EN', label: 'EN' },
-        { id: 'RU', label: 'רו' },
+        { id: 'RU', label: 'Рус' },
         { id: 'AR', label: 'ער' }
     ];
 

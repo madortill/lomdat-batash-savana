@@ -68,7 +68,7 @@
     align-items: center;
     padding: 5px;
     bottom: 5vh;
-    left: 3vw;
+    left: 3vw;scale: 1.2;
 }
 
 .next-btn:hover {

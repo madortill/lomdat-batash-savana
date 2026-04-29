@@ -56,3 +56,12 @@
     width: 3.5vw;
     margin: 0 0.3vw;
 }
+
+.languageBtnWrapper {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.languageBtnWrapper:active {
+    transform: scale(0.95);
+}
