@@ -20,7 +20,7 @@ const Opening = () => {
     const openingText = data.Opening[1].text;
 
     return (
-        <div className="instructions-page">
+        <div className="opening-page">
             <div className="backBtnDiv">
                 <img src={backButton} className="back-btn" onClick={() => navigate("/")} />
                 <p className="back-btn-text">{backBtn}</p>

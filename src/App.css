@@ -23,6 +23,7 @@
 
 .back-btn {
     width: 4.2vw;
+    transition: transform 0.15s ease; 
 }
 
 .back-btn-text {
@@ -33,8 +34,8 @@
 }
 
 .back-btn:hover {
-    scale: 1.2;
     cursor: pointer;
+    transform: scale(1.2); 
 }
 
 ::selection {
@@ -68,12 +69,13 @@
     align-items: center;
     padding: 5px;
     bottom: 5vh;
-    left: 3vw;scale: 1.2;
-}
+    left: 3vw;
+    transition: transform 0.15s ease;
+ }
 
 .next-btn:hover {
-    scale: 1.2;
     cursor: pointer;
+    transform: scale(1.2);
 }
 
 .next-btn-text {

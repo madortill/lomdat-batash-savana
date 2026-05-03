@@ -35,7 +35,13 @@ div.nextBtn {
     width: 12vw;
     bottom: 30vh;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.15s ease;
+}
+
+div.nextBtn:hover {
+    transform: translateX(-50%) scale(1.15); 
+    cursor: pointer;
 }
 
 .openingText {

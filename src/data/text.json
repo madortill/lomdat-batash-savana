@@ -10,6 +10,12 @@
                 "id": "nextBtn"
             }
         ],
+        "navbar": [
+            {
+                "text": "מבוא",
+                "id": "navbarIntro"
+            }
+        ],
         "Instructions": [
             {
                 "id": "instructionsTitle",
@@ -46,6 +52,16 @@
             {
                 "id": "btnText",
                 "text": "בואו נצא לדרך!"
+            }
+        ],
+        "NavPage": [
+            {
+                "id": "navPageTitle",
+                "text": "נושאי הלומדה"
+            },
+            {
+                "id": "navPageText",
+                "text": "לחצו על הגלגל כדי לראות את נושאי הלומדה"
             }
         ]
     },
