@@ -1,0 +1,156 @@
+.contentPage {
+    position: relative;
+    min-height: 100vh;
+}
+
+.introText1 {
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.introText2 {
+    position: absolute;
+    top: 28vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.introArrowDiv {
+    position: absolute;
+    left: clamp(290px, 30vw, 300px);
+    top: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 1100px) and (max-width: 1400px) {
+    .introArrowDiv {
+        left: clamp(160px, 25vw, 150px);
+    }
+}
+
+@media (max-width: 1100px) {
+    .introArrowDiv {
+        left: clamp(40px, 4vw, 60px);
+    }
+}
+
+.introArrowText {
+    z-index: 2;
+    width: 9vw;
+    color: #C5571C;
+    margin-bottom: 2vh;
+}
+
+.introArrow {
+    width: 3vw;
+}
+
+/* carousel */
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 31vh;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.slideWrapper {
+    position: relative;
+    width: clamp(24rem, 60vw, 33rem);
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8c54f96;
+    border-radius: 30px;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    height: clamp(12rem, 22vw, 18rem);
+    box-sizing: border-box;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slideImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.slideLabel {
+    margin-top: 1rem;
+    color: #073799;
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: clamp(3rem, 4vw, 5rem);
+    color: #073799;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    user-select: none;
+    line-height: 1;
+}
+
+.arrow:first-of-type {
+    right: calc(100% + 4px);
+}
+
+.arrow:last-of-type {
+    left: calc(100% + 4px);
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f8c54f96;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.activeDot {
+    background-color: #073799;
+}
+
+.commentGalWrapper {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    margin: 2rem auto;
+}

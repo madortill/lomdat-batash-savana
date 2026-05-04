@@ -85,3 +85,16 @@
     font-family: Assistant, sans-serif;
     font-weight: 800;
 }
+
+.loading {
+    white-space: nowrap;
+    position: absolute;
+    top: 25vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #073799;
+    font-family: "rubik-bold";
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-style: normal;
+    line-height: normal;
+}

@@ -22,7 +22,7 @@ const NavPage = () => {
     return (
         <div className="navpage-page">
             <div className="backBtnDiv">
-                <img src={backButton} className="back-btn" onClick={() => navigate("/")} />
+                <img src={backButton} className="back-btn" onClick={() => navigate("/Opening")} />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
             <h1 className={styles.navPageTitle}>{navPageTitle}</h1>
