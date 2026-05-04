@@ -21,11 +21,30 @@ const imageMap = {
     citroen
 };
 
-const ContentIntro = () => {
+const ContentIntro = ({ onComplete, onNext, onBack, canProceed }) => {
     const { data } = useData();
     const navigate = useNavigate();
 
     const [current, setCurrent] = useState(0);
+    const [seenSlides, setSeenSlides] = useState(() => {
+        const saved = sessionStorage.getItem("seenSlides_contentIntro");
+        return saved ? new Set(JSON.parse(saved)) : new Set([0]);
+    });
+    const slides = data.carousel;
+    const total = slides.length;
+    const { label, image } = slides[current];
+
+    const goTo = (index) => {
+        setCurrent(index);
+        setSeenSlides(prev => {
+            const updated = new Set(prev).add(index);
+            sessionStorage.setItem("seenSlides_contentIntro", JSON.stringify([...updated]));
+            if (updated.size === total) {
+                onComplete();
+            }
+            return updated;
+        });
+    };
 
     if (!data || !data.general || !data.Opening) return null;
 
@@ -37,16 +56,13 @@ const ContentIntro = () => {
     const cIntroArrowText = data.CIntro[3].text;
     const cIntroCommentText = data.CIntro[4].text;
 
-    const slides = data.carousel;
-    const total = slides.length;
-    const prev = () => setCurrent((current - 1 + total) % total);
-    const next = () => setCurrent((current + 1) % total);
-    const { label, image } = slides[current];
+    const prev = () => goTo((current - 1 + total) % total);
+    const next = () => goTo((current + 1) % total);
 
     return (
         <div className={styles.contentPage}>
-            <div className="backBtnDiv">
-                <img src={backButton} className="back-btn" onClick={() => navigate("/")} />
+            <div className="backBtnDiv" >
+                <img src={backButton} className="back-btn" onClick={onBack} />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
             <h1 className="main-header-text">{introTitle}</h1>
@@ -74,7 +90,7 @@ const ContentIntro = () => {
                         <span
                             key={i}
                             className={`${styles.dot} ${i === current ? styles.activeDot : ""}`}
-                            onClick={() => setCurrent(i)}
+                            onClick={() => goTo(i)}
                         />
                     ))}
                 </div>
@@ -91,8 +107,8 @@ const ContentIntro = () => {
                     size="large"
                 />
             </div>
-            <div className={`next-btn ${styles.nextBtn}`} onClick={() => navigate("/")} >
-                <p className="next-btn-text">{nextBtn}</p>
+            <div className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`} onClick={onNext} >
+                <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"} >{nextBtn}</p>
             </div>
         </div>
     );

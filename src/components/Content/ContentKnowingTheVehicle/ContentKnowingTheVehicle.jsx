@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import { useData } from "../../../context/DataContext";
-import styles from "./ContentIntroPage2.module.css";
+import styles from "./ContentKnowingTheVehicle.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
 
-const ContentIntroPage2 = ({ onComplete, onNext, onBack, canProceed }) => {
+const ContentKnowingTheVehicle = ({ onNext, onBack }) => {
     const { data } = useData();
 
-    // const [flippedCards, setFlippedCards] = useState(new Set());
-
-    if (!data || !data.general || !data.CIntro2) return null;
+    if (!data || !data.general || !data.cKnowingVehicle) return null;
 
     const backBtn = data.general[0].text;
     const nextBtn = data.general[1].text;
-    const intro2Title = data.CIntro2[0].text;
-    const intro2Text1 = data.CIntro2[1].text;
+    const cKnowingVehicleTitle = data.cKnowingVehicle[0].text;
+    const tableData = data.CIntro3[1].tableData;
 
     return (
         <div className={styles.contentPage}>
@@ -21,8 +19,7 @@ const ContentIntroPage2 = ({ onComplete, onNext, onBack, canProceed }) => {
                 <img src={backButton} className="back-btn" onClick={onBack} />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
-            <h1 className="main-header-text">{intro2Title}</h1>
-            <p className={`standard-text ${styles.intro2Text1}`}>{intro2Text1}</p>
+            <h1 className="main-header-text">{cKnowingVehicleTitle}</h1>
             <div className={`next-btn ${styles.nextBtn}`} onClick={onNext} >
                 <p className="next-btn-text">{nextBtn}</p>
             </div>
@@ -30,4 +27,4 @@ const ContentIntroPage2 = ({ onComplete, onNext, onBack, canProceed }) => {
     );
 };
 
-export default ContentIntroPage2;
+export default ContentKnowingTheVehicle;

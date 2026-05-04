@@ -1,0 +1,7 @@
+
+.intro2Text1 {
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+}

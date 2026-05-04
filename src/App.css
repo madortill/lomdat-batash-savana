@@ -23,7 +23,7 @@
 
 .back-btn {
     width: 4.2vw;
-    transition: transform 0.15s ease; 
+    transition: transform 0.15s ease;
 }
 
 .back-btn-text {
@@ -35,7 +35,7 @@
 
 .back-btn:hover {
     cursor: pointer;
-    transform: scale(1.2); 
+    transform: scale(1.2);
 }
 
 ::selection {
@@ -54,6 +54,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    white-space: nowrap;
 }
 
 .next-btn {
@@ -71,7 +72,24 @@
     bottom: 5vh;
     left: 3vw;
     transition: transform 0.15s ease;
- }
+}
+
+.next-btn-disabled {
+    position: absolute;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #BFBFBF;
+    width: 5vw;
+    height: 5vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 5px;
+    bottom: 5vh;
+    left: 3vw;
+}
 
 .next-btn:hover {
     cursor: pointer;
@@ -80,6 +98,14 @@
 
 .next-btn-text {
     color: #FFF2B4;
+    font-size: 1.5vw;
+    pointer-events: none;
+    font-family: Assistant, sans-serif;
+    font-weight: 800;
+}
+
+.next-btn-text-disabled {
+    color: #FFFFFF;
     font-size: 1.5vw;
     pointer-events: none;
     font-family: Assistant, sans-serif;
