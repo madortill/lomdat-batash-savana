@@ -197,6 +197,33 @@
                 "text": "לחצו על המאפיינים השונים כדי ללמוד עוד!"
             }
         ],
+        "cGeneralDataCards": [
+            {
+                "key": "vehicleDimensions",
+                "label": "מידות הרכב",
+                "image": "speedometer"
+            },
+            {
+                "key": "speed",
+                "label": "מהירות",
+                "image": "speedometer"
+            },
+            {
+                "key": "air",
+                "label": "מהירות",
+                "image": "speedometer"
+            },
+            {
+                "key": "liquids",
+                "label": "מהירות",
+                "image": "speedometer"
+            },
+            {
+                "key": "weight",
+                "label": "מהירות",
+                "image": "speedometer"
+            }
+        ],
         "End": [
             {
                 "id": "EndTitle",
