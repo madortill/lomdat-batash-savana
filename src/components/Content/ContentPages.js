@@ -5,7 +5,7 @@ import ContentKnowingTheVehicle from "./ContentKnowingTheVehicle/ContentKnowingT
 
 export const pages = [
     { component: ContentIntro, isAutoEnabled: false},
-    { component: ContentIntroPage2, isAutoEnabled: true },
+    { component: ContentIntroPage2, isAutoEnabled: false },
     { component: ContentIntroPage3, isAutoEnabled: true },
     { component: ContentKnowingTheVehicle, isAutoEnabled: true }
 ];

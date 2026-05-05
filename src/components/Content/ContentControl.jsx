@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { pages } from "./ContentPages.js";
 
 const ContentControl = () => {
-
     const navigate = useNavigate();
 
     const [step, setStep] = useState(() => {
@@ -11,34 +10,24 @@ const ContentControl = () => {
         return savedStep ? parseInt(savedStep, 10) : 0;
     });
 
-    const [canProceed, setCanProceed] = useState(() => {
-        return sessionStorage.getItem("canProceed_step0") === "true";
-    });
+    const getCanProceedForStep = (stepIndex) => {
+        if (pages[stepIndex].isAutoEnabled) return true;
+        return sessionStorage.getItem(`canProceed_step${stepIndex}`) === "true";
+    };
+
+    const [canProceed, setCanProceed] = useState(() => getCanProceedForStep(0));
 
     useEffect(() => {
         sessionStorage.setItem("currentStep", step);
-        const alreadyDone = sessionStorage.getItem(`canProceed_step${step}`) === "true";
-        const autoEnabled = pages[step].isAutoEnabled;
-        if (alreadyDone || autoEnabled) {
-            setCanProceed(true);
-        } else {
-            setCanProceed(false);
-        }
+        setCanProceed(getCanProceedForStep(step));
     }, [step]);
 
     const handleNext = () => {
         if (!canProceed) return;
-
         if (step === pages.length - 1) {
             navigate("/End");
         } else {
-            const nextStep = step + 1;
-            setStep(nextStep);
-            if (pages[nextStep].isAutoEnabled) {
-                setCanProceed(true);
-            } else {
-                setCanProceed(false);
-            }
+            setStep(s => s + 1);
         }
     };
 
@@ -47,7 +36,6 @@ const ContentControl = () => {
             navigate("/NavPage");
         } else {
             setStep(s => s - 1);
-            setCanProceed(true);
         }
     };
 
@@ -58,7 +46,7 @@ const ContentControl = () => {
             <CurrentPage
                 onComplete={() => {
                     setCanProceed(true);
-                    sessionStorage.setItem("canProceed_step0", "true");
+                    sessionStorage.setItem(`canProceed_step${step}`, "true");
                 }}
                 onNext={handleNext}
                 onBack={handleBack}

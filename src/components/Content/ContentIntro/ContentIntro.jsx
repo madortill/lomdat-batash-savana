@@ -4,7 +4,8 @@ import { useData } from "../../../context/DataContext";
 import styles from "./ContentIntro.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
 import arrowIntro from "../../../assets/img/arrowIntro.svg";
-import CommentGal from "../../elements/CommentGal/CommentGal"
+import CommentGal from "../../elements/CommentGal/CommentGal";
+import checkmark from "../../../assets/img/checkmark.svg";
 
 // carousel car imgs
 import savanna from "../../../assets/img/carousel/savanna.svg";
@@ -74,6 +75,9 @@ const ContentIntro = ({ onComplete, onNext, onBack, canProceed }) => {
                     <button className={styles.arrow} onClick={prev}>‹</button>
                     {/* Slide */}
                     <div className={styles.slide}>
+                        {seenSlides.has(current) && (
+                            <img src={checkmark} alt="visited" className={styles.slideCheckmark} />
+                        )}
                         <div className={styles.imageContainer}>
                             <img
                                 src={imageMap[image]}

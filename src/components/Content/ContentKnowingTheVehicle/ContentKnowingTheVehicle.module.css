@@ -1,0 +1,33 @@
+
+.bigCirclesFlexDiv {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    top: 25vh;
+}
+
+
+.roadCircleDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0vh 2vw;
+}
+
+.roadCircle {
+    width: 13vw;
+}
+
+.circleText {
+    color: white;
+    font-weight: 800;
+    font-size: clamp(0.7rem, 1vw, 1.2rem);
+    font-family: Rubik, sans-serif;
+    position: absolute;
+    width: 6vw;
+    text-align: center;
+}
