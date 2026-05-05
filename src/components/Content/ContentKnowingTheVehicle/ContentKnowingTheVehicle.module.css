@@ -31,3 +31,10 @@
     width: 6vw;
     text-align: center;
 }
+
+.tabsInfo {
+    position: absolute;
+    top: 55vh;
+    left: 50%;
+    transform: translateX(-50%);
+}

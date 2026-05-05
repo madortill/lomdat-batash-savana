@@ -186,6 +186,26 @@
                 "id": "cKnowingVehicleRoadText3",
                 "text": "הרכב מאפשר הסעת עד 8 נוסעים + נהג"
             }
+        ],
+        "cGeneralData": [
+            {
+                "id": "cGeneralDataTitle",
+                "text": "הכרת הרכב - נתונים כלליים"
+            },
+            {
+                "id": "cGeneralDataText",
+                "text": "לחצו על המאפיינים השונים כדי ללמוד עוד!"
+            }
+        ],
+        "End": [
+            {
+                "id": "EndTitle",
+                "text": "כל הכבוד, סיימתם את לודמת הסוואנה!"
+            },
+            {
+                "id": "EndBtnText",
+                "text": "חזרה למארז"
+            }
         ]
     },
     "en": {

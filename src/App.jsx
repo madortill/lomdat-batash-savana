@@ -5,6 +5,7 @@ const Instructions = lazy(() => import("./components/Instructions/Instructions")
 const Opening = lazy(() => import("./components/Opening/Opening"));
 const NavPage = lazy(() => import("./components/NavPage/NavPage"));
 const Content = lazy(() => import("./components/Content/ContentControl"));
+const End = lazy(() => import("./components/End/End"));
 
 import "./App.css";
 import "./components/Content/Content.css";
@@ -20,7 +21,7 @@ function App() {
             <Route path="/Opening" element={<Opening />} />
             <Route path="/NavPage" element={<NavPage />} />
             <Route path="/Content" element={<Content />} />
-            {/* <Route path="/end" element={<End />} /> */}
+            <Route path="/end" element={<End />} />
           </Routes>
         </Suspense>
       </div>

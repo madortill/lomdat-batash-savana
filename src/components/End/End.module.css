@@ -1,0 +1,60 @@
+
+@font-face {
+    font-family: "rubik-bold";
+    src: url("/fonts/rubik-extra-bold.ttf") format("truetype");
+}
+
+.openingHeaderText {
+    white-space: nowrap;
+    position: absolute;
+    top: 35vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #073799;
+    font-family: "rubik-bold";
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-style: normal;
+    line-height: normal;
+}
+
+.openingRoad {
+    position: absolute;
+    bottom: 0vh;
+    left: 0vw;
+    width: 100vw;
+}
+
+.yellowSavanna {
+    position: absolute;
+    bottom: 5vh;
+    right: 0vw;
+    width: 40vw;
+}
+
+div.nextBtn {
+    width: 12vw;
+    bottom: 40vh;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.15s ease;
+}
+
+div.nextBtn:hover {
+    transform: translateX(-50%) scale(1.15); 
+    cursor: pointer;
+}
+
+.openingText {
+    color: #073799;
+    position: absolute;
+    top: 38vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Rubik, sans-serif;
+    font-size: clamp(1rem, 3vw, 2.2rem);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.4;
+    width: 60vw;
+}
+
