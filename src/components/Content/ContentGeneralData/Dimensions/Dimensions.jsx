@@ -120,6 +120,7 @@ import { useData } from "../../../../context/DataContext";
 import styles from "./Dimensions.module.css";
 import backButton from "../../../../assets/img/backBtn.svg";
 import carSilhouette from "../../../../assets/img/carSilhouette.svg";
+import carSilhouetteBack from "../../../../assets/img/carSilhouetteBack.svg";
 const CARD_KEY = "vehicleDimensions";
 
 /**
@@ -187,6 +188,13 @@ const Dimensions = ({ onBack }) => {
         const saved = localStorage.getItem(`seenButtons_${CARD_KEY}`);
         return saved ? new Set(JSON.parse(saved)) : new Set();
     });
+
+    const carImages = {
+        length: carSilhouette,
+        height: carSilhouette,
+        wheels: carSilhouette,
+        width:  carSilhouetteBack,
+    };
 
     /**
      * DEFAULT ACTIVE BUTTON LOGIC
@@ -306,7 +314,7 @@ const Dimensions = ({ onBack }) => {
                             aria-hidden="true"
                         >
                             <image
-                                href={carSilhouette}
+                                href={carImages[activeButton]}
                                 x="30"
                                 y="30"
                                 width="580"
