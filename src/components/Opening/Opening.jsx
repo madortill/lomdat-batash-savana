@@ -12,6 +12,8 @@ const Opening = () => {
     const { data } = useData();
     const navigate = useNavigate();
 
+    const [isExiting, setIsExiting] = useState(false);
+
     if (!data || !data.general || !data.Opening) return null;
 
     const backBtn = data.general[0].text;
@@ -19,8 +21,15 @@ const Opening = () => {
     const openingTitle = data.Opening[0].text;
     const openingText = data.Opening[1].text;
 
+    const handleNextClick = () => {
+        setIsExiting(true);
+        setTimeout(() => {
+            navigate("/NavPage");
+        }, 1400);
+    };
+
     return (
-        <div className="opening-page">
+        <div className={`${styles.openingPage} ${isExiting ? styles.fadeOut : ""}`}>
             <div className="backBtnDiv">
                 <img src={backButton} className="back-btn" onClick={() => navigate("/")} />
                 <p className="back-btn-text">{backBtn}</p>
@@ -28,8 +37,8 @@ const Opening = () => {
             <h1 className={styles.openingHeaderText}>{openingTitle}</h1>
             <p className={styles.openingText}>{openingText}</p>
             <img src={road} alt="road" className={styles.openingRoad}/>
-            <img src={yellowSavanna} alt="yellow Savanna" className={styles.yellowSavanna}/>
-            <div className={`next-btn ${styles.nextBtn}`} onClick={() => navigate("/NavPage")} >
+            <img src={yellowSavanna} alt="yellow Savanna" className={`${styles.yellowSavanna} ${isExiting ? styles.driveAway : styles.driveIn}`}/>
+            <div className={`next-btn ${styles.nextBtn}`} onClick={handleNextClick} >
                 <p className="next-btn-text">{nextBtn}</p>
             </div>
         </div>

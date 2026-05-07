@@ -26,45 +26,51 @@ const imageMap = {
 };
 
 const STORAGE_KEY = "visitedCards_generalData";
+const VISITED_KEY = "visitedCards_generalData";
+const ACTIVE_KEY  = "activeCard_generalData";
 
 const ContentGeneralData = ({ onComplete, onNext, onBack, canProceed }) => {
     const { data } = useData();
 
-    const backBtn  = data.general[0].text;
-    const nextBtn  = data.general[1].text;
-    const title    = data.cGeneralData[0].text;
+    const backBtn = data.general[0].text;
+    const nextBtn = data.general[1].text;
+    const title = data.cGeneralData[0].text;
     const bodyText = data.cGeneralData[1].text;
-    const cards    = data.cGeneralDataCards;
+    const cards = data.cGeneralDataCards;
 
-    const [activeCard, setActiveCard] = useState(null);
+    const [activeCard, setActiveCard] = useState(
+        () => localStorage.getItem(ACTIVE_KEY) || null
+    );
 
-    // localStorage — persists across full navigation away and back
     const [visitedCards, setVisitedCards] = useState(() => {
         const saved = localStorage.getItem(STORAGE_KEY);
         return saved ? new Set(JSON.parse(saved)) : new Set();
     });
 
-    // Re-check on mount in case user already completed this in a previous visit
     useEffect(() => {
         if (cards && visitedCards.size === cards.length) {
             onComplete();
         }
     }, [visitedCards]);
 
-    // result = { completed: true }  → user finished the card → mark visited
-    // result = { completed: false } → user left early → card stays unvisited
+    const openCard = (key) => {
+        localStorage.setItem(ACTIVE_KEY, key);
+        setActiveCard(key);
+    };
+
     const handleCardBack = (cardKey, result) => {
+        localStorage.removeItem(ACTIVE_KEY);
+        setActiveCard(null);
+
         if (result.completed) {
             setVisitedCards(prev => {
                 const updated = new Set(prev).add(cardKey);
-                localStorage.setItem(STORAGE_KEY, JSON.stringify([...updated]));
+                localStorage.setItem(VISITED_KEY, JSON.stringify([...updated]));
                 return updated;
             });
         }
-        setActiveCard(null);
     };
 
-    // Render the active sub-page (replaces hub entirely — no popup)
     if (activeCard) {
         const SubPageComponent = cardComponents[activeCard];
         return (
@@ -94,7 +100,11 @@ const ContentGeneralData = ({ onComplete, onNext, onBack, canProceed }) => {
                             className={`${styles.card} ${isVisited ? styles.cardVisited : ""}`}
                             onClick={() => setActiveCard(card.key)}
                         >
-                            {isVisited && <span className={styles.cardCheckmark}>✓</span>}
+                            {isVisited && (
+                                <div className={styles.cardCheckmarkWrapper}>
+                                    <span className={styles.cardCheckmarkIcon}>✓</span>
+                                </div>
+                            )}
                             <img
                                 src={imageMap[card.image]}
                                 alt={card.label}

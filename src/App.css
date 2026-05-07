@@ -55,6 +55,7 @@
     font-weight: 700;
     line-height: normal;
     white-space: nowrap;
+    z-index: 10;
 }
 
 .next-btn {
@@ -72,6 +73,7 @@
     bottom: 5vh;
     left: 3vw;
     transition: transform 0.15s ease;
+    z-index: 10;
 }
 
 .next-btn-disabled {

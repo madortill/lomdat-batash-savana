@@ -4,6 +4,19 @@
     src: url("/fonts/rubik-extra-bold.ttf") format("truetype");
 }
 
+.openingPage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; 
+    transition: opacity 1.7s ease-in-out;
+    opacity: 1;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
 .openingHeaderText {
     white-space: nowrap;
     position: absolute;
@@ -27,8 +40,27 @@
 .yellowSavanna {
     position: absolute;
     bottom: 5vh;
-    right: 0vw;
+    right: -50vw;
     width: 40vw;
+    transition: transform 0.5s ease;
+}
+
+.driveIn {
+    animation: driveInAnim 2.5s ease-out forwards;
+}
+
+@keyframes driveInAnim {
+    from { right: -50vw; }
+    to { right: 0vw; }
+}
+
+.driveAway {
+    animation: driveAwayAnim 1.2s cubic-bezier(.45,0,.55,1) forwards;
+}
+
+@keyframes driveAwayAnim {
+    from { right: 0vw; }
+    to { right: 110vw; }
 }
 
 div.nextBtn {

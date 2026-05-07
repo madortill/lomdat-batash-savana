@@ -224,6 +224,44 @@
                 "image": "speedometer"
             }
         ],
+        "cDimensions": [
+            {
+                "id": "cDimensionsTitle",
+                "text": "נתונים כלליים - מידות הרכב"
+            },
+            {
+                "id": "cDimensionsText",
+                "text": "לחצו על הכפתורים הכתומים כדי לראות את מידות הרכב"
+            },
+            {
+              "id": "wheels",
+              "label": "מרוות סרנים",
+              "description": "*מבט צד על רכב הסוואנה",
+              "measurement": "3.937",
+              "unit": "מטר"
+            },
+            {
+              "id": "height",
+              "label": "גובה",
+              "description": "*מבט צד על רכב הסוואנה",
+              "measurement": "2.11",
+              "unit": "מטר"
+            },
+            {
+                "id": "width",
+                "label": "רוחב",
+                "description": "*מבט אחורי על רכב הסוואנה",
+                "measurement": "2.012",
+                "unit": "מטר"
+            },
+            {
+                "id": "length",
+                "label": "אורך",
+                "description": "*מבט צד על רכב הסוואנה",
+                "measurement": "6.2",
+                "unit": "מטר"
+              }
+        ],
         "End": [
             {
                 "id": "EndTitle",

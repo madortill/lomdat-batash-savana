@@ -1,4 +1,15 @@
 
+.contentFrame {
+    position: relative;
+    background-color: #FFE89A;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 30px;
+    margin: 0 auto;
+    top: 20vh;
+    z-index: 1;
+}
+
 .mainContentArea {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 40px;
@@ -22,8 +33,8 @@
 .dimButton {
     position: relative;
     background-color: transparent;
-    color: #b3861d;
-    border: 2px solid #e1a92a;
+    color: #E69907;
+    border: 3px solid #e1a92a;
     border-radius: 20px;
     padding: 10px 25px;
     font-family: 'Assistant', sans-serif;
