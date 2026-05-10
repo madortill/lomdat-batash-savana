@@ -1,120 +1,3 @@
-// import { useState } from "react";
-// import { useData } from "../../../../context/DataContext";
-// import styles from "./Dimensions.module.css";
-// import backButton from "../../../../assets/img/backBtn.svg";
-
-// const CARD_KEY = "vehicleDimensions";
-
-// // Define your 4 buttons — each key must match a data.json entry
-// const BUTTONS = [
-//     { key: "length", dataKey: "dimLength" },
-//     { key: "width", dataKey: "dimWidth" },
-//     { key: "height", dataKey: "dimHeight" },
-//     { key: "weight", dataKey: "dimWeight" },
-// ];
-
-// const Dimensions = ({ onBack }) => {
-//     const { data } = useData();
-
-//     const backBtn = data.general[0].text;
-//     const nextBtn = data.general[1].text;
-//     const dimensionsTitle = data.cDimensions[0].text;
-//     const dimensionsText = data.cDimensions[1].text;
-
-//     // Persist which buttons have been clicked across navigation
-//     const [seenButtons, setSeenButtons] = useState(() => {
-//         const saved = localStorage.getItem(`seenButtons_${CARD_KEY}`);
-//         return saved ? new Set(JSON.parse(saved)) : new Set();
-//     });
-
-//     // Which button's content panel is open right now
-//     const [activeButton, setActiveButton] = useState(null);
-
-//     const allSeen = seenButtons.size === BUTTONS.length;
-
-//     const handleButtonClick = (key) => {
-//         // Toggle: clicking an open button closes it
-//         setActiveButton(prev => prev === key ? null : key);
-
-//         // Mark as seen and persist
-//         setSeenButtons(prev => {
-//             if (prev.has(key)) return prev; // already seen, no need to update storage
-//             const updated = new Set(prev).add(key);
-//             localStorage.setItem(`seenButtons_${CARD_KEY}`, JSON.stringify([...updated]));
-//             return updated;
-//         });
-//     };
-
-//     const handleBack = () => {
-//         // Whether or not they finished, clear mid-card progress
-//         // (if completed, it's no longer needed; if not, they must start fresh)
-//         localStorage.removeItem(`seenButtons_${CARD_KEY}`);
-//         onBack({ completed: false }); // back button never counts as completion
-//     };
-
-//     const handleDone = () => {
-//         if (!allSeen) return;
-//         localStorage.removeItem(`seenButtons_${CARD_KEY}`);
-//         onBack({ completed: true });
-//     };
-
-//     return (
-//         <div className={styles.subPage}>
-//             <div className="backBtnDiv">
-//                 <img src={backButton} className="back-btn" onClick={handleBack} alt="back" />
-//                 <p className="back-btn-text">{backBtn}</p>
-//             </div>
-//             <h1 className="main-header-text">{dimensionsTitle}</h1>
-//             <div className={styles.contentFrame}>
-//                 <p className={`standard-text`}>{dimensionsText}</p>
-//                 {/* The 4 buttons */}
-//                 <div className={styles.buttonsRow}>
-//                     {BUTTONS.map(({ key, dataKey }) => {
-//                         const isSeen = seenButtons.has(key);
-//                         const isActive = activeButton === key;
-//                         const label = data[dataKey]?.[0]?.text;
-
-//                         return (
-//                             <button
-//                                 key={key}
-//                                 className={`${styles.dimButton} ${isSeen ? styles.seen : ""} ${isActive ? styles.active : ""} `}
-//                                 onClick={() => handleButtonClick(key)}
-//                             >
-//                                 {label}
-//                                 {isSeen && (
-//                                     <div className={styles.checkmarkWrapper}>
-//                                         <span className={styles.checkmarkIcon}>✓</span>
-//                                     </div>
-//                                 )}
-//                             </button>
-//                         );
-//                     })}
-//                 </div>
-
-//                 {/* Content panel — shown when a button is active */}
-//                 {activeButton && (
-//                     <div className={styles.contentPanel}>
-//                         <p className={`standard-text ${styles.contentText}`}>
-//                             {data[BUTTONS.find(b => b.key === activeButton).dataKey]?.[1]?.text}
-//                         </p>
-//                         {/* Add images, diagrams, measurements etc. here */}
-//                     </div>
-//                 )}
-
-//             </div>
-
-//             <div className={`${allSeen ? "next-btn" : "next-btn-disabled"}`} onClick={handleDone} >
-//                 <p className={allSeen ? "next-btn-text" : "next-btn-text-disabled"}>
-//                     {nextBtn}
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Dimensions;
-
-
 import { useState } from "react";
 import { useData } from "../../../../context/DataContext";
 import styles from "./Dimensions.module.css";
@@ -123,24 +6,6 @@ import carSilhouette from "../../../../assets/img/carSilhouette.svg";
 import carSilhouetteBack from "../../../../assets/img/carSilhouetteBack.svg";
 const CARD_KEY = "vehicleDimensions";
 
-/**
- * SVG ANNOTATION SYSTEM
- * ---------------------
- * Each button key maps to a set of drawing instructions for the measurement overlay.
- * All coordinates are in the SVG's viewBox space (0 0 600 320).
- *
- * line:       the main horizontal or vertical measurement line { x1, y1, x2, y2 }
- * ticks:      the two short perpendicular end-ticks (makes it look like ←——→)
- * labelPos:   where the "6.2 מ'" text sits { x, y }
- * labelAnchor: "middle" | "start" | "end" — keeps text centred/aligned on its point
- *
- * HOW TO CALIBRATE:
- * Open your car SVG in a browser, note the viewBox (e.g. "0 0 600 320").
- * Use the browser devtools to find the pixel coordinates of the car's
- * front bumper, rear bumper, roof, wheel base, etc.
- * Plug those numbers in below. The text will always stay glued to those
- * coordinates as the SVG scales — no media queries needed.
- */
 const ANNOTATIONS = {
     length: {
         line: { x1: 55, y1: 210, x2: 545, y2: 210 },
@@ -196,19 +61,6 @@ const Dimensions = ({ onBack }) => {
         width:  carSilhouetteBack,
     };
 
-    /**
-     * DEFAULT ACTIVE BUTTON LOGIC
-     * ----------------------------
-     * activeButton starts as the first button's id — so content is shown immediately.
-     * But it is NOT added to seenButtons here, so no checkmark appears yet.
-     * The checkmark for button A only appears after the user:
-     *   1. clicks a different button (leaving A), then
-     *   2. comes back to A — at which point it's a deliberate re-click.
-     * OR: clicks away from A once (which marks A as seen).
-     *
-     * Specifically: a button is marked seen when the user clicks AWAY from it
-     * (i.e. when it was the activeButton and the user picks something else).
-     */
     const [activeButton, setActiveButton] = useState(
         () => localStorage.getItem(`activeButton_${CARD_KEY}`) || buttons[0]?.id || null
     );
@@ -240,7 +92,6 @@ const Dimensions = ({ onBack }) => {
         onBack({ completed: completedValue });
     };
 
-    // Back counts as complete if all buttons were seen (point 3 from earlier)
     const handleBack = () => finish(allSeen);
     const handleDone = () => { if (allSeen) finish(true); };
 
@@ -257,7 +108,7 @@ const Dimensions = ({ onBack }) => {
             <h1 className="main-header-text">{dimensionsTitle}</h1>
 
             <div className={styles.contentFrame}>
-                <p className="standard-text">{dimensionsText}</p>
+                <p className={`standard-text ${styles.textGeneralDataSubPage}`}>{dimensionsText}</p>
 
                 {/* ── Buttons row ── */}
                 <div className={styles.buttonsRow}>
@@ -285,28 +136,10 @@ const Dimensions = ({ onBack }) => {
                 {/* ── Content panel ── */}
                 {activeButtonData && (
                     <div className={styles.contentPanel}>
-                        <p className={`standard-text ${styles.contentText}`}>
+                        <p className={`standard-text ${styles.smallTextDimensions}`}>
                             {activeButtonData.description}
                         </p>
 
-                        {/*
-                         * ── Inline SVG car diagram ──
-                         *
-                         * WHY INLINE SVG AND NOT <img>:
-                         * An <img> tag cannot have text/lines drawn on top of it
-                         * that scale with it. By using a single SVG with both the
-                         * car image (<image> tag) and the annotation (<line>, <text>)
-                         * inside the same viewBox, everything lives in the same
-                         * coordinate system and scales together as one unit.
-                         *
-                         * The viewBox is fixed (0 0 600 320). The SVG element itself
-                         * is set to width:100% so it shrinks/grows with its container.
-                         * All x/y coordinates in ANNOTATIONS are in viewBox units,
-                         * so they stay perfectly positioned at any screen size.
-                         *
-                         * measurement and unit come straight from the JSON object,
-                         * so they translate automatically with the rest of the page.
-                         */}
                         <svg
                             viewBox="0 0 600 320"
                             xmlns="http://www.w3.org/2000/svg"
@@ -348,13 +181,6 @@ const Dimensions = ({ onBack }) => {
                                         />
                                     ))}
 
-                                    {/*
-                                     * Measurement label
-                                     * textAnchor="middle" centres the text on labelPos.x
-                                     * regardless of string length — "2.012 מ'" and "6.2 מ'"
-                                     * both centre correctly with no manual adjustment.
-                                     * fontSize is in SVG units, so it scales with the viewBox.
-                                     */}
                                     <text
                                         x={annotation.labelPos.x}
                                         y={annotation.labelPos.y}

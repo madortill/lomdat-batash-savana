@@ -10,6 +10,21 @@
     z-index: 1;
 }
 
+.textGeneralDataSubPage {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.smallTextDimensions {
+    position: absolute;
+    bottom: 10%;
+    font-weight: 400;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+}
+
 .mainContentArea {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 40px;
@@ -28,13 +43,16 @@
     gap: 1.5rem;
     width: 100%;
     flex-wrap: wrap;
+    position: relative;
+    top: 10vh;
 }
 
 .dimButton {
     position: relative;
     background-color: transparent;
     color: #E69907;
-    border: 3px solid #e1a92a;
+    border: 3px solid #E69907;
+    background-color: #FFF2B4;
     border-radius: 20px;
     padding: 10px 25px;
     font-family: 'Assistant', sans-serif;
@@ -46,9 +64,10 @@
 }
 
 .active {
-    background-color: #e1a92a !important;
+    background-color: #E69907 !important;
     color: white !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    scale: 1.05;
 }
 
 .checkmarkWrapper {

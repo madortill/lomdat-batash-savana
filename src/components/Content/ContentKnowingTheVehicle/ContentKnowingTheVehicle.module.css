@@ -34,7 +34,42 @@
 
 .tabsInfo {
     position: absolute;
-    top: 55vh;
+    bottom: 8vh;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.tabCarImage {
+    width: clamp(120px, 23vw, 320px);
+    filter: invert(20%) sepia(40%) saturate(450%) hue-rotate(5deg) brightness(110%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 10%;
+}
+
+.tabContentInner {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.tabTextLines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+    text-align: right;
+    justify-content: center;
+}
+
+.tabText {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 500;
+    color: #073799;
+    margin: 0;
 }

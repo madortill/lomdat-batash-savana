@@ -185,6 +185,43 @@
             {
                 "id": "cKnowingVehicleRoadText3",
                 "text": "הרכב מאפשר הסעת עד 8 נוסעים + נהג"
+            },
+            {
+                "id": "tabs",
+                "tab1": {
+                    "label": "דגם 2X4",
+                    "lines": [
+                        {
+                            "id": "engine",
+                            "text": "מנוע: טורבו-דיזל 8v"
+                        },
+                        {
+                            "id": "volume",
+                            "text": "נפח מנוע 6.6 ליטר"
+                        },
+                        {
+                            "id": "power",
+                            "text": "260 כ״ס ב-3100 סל״ד"
+                        }
+                    ]
+                },
+                "tab2": {
+                    "label": "דגם 4X4",
+                    "lines": [
+                        {
+                            "id": "engine",
+                            "text": "מנוע: טורבו-דיזל 4v"
+                        },
+                        {
+                            "id": "volume",
+                            "text": "נפח מנוע 2.8 ליטר"
+                        },
+                        {
+                            "id": "power",
+                            "text": "181 כ״ס ב-3400 סל״ד"
+                        }
+                    ]
+                }
             }
         ],
         "cGeneralData": [
@@ -204,22 +241,22 @@
                 "image": "speedometer"
             },
             {
-                "key": "speed",
-                "label": "מהירות",
-                "image": "speedometer"
+                "key": "weight",
+                "label": "עומסים ומשקלות",
+                "image": "weight"
             },
             {
                 "key": "air",
-                "label": "מהירות",
+                "label": "לחצי ניפוח אוויר",
                 "image": "speedometer"
             },
             {
                 "key": "liquids",
-                "label": "מהירות",
+                "label": "נוזלים וחומרי סיכה",
                 "image": "speedometer"
             },
             {
-                "key": "weight",
+                "key": "speed",
                 "label": "מהירות",
                 "image": "speedometer"
             }
@@ -234,18 +271,18 @@
                 "text": "לחצו על הכפתורים הכתומים כדי לראות את מידות הרכב"
             },
             {
-              "id": "wheels",
-              "label": "מרוות סרנים",
-              "description": "*מבט צד על רכב הסוואנה",
-              "measurement": "3.937",
-              "unit": "מטר"
+                "id": "wheels",
+                "label": "מרוות סרנים",
+                "description": "*מבט צד על רכב הסוואנה",
+                "measurement": "3.937",
+                "unit": "מטר"
             },
             {
-              "id": "height",
-              "label": "גובה",
-              "description": "*מבט צד על רכב הסוואנה",
-              "measurement": "2.11",
-              "unit": "מטר"
+                "id": "height",
+                "label": "גובה",
+                "description": "*מבט צד על רכב הסוואנה",
+                "measurement": "2.11",
+                "unit": "מטר"
             },
             {
                 "id": "width",
@@ -260,7 +297,33 @@
                 "description": "*מבט צד על רכב הסוואנה",
                 "measurement": "6.2",
                 "unit": "מטר"
-              }
+            }
+        ],
+        "cWeight": [
+            {
+                "id": "cWeightTitle",
+                "text": "נתונים כלליים - עומסים ומשקלות"
+            },
+            {
+                "id": "weights",
+                "items": [
+                    {
+                        "id": "selfWeight",
+                        "label": "משקל עצמי",
+                        "value": "3150 ק״ג"
+                    },
+                    {
+                        "id": "weight2x4",
+                        "label": "משקל כולל 2X4",
+                        "value": "3901 ק״ג"
+                    },
+                    {
+                        "id": "weight4x4",
+                        "label": "משקל כולל 4X4",
+                        "value": "4502 ק״ג"
+                    }
+                ]
+            }
         ],
         "End": [
             {

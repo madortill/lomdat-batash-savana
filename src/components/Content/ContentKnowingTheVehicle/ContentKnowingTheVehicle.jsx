@@ -17,22 +17,16 @@ const ContentKnowingTheVehicle = ({ onNext, onBack }) => {
     const cKnowingVehicleRoadText1 = data.cKnowingVehicle[1].text;
     const cKnowingVehicleRoadText2 = data.cKnowingVehicle[2].text;
     const cKnowingVehicleRoadText3 = data.cKnowingVehicle[3].text;
+    const { tab1, tab2 } = data.cKnowingVehicle[4];
 
-    const tab1 = (
-        <div>
-            <p>מנוע: טורבו-דיזל 8v</p>
-            <p>נפח מנוע 6.6 ליטר</p>
-            <p>נפח מנוע 6.6 ליטר</p>
-            <img src={savanna} alt="car" />
-        </div>
-    );
-
-    const tab2 = (
-        <div>
-            <p>מנוע: טורבו-דיזל 4v</p>
-            <p>נפח מנוע 2.8 ליטר</p>
-            <p>נפח מנוע 2.8 ליטר</p>
-            <img src={savanna} alt="car" />
+    const buildTabContent = (tab) => (
+        <div className={styles.tabContentInner}>
+            <div className={styles.tabTextLines}>
+                {tab.lines.map(line => (
+                    <p key={line.id} className={styles.tabText}>{line.text}</p>
+                ))}
+            </div>
+            <img src={savanna} alt="car" className={styles.tabCarImage} />
         </div>
     );
 
@@ -57,13 +51,12 @@ const ContentKnowingTheVehicle = ({ onNext, onBack }) => {
                 </div>
             </div>
             <div className={styles.tabsInfo}>
-                < Tabs
-                    tab1Label="דגם 2X4"
-                    tab2Label="דגם 4X4"
-                    tab1Content={tab1}
-                    tab2Content={tab2}
+                <Tabs
+                    tab1Label={tab1.label}
+                    tab2Label={tab2.label}
+                    tab1Content={buildTabContent(tab1)}
+                    tab2Content={buildTabContent(tab2)}
                     activeColor="#F9DB88"
-                    inactiveColor="#2a3f6b"
                     borderColor="#073799"
                     contentBg="#F9DB88"
                 />

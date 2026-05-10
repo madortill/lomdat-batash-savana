@@ -21,7 +21,7 @@ const Opening = () => {
     return (
         <div className="opening-page">
             <div className="backBtnDiv">
-                <img src={backButton} className="back-btn" onClick={() => navigate("Content")} />
+                <img src={backButton} className="back-btn" onClick={() => navigate("/Content")} />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
             <h1 className={styles.openingHeaderText}>{EndTitle}</h1>

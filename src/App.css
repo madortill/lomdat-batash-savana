@@ -4,6 +4,10 @@
     direction: rtl;
 }
 
+/* html {
+    font-size: calc(10px + 0.5vw);
+} */
+
 .app {
     background-color: #FFF2B4;
     min-height: 100vh;

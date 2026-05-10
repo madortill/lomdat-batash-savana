@@ -2,32 +2,37 @@ import { useState, useEffect } from "react";
 import { useData } from "../../../context/DataContext";
 import styles from "./ContentGeneralData.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
-
 import Dimensions from "./Dimensions/Dimensions";
-// import Speed from "./Speed/Speed";
+import Weight from "./Weight/Weight";
+import Air from "./Air/Air";
+import Liquids from "./Liquids/Liquids";
+import Speed from "./Speed/Speed";
 // import Inflation from "./Inflation/Inflation";
 // import Fluids from "./Fluids/Fluids";
 // import Fuel from "./Fuel/Fuel";
 
 const cardComponents = {
     vehicleDimensions: Dimensions,
-    // speed: Speed,
-    // inflation: Inflation,
-    // fluids: Fluids,
-    // fuel: Fuel,
+    weight: Weight,
+    air: Air,     // ✅ temporary placeholder
+    liquids: Liquids, // ✅ temporary placeholder
+    speed: Speed,   // ✅ temporary placeholder
 };
 
 import speedIcon from "../../../assets/img/generalDataCards/speed.svg";
-// import dimensionsIcon from "...";
+import weightIcon from "../../../assets/img/kettlebell.svg";
 
 const imageMap = {
     speedometer: speedIcon,
-    // dimensions: dimensionsIcon,
+    weight: weightIcon,
+    air: speedIcon,     // ✅ temporary placeholder
+    liquids: speedIcon, // ✅ temporary placeholder
+    speed: speedIcon, // ✅ temporary placeholder
 };
 
 const STORAGE_KEY = "visitedCards_generalData";
 const VISITED_KEY = "visitedCards_generalData";
-const ACTIVE_KEY  = "activeCard_generalData";
+const ACTIVE_KEY = "activeCard_generalData";
 
 const ContentGeneralData = ({ onComplete, onNext, onBack, canProceed }) => {
     const { data } = useData();
@@ -98,7 +103,7 @@ const ContentGeneralData = ({ onComplete, onNext, onBack, canProceed }) => {
                         <div
                             key={card.key}
                             className={`${styles.card} ${isVisited ? styles.cardVisited : ""}`}
-                            onClick={() => setActiveCard(card.key)}
+                            onClick={() => openCard(card.key)}
                         >
                             {isVisited && (
                                 <div className={styles.cardCheckmarkWrapper}>

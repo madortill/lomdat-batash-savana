@@ -1,3 +1,4 @@
+
 .intro2Text1 {
     position: absolute;
     top: 20vh;
@@ -9,7 +10,7 @@
     position: relative;
     top: 33vh;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
     gap: 2rem;
@@ -18,98 +19,81 @@
 
 @media (max-width: 1150px) {
     .cardsContainer {
-        gap: 0rem;
+        gap: 1rem;
     }
 }
 
-.cardWrapper {
-    position: relative;
-    cursor: pointer;
-    perspective: 1000px;
-}
-
-.checkmark {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: clamp(28px, 3.5vw, 44px);
-    z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-.cardInner {
-    width: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-}
-
-.cardInner.flipped {
-    transform: rotateY(180deg);
-}
-
-.cardFront,
-.cardBack {
-    position: relative;
-    width: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cardBack {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotateY(180deg);
-}
-
-.carImg {
-    width: 100%;
-    height: 100%;
-}
-
-.carOrange {
-    filter: invert(60%) sepia(80%) saturate(800%) hue-rotate(5deg) brightness(105%);
-}
-
-.carBlue {
-    filter: invert(20%) sepia(60%) saturate(500%) hue-rotate(190deg) brightness(80%);
-}
-
-.cardTextFront,
-.cardTextBack {
-    position: absolute;
-    width: 70%;
-    text-align: center;
-    font-family: Assistant, sans-serif;
-    font-weight: 700;
-    font-size: clamp(0.85rem, 1.8vw, 1.2rem);
-    line-height: 1.4;
-}
-
-.cardTextFront {
-    color: #ffffff;
-}
-
-.cardTextBack {
-    color: #ffffff;
-}
-
-.cardColumn {
+.card {
+    background-color: #FFE89A;
+    border: 4px solid #E69907;
+    border-radius: 30px;
+    width: clamp(100px, 13vw, 160px);
+    height: clamp(160px, 30vh, 300px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.cardCheckmarkWrapper {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: #61A747;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.cardCheckmarkIcon {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cardImage {
+    width: 70%;
+    height: auto;
+    margin-bottom: 1rem;
+    pointer-events: none;
 }
 
 .cardLabel {
     font-family: Assistant, sans-serif;
-    font-size: clamp(0.75rem, 1.3vw, 1rem);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     color: #073799;
     text-align: center;
-    max-width: 90%;
-    line-height: 1.4;
-    font-weight: 400;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.card.cardVisited {
+    background-color: #CDC9A5;
+    border-color: #7A7A7A;
+}
+
+.card.cardVisited .cardImage {
+    filter: grayscale(1) opacity(0.6);
+}
+
+.card.cardVisited .cardLabel {
+    color: #555555;
+}
+
+.card.cardVisited:hover {
+    transform: none;
 }
