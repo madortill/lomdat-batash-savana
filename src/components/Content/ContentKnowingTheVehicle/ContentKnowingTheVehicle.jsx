@@ -41,9 +41,9 @@ const ContentKnowingTheVehicle = ({ onNext, onBack }) => {
                     <img src={bgCircleRoad} alt="circle" className={styles.roadCircle} />
                     <p className={styles.circleText} >{cKnowingVehicleRoadText1}</p>
                 </div>
-                <div className={styles.roadCircleDiv}>
-                    <img src={bgCircleRoad} alt="circle" className={styles.roadCircle} />
-                    <p className={styles.circleText} >{cKnowingVehicleRoadText2}</p>
+                <div className={`${styles.roadCircleDiv} ${styles.middleCircleDiv}`}>
+                    <img src={bgCircleRoad} alt="circle" className={`${styles.roadCircle} ${styles.middleCircle}`} />
+                    <p className={`${styles.circleText} ${styles.middleCircleText}`} >{cKnowingVehicleRoadText2}</p>
                 </div>
                 <div className={styles.roadCircleDiv}>
                     <img src={bgCircleRoad} alt="circle" className={styles.roadCircle} />

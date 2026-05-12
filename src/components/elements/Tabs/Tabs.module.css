@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     width: clamp(280px, 60vw, 860px);
-    height: clamp(200px, 33vh, 700px);
+    /* height: clamp(200px, 33vh, 700px); */
+    height: auto;
     border-radius: 30px;
     outline: 5px solid #073799;
     border: none;
@@ -34,7 +35,7 @@
 
 .tab {
     flex: 1;
-    padding: clamp(0.6rem, 1.5vw, 1rem) clamp(1rem, 2vw, 2rem);
+    padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -46,7 +47,7 @@
 
 .tabLabel {
     font-family: Assistant, sans-serif;
-    font-size: clamp(1rem, 2vw, 1.6rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     font-weight: 800;
     text-align: center;
     margin: 0;
@@ -56,9 +57,9 @@
 
 .tabContent {
     width: 100%;
-    padding: clamp(0.75rem, 2vw, 2.5rem);
+    padding: clamp(0.1rem, 2vw, 2.5rem);
     box-sizing: border-box;
-    min-height: clamp(100px, 20vw, 300px);
+    /* min-height: clamp(100px, 20vw, 300px); */
     border-top: 3px solid;
 }
 

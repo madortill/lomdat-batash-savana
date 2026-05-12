@@ -64,7 +64,7 @@
 
 .slideWrapper {
     position: relative;
-    width: clamp(24rem, 60vw, 33rem);
+    width: clamp(24rem, 60vw, 30rem);
 }
 
 .slide {
@@ -76,7 +76,7 @@
     border-radius: 30px;
     padding: 1.5rem 2rem;
     width: 100%;
-    height: clamp(12rem, 22vw, 18rem);
+    height: clamp(10rem, 20vw, 15rem);
     box-sizing: border-box;
 }
 

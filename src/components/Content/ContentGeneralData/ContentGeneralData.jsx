@@ -7,27 +7,27 @@ import Weight from "./Weight/Weight";
 import Air from "./Air/Air";
 import Liquids from "./Liquids/Liquids";
 import Speed from "./Speed/Speed";
-// import Inflation from "./Inflation/Inflation";
-// import Fluids from "./Fluids/Fluids";
-// import Fuel from "./Fuel/Fuel";
 
 const cardComponents = {
     vehicleDimensions: Dimensions,
     weight: Weight,
-    air: Air,     // ✅ temporary placeholder
-    liquids: Liquids, // ✅ temporary placeholder
-    speed: Speed,   // ✅ temporary placeholder
+    air: Air,
+    liquids: Liquids,
+    speed: Speed,
 };
 
 import speedIcon from "../../../assets/img/generalDataCards/speed.svg";
-import weightIcon from "../../../assets/img/kettlebell.svg";
+import weightIcon from "../../../assets/img/generalDataCards/kettlebell.svg";
+import liquidsIcon from "../../../assets/img/generalDataCards/waterDrops.svg";
+import rulerIcon from "../../../assets/img/generalDataCards/ruler.svg";
+import wheelIcon from "../../../assets/img/generalDataCards/wheel.svg";
 
 const imageMap = {
-    speedometer: speedIcon,
+    dimensions: rulerIcon,
     weight: weightIcon,
-    air: speedIcon,     // ✅ temporary placeholder
-    liquids: speedIcon, // ✅ temporary placeholder
-    speed: speedIcon, // ✅ temporary placeholder
+    air: wheelIcon,
+    liquids: liquidsIcon,
+    speed: speedIcon,
 };
 
 const STORAGE_KEY = "visitedCards_generalData";

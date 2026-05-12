@@ -1,0 +1,92 @@
+.contentFrame {
+    position: relative;
+    background-color: #FFE89A;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 30px;
+    margin: 0 auto;
+    top: 20vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textGeneralDataSubPage {
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.tabContentFrame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tabContentInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.tabTitle {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    font-weight: 600;
+    color: #073799;
+    text-align: center;
+    margin: 0;
+}
+
+.tiresRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    width: 100%;
+}
+
+.tireItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tireLabel {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    font-weight: 700;
+    color: #073799;
+    text-align: center;
+    margin: 0;
+}
+
+.tireWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tireImg {
+    width: clamp(100px, 16vw, 240px);
+}
+
+.tireValue {
+    position: absolute;
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1.2rem, 2vw, 2.8rem);
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+}

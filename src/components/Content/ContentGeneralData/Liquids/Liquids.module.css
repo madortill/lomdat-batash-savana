@@ -1,0 +1,163 @@
+.contentFrame {
+    position: relative;
+    background-color: #FFE89A;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 30px;
+    margin: 0 auto;
+    top: 20vh;
+    z-index: 1;
+}
+
+.textGeneralDataSubPage {
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.roads {
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 2vh, 16px);
+    width: 80%;
+}
+
+.road {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
+    height: clamp(60px, 8vh, 90px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.road::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    background: repeating-linear-gradient(to right,
+            white 0px,
+            white 25px,
+            transparent 25px,
+            transparent 45px);
+    opacity: 0.13;
+    z-index: 0;
+}
+
+.car {
+    position: absolute;
+    bottom: 5px;
+    width: clamp(90px, 7vw, 140px);
+    transition: transform 1.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+    z-index: 15;
+}
+
+.driveRight {
+    right: 20px;
+    transform: translateX(0);
+}
+
+.driveLeft {
+    right: 20px;
+    transform: translateX(calc(-64vw + clamp(90px, 7vw, 140px) + 40px));
+}
+
+.smoke {
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: smoke 0.8s ease-out forwards;
+    z-index: 2;
+}
+
+@keyframes smoke {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(-40px) scale(2);
+        opacity: 0;
+    }
+}
+
+.check {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background: #4CAF50;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    color: white;
+}
+
+.roadText {
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.driveTitle {
+    font-family: Assistant, sans-serif;
+    color: #F9DB88;
+    font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+    margin: 0;
+    transition: opacity 0.5s ease;
+}
+
+.hideText {
+    opacity: 0;
+    transition-delay: 0.25s; 
+    pointer-events: none;
+}
+
+.showText {
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+.driveDescription {
+    position: absolute;
+    font-family: Assistant, sans-serif;
+    color: #FFFFFF;
+    font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.showDescription {
+    opacity: 1;
+    transition-delay: 0.5s; 
+}

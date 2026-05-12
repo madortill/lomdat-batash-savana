@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useData } from "../../../../context/DataContext";
 import styles from "./Weight.module.css";
 import backButton from "../../../../assets/img/backBtn.svg";
-import kettlebell from "../../../../assets/img/kettlebell.svg";
+import kettlebell from "../../../../assets/img/generalDataCards/kettlebell.svg";
 
 const Weight = ({ onBack }) => {
     const { data } = useData();

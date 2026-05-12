@@ -2,7 +2,7 @@
 .standard-text {
     color: #073799;
     font-family: Assistant, sans-serif;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     font-weight: 600;
     text-align: center;
     line-height: 1.4;

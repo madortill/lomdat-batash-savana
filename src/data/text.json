@@ -238,7 +238,7 @@
             {
                 "key": "vehicleDimensions",
                 "label": "מידות הרכב",
-                "image": "speedometer"
+                "image": "dimensions"
             },
             {
                 "key": "weight",
@@ -248,17 +248,17 @@
             {
                 "key": "air",
                 "label": "לחצי ניפוח אוויר",
-                "image": "speedometer"
+                "image": "air"
             },
             {
                 "key": "liquids",
                 "label": "נוזלים וחומרי סיכה",
-                "image": "speedometer"
+                "image": "liquids"
             },
             {
                 "key": "speed",
                 "label": "מהירות",
-                "image": "speedometer"
+                "image": "speed"
             }
         ],
         "cDimensions": [
@@ -323,6 +323,99 @@
                         "value": "4502 ק״ג"
                     }
                 ]
+            }
+        ],
+        "cLiquids": [
+            {
+                "id": "cLiquidsTitle",
+                "text": "נתונים כלליים - נוזלים וחומרי סיכה"
+            },
+            {
+                "id": "cLiquidsText",
+                "text": "לחצו על רכבי הסואנה כדי ללמוד!"
+            },
+            {
+                "id": "drives",
+                "items": [
+                    {
+                        "id": "fuel",
+                        "title": " מיכל דלק",
+                        "description": "117.3 ליטר"
+                    },
+                    {
+                        "id": "engineOil",
+                        "title": "כמות שמן מנוע ומסנן שמן",
+                        "description": "9.5 ליטר"
+                    },
+                    {
+                        "id": "gearOil",
+                        "title": "שמן גיר אוטומט",
+                        "description": "7 ליטר"
+                    },
+                    {
+                        "id": "radiator",
+                        "title": "מים ברדיאטור",
+                        "description": "21.5 ליטר"
+                    },
+                    {
+                        "id": "transport",
+                        "title": "נוזל אוריאה תחבורתי",
+                        "description": "20.1 ליטר"
+                    }
+                ]
+            }
+        ],
+        "cAir": [
+            {
+                "id": "cAirTitle",
+                "text": "נתונים כלליים - לחצי ניפוח אוויר"
+            },
+            {
+                "id": "tabs",
+                "tab1": {
+                    "label": "דגם 2X4",
+                    "title": "לחצי ניפוח אוויר",
+                    "front": {
+                        "label": "בגלגלים הקדמיים:",
+                        "value": "PSI 65"
+                    },
+                    "back": {
+                        "label": "בגלגלים האחוריים:",
+                        "value": "65 PSI"
+                    }
+                },
+                "tab2": {
+                    "label": "דגם 4X4",
+                    "title": "לחצי ניפוח אוויר",
+                    "front": {
+                        "label": "בגלגלים הקדמיים:",
+                        "value": "55 PSI"
+                    },
+                    "back": {
+                        "label": "בגלגלים האחוריים:",
+                        "value": "80 PSI"
+                    }
+                }
+            }
+        ],
+        "cSpeed": [
+            {
+                "id": "cSpeedTitle",
+                "text": "נתונים כלליים - מהירות"
+            },
+            {
+                "id": "urban",
+                "label": "בדרך עירונית:",
+                "speedText": "מהירות מרבית 50 קמ״ש"
+            },
+            {
+                "id": "interurban",
+                "label": "בדרך בין-עירונית:",
+                "speedText": "מהירות מרבית ע״פ תקנות התעבורה ולא תעלה על 90 קמ״ש בכל סוג דרך"
+            },
+            {
+                "id": "comment",
+                "text": "בכל מקרה המהירות תהיה ע״פ תנאי הדרך ולא תעבור את מהירות הנסיעה המרבית המצוינת ברישיון הרכב!"
             }
         ],
         "End": [
