@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useData } from "../../../../context/DataContext";
 import styles from "./Speed.module.css";
 import backButton from "../../../../assets/img/backBtn.svg";
-import urbanImg from "../../../../assets/img/speed/urban.svg";
-import interurbanImg from "../../../../assets/img/speed/interurban.svg";
+import urbanImg from "../../../../assets/img/urban.svg";
+import interurbanImg from "../../../../assets/img/interurban.svg";
 import CommentGal from "../../../elements/CommentGal/CommentGal";
 
 const CARD_KEY = "speed";
@@ -35,26 +35,11 @@ const Speed = ({ onBack, cardKey }) => {
                 />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
-
             <h1 className="main-header-text">{title}</h1>
 
             <div className={styles.contentFrame}>
-
-                {/* Two image cards side by side */}
+                
                 <div className={styles.imagesRow}>
-
-                    {/* Urban */}
-                    <div className={styles.imageCard}>
-                        <p className={styles.imageLabel}>{urban.label}</p>
-                        <div className={styles.imageWrapper}>
-                            <img src={urbanImg} alt="urban" className={styles.roadImg} />
-                            <div className={styles.textOverlay}>
-                                <p className={styles.overlayText}>{urban.speedText}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Interurban */}
                     <div className={styles.imageCard}>
                         <p className={styles.imageLabel}>{interurban.label}</p>
                         <div className={styles.imageWrapper}>
@@ -65,13 +50,21 @@ const Speed = ({ onBack, cardKey }) => {
                         </div>
                     </div>
 
+                    <div className={styles.imageCard}>
+                        <p className={styles.imageLabel}>{urban.label}</p>
+                        <div className={styles.imageWrapper}>
+                            <img src={urbanImg} alt="urban" className={styles.roadImg} />
+                            <div className={styles.textOverlay}>
+                                <p className={styles.overlayText}>{urban.speedText}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* CommentGal at the bottom */}
                 <div className={styles.commentWrapper}>
                     <CommentGal
                         text={commentText}
-                        mood="yellow"
+                        mood="orange"
                         characterSide="right"
                         size="small"
                     />

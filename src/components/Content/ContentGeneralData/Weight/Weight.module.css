@@ -10,6 +10,10 @@
 }
 
 .weightContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -46,9 +50,21 @@
     filter: invert(25%) sepia(75%) saturate(500%) hue-rotate(190deg) brightness(70%);
 }
 
-.kettlebell0 { width: clamp(80px,  10vw, 140px); }
-.kettlebell1 { width: clamp(100px, 13vw, 170px); }
-.kettlebell2 { width: clamp(120px, 16vw, 200px); }
+.kettlebell0 {
+    filter: invert(15%) sepia(95%) saturate(1200%) hue-rotate(15deg) brightness(100%) contrast(95%);
+}
+
+.kettlebell0 {
+    width: clamp(80px, 10vw, 140px);
+}
+
+.kettlebell1 {
+    width: clamp(110px, 15vw, 190px);
+}
+
+.kettlebell2 {
+    width: clamp(120px, 16vw, 200px);
+}
 
 .weightValue {
     position: absolute;

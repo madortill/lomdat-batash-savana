@@ -1,31 +1,23 @@
-.subPage {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 8vh;
-    gap: 1.5rem;
-}
 
 .contentFrame {
+    position: relative;
     background-color: #FFE89A;
     width: 80vw;
+    height: 70vh;
     border-radius: 30px;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    margin: 0 auto;
+    top: 20vh;
+    z-index: 1;
 }
 
-/* Two images row */
 .imagesRow {
+    position: absolute;
+    top: 8%;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    gap: clamp(1rem, 4vw, 4rem);
     width: 100%;
+    gap: 2rem;
 }
 
 .imageCard {
@@ -33,62 +25,64 @@
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
-    flex: 1;
-    max-width: 45%;
+    flex: unset;
 }
 
 .imageLabel {
     font-family: Assistant, sans-serif;
-    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
-    font-weight: 700;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 500;
     color: #073799;
-    text-align: center;
     margin: 0;
 }
 
-/* Image with text overlay */
 .imageWrapper {
     position: relative;
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
+    width: 90%;
+    /* max-width: 75%; */
+    border-radius: 30px;
 }
 
 .roadImg {
     width: 100%;
-    height: clamp(140px, 20vw, 260px);
+    height: auto;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 30px;
     display: block;
+    filter: brightness(1.4) saturate(1.4) sepia(20%) contrast(115%);
+    opacity: 0.95;
+    border: #4769A7 solid 6px;
 }
 
-/* Blue overlay box on top of image */
 .textOverlay {
     position: absolute;
-    bottom: 12px;
-    right: 12px;
-    background-color: #073799;
-    border-radius: 10px;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(to bottom, #4D71C0 0%, #073799 100%);
+    border-radius: 5px;
     padding: 8px 12px;
-    max-width: 70%;
+    max-width: 50%;
 }
 
 .overlayText {
-    font-family: Assistant, sans-serif;
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
-    font-weight: 600;
+    font-family: rubik, sans-serif;
+    font-size: clamp(1rem, 1.1vw, 1.2rem);
+    font-weight: 400;
     color: #ffffff;
     text-align: right;
     margin: 0;
     line-height: 1.4;
 }
 
-/* CommentGal wrapper */
 .commentWrapper {
-    width: 100%;
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+    
 }
 
-/* Responsive — stack on small screens */
 @media (max-width: 600px) {
     .imagesRow {
         flex-direction: column;

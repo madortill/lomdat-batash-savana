@@ -1,0 +1,240 @@
+.contentPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 6rem;
+}
+
+.pageText {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* ── Lights grid ── */
+.lightsGrid {
+    display: flex;
+    flex-direction: row-reverse; /* RTL: first light on the right */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.lightItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    transition: transform 0.2s ease;
+}
+
+.lightIconWrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.3); /* default: faded */
+    transition: filter 0.4s ease;
+}
+
+/* Done: full colour, no glow */
+.done .lightIcon {
+    filter: none;
+    cursor: default;
+}
+
+/* Glowing: full colour + pulse animation + pointer */
+.glowing .lightIcon {
+    filter: none;
+    cursor: pointer;
+}
+
+.glowing:hover {
+    transform: scale(1.05);
+}
+
+/* Hidden: fully invisible, takes up space so layout doesn't jump */
+.hidden .lightIcon {
+    filter: grayscale(1) opacity(0); /* invisible but still in flow */
+    pointer-events: none;
+}
+
+/* ── Glow ring ── */
+.glowRing {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 3px solid #e1a92a;
+    animation: pulse 1.4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%   { transform: scale(1);    opacity: 1;   }
+    50%  { transform: scale(1.18); opacity: 0.4; }
+    100% { transform: scale(1);    opacity: 1;   }
+}
+
+/* ── Checkmark badge ── */
+.checkmarkWrapper {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #61A747;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.checkmarkIcon {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ── Popup overlay ── */
+.popupOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.popup {
+    background: #fffbe8;
+    border-radius: 24px;
+    padding: 2rem 2.5rem;
+    width: min(90vw, 520px);
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    direction: rtl;
+}
+
+.popupHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.popupLightIcon {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.popupTitle {
+    font-family: 'Assistant', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: #1a3a6b;
+    text-align: center;
+    margin: 0;
+}
+
+.popupText {
+    text-align: center;
+    line-height: 1.7;
+}
+
+.popupInfoImage {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* ── Popup dots ── */
+.popupDots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: default;
+    transition: background-color 0.2s;
+}
+
+.activeDot {
+    background-color: #e1a92a;
+}
+
+/* ── Popup nav buttons ── */
+.popupButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.popupBackBtn {
+    cursor: pointer;
+    color: #b3861d;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: background-color 0.15s;
+}
+
+.popupBackBtn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* ── Page next button ── */
+.nextBtn {
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .lightsGrid {
+        gap: 1.2rem;
+        width: 95%;
+    }
+
+    .lightIconWrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .lightIcon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .popup {
+        padding: 1.5rem;
+    }
+}
