@@ -1,18 +1,21 @@
 
-/* ── Lights grid ── */
 .lightsGrid {
     position: absolute;
     top: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    width: 80%;
+    gap: 3rem 4rem; 
+    width: 65%;
+    max-width: 1000px;
     margin: 2rem auto;
 }
 
 .lightItem {
+    flex: 0 0 calc(20% - 4rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,11 +33,15 @@
 }
 
 .lightIcon {
-    width: 60px;
-    height: 60px;
+    width: 6vw;
+    height: 7vh;
     object-fit: contain;
-    filter: grayscale(1) opacity(0.3); /* default: faded */
+    filter: grayscale(1) opacity(0.3);
     transition: filter 0.4s ease;
+}
+
+.lightIcon:hover {
+    transform: scale(1.12);
 }
 
 .done .lightIcon {
@@ -43,36 +50,34 @@
     opacity: 0.9;
 }
 
-/* Glowing: full colour + pulse animation + pointer */
 .glowing .lightIcon {
     filter: none;
     cursor: pointer;
 }
-
+/* 
 .glowing:hover {
     transform: scale(1.05);
-}
+} */
 
-/* Hidden: fully invisible, takes up space so layout doesn't jump */
 .hidden .lightIcon {
-    filter: grayscale(1) opacity(0); /* invisible but still in flow */
+    filter: grayscale(1) opacity(0);
     pointer-events: none;
 }
 
 /* ── Glow ring ── */
 .glowRing {
     position: absolute;
-    inset: -8px;
+    inset: -10px;
     border-radius: 50%;
-    border: 3px solid #e1aa2a8a;
+    border: 50px solid #e1aa2a8a;
     animation: pulse 1.4s ease-in-out infinite;
     pointer-events: none;
 }
 
 @keyframes pulse {
-    0%   { transform: scale(1);    opacity: 1;   }
-    50%  { transform: scale(1.18); opacity: 0.4; }
-    100% { transform: scale(1);    opacity: 1;   }
+    0%   { transform: scale(1.2);    opacity: 0.6;   }
+    50%  { transform: scale(1.4); opacity: 0.2; }
+    100% { transform: scale(1.2);    opacity: 0.6;   }
 }
 
 /* ── Checkmark badge ── */

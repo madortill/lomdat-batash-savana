@@ -31,7 +31,7 @@
 }
 
 /* Sizes */
-.popup_small {
+/* .popup_small {
     width: min(90vw, 420px);
 }
 
@@ -50,7 +50,11 @@
 .popup_full {
     width: min(96vw, 1120px);
     min-height: 70vh;
-}
+} */
+
+.popup_small  { width: clamp(260px, 35vw, 420px); }
+.popup_medium { width: clamp(300px, 50vw, 600px); }
+.popup_large  { width: clamp(340px, 70vw, 860px); }
 
 /* Optional visual variants */
 .variant_default {
@@ -244,25 +248,4 @@
 
 .blueText {
     color: #00308f;
-}
-
-@media (max-width: 768px) {
-    .popup {
-        padding: 1.4rem;
-        border-radius: 18px;
-    }
-
-    .popup_large,
-    .popup_wide,
-    .popup_full {
-        width: 92vw;
-    }
-
-    .columns {
-        grid-template-columns: 1fr;
-    }
-
-    .buttons {
-        flex-direction: row;
-    }
 }

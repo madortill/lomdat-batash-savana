@@ -6,18 +6,32 @@ import Popup from "../../elements/Popups/Popups";
 
 const STORAGE_KEY = "indicatorLights_progress";
 
-// Import your indicator light icons
-import batteryIcon from "../../../assets/img/indicatorLights/brake.svg";
-import engineIcon from "../../../assets/img/indicatorLights/brake.svg";
-import oilIcon from "../../../assets/img/indicatorLights/brake.svg";
-import tempIcon from "../../../assets/img/indicatorLights/brake.svg";
-// add more as needed...
+import brakeIcon from "../../../assets/img/indicatorLights/brake.svg";
+import ignitionnIcon from "../../../assets/img/indicatorLights/coldIgnition.svg";
+import oilIcon from "../../../assets/img/indicatorLights/oil.svg";
+import absIcon from "../../../assets/img/indicatorLights/abs.svg";
+import airbag from "../../../assets/img/indicatorLights/airbag.svg";
+import backLight from "../../../assets/img/indicatorLights/backLight.svg";
+import battery from "../../../assets/img/indicatorLights/battery.svg";
+import turn from "../../../assets/img/indicatorLights/turn.svg";
+import seatbelt from "../../../assets/img/indicatorLights/seatbelt.svg";
+import strongLights from "../../../assets/img/indicatorLights/strongLights.svg";
+import adBlue from "../../../assets/img/indicatorLights/adBlue.svg";
+import bothBrakes from "../../../assets/img/indicatorLights/bothBrakes.svg";
 
 const imageMap = {
-  battery: batteryIcon,
-  engine: engineIcon,
+  brake: brakeIcon,
+  ignition: ignitionnIcon,
   oil: oilIcon,
-  temp: tempIcon,
+  abs: absIcon,
+  airbag: airbag,
+  backLight: backLight,
+  battery: battery,
+  turn: turn,
+  seatbelt: seatbelt,
+  strongLights: strongLights,
+  adBlue: adBlue,
+  bothBrakes: bothBrakes,
 };
 
 // Import popup info images if needed (optional per light)
