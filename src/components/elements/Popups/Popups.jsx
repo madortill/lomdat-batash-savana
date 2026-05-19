@@ -1,132 +1,61 @@
+import React from "react";
 import styles from "./Popups.module.css";
 
-const Popup = ({
-    isOpen,
-    title,
-    subtitle,
-    icon,
-    children,
+/**
+ * Popups  (the shell / PopupShell)
+ *
+ * Responsibilities:
+ *   ✓ dark backdrop overlay
+ *   ✓ centered white box
+ *   ✓ optional ✕ close button
+ *   ✓ optional click-backdrop-to-close
+ *   ✓ renders {children} — that's it
+ *
+ * It does NOT know about titles, icons, pages, tabs, buttons, or anything
+ * content-related. All of that lives in the child component you pass in.
+ *
+ * Usage — simple (InfoCardPopup as child):
+ *   <Popups onClose={close}>
+ *     <InfoCardPopup data={data} onClose={close} />
+ *   </Popups>
+ *
+ * Usage — complex (TabsPopup as child, no close button):
+ *   <Popups onClose={close} showClose={false} closeOnBackdrop={false}>
+ *     <TabsPopup data={data} onClose={close} />
+ *   </Popups>
+ *
+ * Props:
+ *   children         — the popup content (required)
+ *   onClose          — called when user closes (required)
+ *   showClose        — show ✕ button, default true
+ *   closeOnBackdrop  — click backdrop to close, default true
+ */
+function Popups({ children, onClose, showClose = true, closeOnBackdrop = true }) {
+  const handleBackdropClick = (e) => {
+    if (closeOnBackdrop && e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
-    size = "medium",
-    variant = "default",
+  return (
+    <div className={styles.backdrop} onClick={handleBackdropClick}>
+      <div className={styles.box}>
 
-    backText = "חזרה",
-    nextText = "המשך",
-    finishText = "סיום",
+        {showClose && (
+          <button
+            className={styles.closeBtn}
+            onClick={onClose}
+            aria-label="סגור"
+          >
+            ✕
+          </button>
+        )}
 
-    showBackButton = true,
-    showNextButton = true,
-    showCloseButton = false,
+        {children}
 
-    isLastPage = false,
-    nextDisabled = false,
+      </div>
+    </div>
+  );
+}
 
-    onBack,
-    onNext,
-    onClose,
-
-    footerNote,
-    footerImage,
-}) => {
-    if (!isOpen) return null;
-
-    const sizeClass = styles[`popup_${size}`] || styles.popup_medium;
-    const variantClass = styles[`variant_${variant}`] || styles.variant_default;
-
-    const handleOverlayClick = () => {
-        if (onClose) {
-            onClose();
-        } else if (onBack) {
-            onBack();
-        }
-    };
-
-    return (
-        <div className={styles.popupOverlay} onClick={handleOverlayClick}>
-            <div
-                className={`${styles.popup} ${sizeClass} ${variantClass}`}
-                onClick={(e) => e.stopPropagation()}
-                dir="rtl"
-            >
-                {showCloseButton && (
-                    <button
-                        type="button"
-                        className={styles.closeButton}
-                        onClick={onClose || onBack}
-                        aria-label="סגירה"
-                    >
-                        ×
-                    </button>
-                )}
-
-                {(icon || title || subtitle) && (
-                    <div className={styles.header}>
-                        {icon && (
-                            <img
-                                src={icon}
-                                alt=""
-                                className={styles.icon}
-                            />
-                        )}
-
-                        {title && (
-                            <h2 className={styles.title}>
-                                {title}
-                            </h2>
-                        )}
-
-                        {subtitle && (
-                            <p className={styles.subtitle}>
-                                {subtitle}
-                            </p>
-                        )}
-                    </div>
-                )}
-
-                <div className={styles.content}>
-                    {children}
-                </div>
-
-                {(footerNote || footerImage) && (
-                    <div className={styles.footerNote}>
-                        {footerImage && (
-                            <img
-                                src={footerImage}
-                                alt=""
-                                className={styles.footerImage}
-                            />
-                        )}
-                        {footerNote && <p>{footerNote}</p>}
-                    </div>
-                )}
-
-                {(showBackButton || showNextButton) && (
-                    <div className={styles.buttons}>
-                        {showBackButton && (
-                            <button
-                                type="button"
-                                className={styles.backButton}
-                                onClick={onBack}
-                            >
-                                {backText}
-                            </button>
-                        )}
-
-                        {showNextButton && (
-                            <button
-                                type="button"
-                                className={styles.nextButton}
-                                onClick={onNext}
-                                disabled={nextDisabled}
-                            >
-                                {isLastPage ? finishText : nextText}
-                            </button>
-                        )}
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-};
-
-export default Popup;
+export default Popups;
