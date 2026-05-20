@@ -3,7 +3,7 @@ import styles from "./ContentMetrics.module.css";
 import dashboardBg from "../../../assets/img/dashboard.svg"; // תמונת הדשבורד השלמה
 import Popups from "../../elements/Popups/Popups";
 import StandardIndicator from "../../elements/ChildPopups/StandardIndicator/StandardIndicator";
-import backButton from "../../../assets/img/backBtn.svg";
+// import backButton from "../../../assets/img/backBtn.svg";
 // או שתייבא את WheelsPopup במידה ויצרת קובץ נפרד
 
 // מיפוי הנתונים של המדדים השונים כולל המיקומים שלהם באחוזים
@@ -45,8 +45,8 @@ const METRICS_DATA = {
     }
 };
 
-const backBtn = data.general[0].text;
-const nextBtn = data.general[1].text;
+// const backBtn = data.general[0].text;
+// const nextBtn = data.general[1].text;
 
 function ContentMetrics() {
     const [activePopupMetric, setActivePopupMetric] = useState(null);
@@ -61,10 +61,6 @@ function ContentMetrics() {
         <div className={styles.pageContainer}>
             <h1 className="main-header-text">נורות חיווי - מדדים</h1>
             <p className="standard-text">לחצו על המדדים כדי ללמוד עוד!</p>
-            {/* <div className="backBtnDiv">
-                <img src={backButton} className="back-btn" onClick={onBack} alt="back" />
-                <p className="back-btn-text">{backBtn}</p>
-            </div> */}
 
             {/* אזור הדשבורד האינטראקטיבי */}
             <div className={styles.dashboardWrapper}>
@@ -102,9 +98,6 @@ function ContentMetrics() {
                 </Popups>
             )}
 
-            {/* <div className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`} onClick={onNext} >
-                <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>{nextBtn}</p>
-            </div> */}
         </div>
     );
 }
