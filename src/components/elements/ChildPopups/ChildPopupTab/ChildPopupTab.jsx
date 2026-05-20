@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./childPopupTab.module.css";
+import styles from "./ChildPopupTab.module.css";
 import Tabs from "../../Tabs/Tabs"
 
 /**
