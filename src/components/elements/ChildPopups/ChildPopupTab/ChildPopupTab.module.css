@@ -1,0 +1,14 @@
+.confirmBtn {
+    background-color: #e8a020;
+    color: white;
+    border: none;
+    padding: 10px 32px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.15s;
+    margin-top: 4px;
+  }
+  .confirmBtn:hover { background-color: #c8880c; }

@@ -1,24 +1,9 @@
 import React, { useState } from "react";
 import styles from "./ChildPopupAdBlue.module.css";
 
-/**
- * ChildPopupAdBlue — Type 4 (timeline popup)
- *
- * Interactive popup with:
- *  - title + icon
- *  - timeline with 4 steps
- *  - clicking each step changes content bubble
- *  - user must visit all steps before confirm unlocks
- *
- * Props:
- *   icon
- *   data
- *   onClose
- */
-
 function ChildPopupAdBlue({ icon, data, onClose }) {
 
-    const steps = data.timelineSteps ?? [];
+    const steps = data.steps ?? [];
 
     const [activeStep, setActiveStep] = useState(0);
 
@@ -102,13 +87,6 @@ function ChildPopupAdBlue({ icon, data, onClose }) {
                 </p>
 
             </div>
-
-            {/* ── Notice ───────────────────── */}
-            <p className={allVisited ? styles.noticeGreen : styles.noticeGray}>
-                {allVisited
-                    ? "✓ עברת על כל השלבים"
-                    : `יש לעבור על כל השלבים — נותרו ${steps.length - visitedSteps.size}`}
-            </p>
 
             {/* ── Confirm button ───────────── */}
             <button

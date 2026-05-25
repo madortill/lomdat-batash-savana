@@ -636,6 +636,75 @@
                 ]
             }
         ],
+        "cMetrics": [
+            {
+                "id": "cMetricsTitle",
+                "text": "נורות חיווי - מדדים"
+            },
+            {
+                "id": "cMetricsText",
+                "text": "לחצו על המדדים כדי ללמוד עוד!"
+            }
+        ],
+        "dashboardMetrics": [
+            {
+                "id": "speed",
+                "title": "מד מהירות",
+                "text": " מראה לנו את מהירות הנסיעה בקמ״ש. יש  להתייחס לקשת החיצונית ולא הפנימית (נסתכל על בקמ״ש ולא על המייל-MPH)",
+                "isActive": true,
+                "style": {
+                    "top": "9%",
+                    "left": "27%",
+                    "width": "48%",
+                    "height": "80%",
+                    "borderRadius": "50%"
+                }
+            },
+            {
+                "id": "temp",
+                "title": "מד טמפ’ נוזל קירור חום מנוע",
+                "text": "מראה את טמפ’ חום המנוע (אסור לפתוח את מכסה מיכל עודפי נוזל הקירור כאשר המנוע חם. אסור להתניע מחדש את המנוע כל עוד התקלה לא נעלמה!)",
+                "isActive": true,
+                "style": {
+                    "top": "50%",
+                    "left": "4%",
+                    "width": "20%",
+                    "height": "35%",
+                    "borderRadius": "50%"
+                }
+            },
+            {
+                "id": "gas",
+                "title": "מד כמות דלק",
+                "text": "פועל גם כאשר ההצתה כבויה, כשהמחוג מגיע לאזור האדום יש לתדלק מוקדם ככל האפשר.",
+                "isActive": true,
+                "style": {
+                    "top": "45%",
+                    "left": "77%",
+                    "width": "18%",
+                    "height": "35%",
+                    "borderRadius": "50%"
+                }
+            }
+        ],
+        "cVehicleOperationOpeningPage": [
+            {
+                "id": "vehicleOperationTitle",
+                "text": "תפעול הרכב"
+            },
+            {
+                "id": "vehicleOperationText",
+                "text": "בנושא תפעול הרכב תעברו ותלמדו 4 נושאים:"
+            },
+            {
+                "id": "vehicleOperationText2",
+                "text": "בנוסף, תעברו כמה סימולציות קצרות בהן תתרגלו את החומר"
+            },
+            {
+                "id": "vehicleOperationBtnText",
+                "text": "הבנתי ואני מוכן להתחיל!"
+            }
+        ],
         "End": [
             {
                 "id": "EndTitle",

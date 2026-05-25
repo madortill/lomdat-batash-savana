@@ -3,10 +3,7 @@ import { useData } from "../../../context/DataContext";
 import styles from "./ContentIndicatorLights.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
 
-// ── The shell ──
 import Popups from "../../elements/Popups/Popups";
-
-// ── The three popup child components ──
 import AdBluePopup from "../../elements/ChildPopups/ChildPopupAdBlue/ChildPopupAdBlue";
 import ChildPopupTab from "../../elements/ChildPopups/ChildPopupTab/ChildPopupTab";
 import StandardIndicator from "../../elements/ChildPopups/StandardIndicator/StandardIndicator";

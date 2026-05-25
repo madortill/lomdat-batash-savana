@@ -1,25 +1,19 @@
-.pageContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    direction: rtl;
-}
-
-.intro2Text1 {
+.metricsText {
     position: absolute;
     top: 20vh;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* העטיפה של הדשבורד - קובעת את הגודל ומחזיקה את המיקומים האבסולוטיים */
 .dashboardWrapper {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25vh;
     width: 90%;
-    max-width: 850px;
+    max-width: 900px;
     margin: 2rem auto;
-    border-radius: 24px;
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
@@ -30,7 +24,6 @@
     display: block;
 }
 
-/* בסיס משותף לכל שכבות הלחיצה */
 .metricOverlay {
     position: absolute;
     background: transparent;
@@ -41,38 +34,38 @@
     transition: all 0.3s ease;
 }
 
-/* מדדים שאינם פעילים - 60% שקיפות */
-/* טיפ: כדי לתת אפקט של 60% שקיפות למדד עצמו, אנחנו שמים שכבה שחורה חצי שקופה מעליו */
-.inactiveMetric {
+/* .inactiveMetric {
     background-color: rgba(26, 26, 26, 0.35);
     cursor: not-allowed;
     pointer-events: none;
+} */
+
+.viewedMetric {
+    background-color: rgba(255, 255, 255, 0.288);
+    cursor: pointer;
 }
 
-/* מדדים פעילים ללחיצה */
 .activeMetric {
     cursor: pointer;
 }
 
 .activeMetric:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    /* הדגשה קלה ב-Hover */
 }
 
-/* ── טבעת הזוהר הפועמת (Glow Ring) ── */
 .glowRing {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    /* יצירת מסגרת זוהרת בצבע כתום/צהוב בהתאם לרפרנס שלך */
-    border: 4px solid #e1aa2a;
-    box-shadow: 0 0 15px #e1aa2a, inset 0 0 15px #e1aa2a;
+    border: 4px solid #E69907;
+    box-shadow: 0 0 15px #E69907, inset 0 0 15px #E69907;
     animation: pulseGlow 2s ease-in-out infinite;
     pointer-events: none;
 }
 
 @keyframes pulseGlow {
     0% {
+        background-color: #e6980738;
         transform: scale(1);
         opacity: 0.3;
     }
@@ -80,10 +73,12 @@
     50% {
         transform: scale(1.04);
         opacity: 0.9;
-        box-shadow: 0 0 25px #e1aa2a, inset 0 0 20px #e1aa2a;
+        background-color: #e6980759;
+        box-shadow: 0 0 25px #E69907, inset 0 0 20px #E69907;
     }
 
     100% {
+        background-color: #e6980738;
         transform: scale(1);
         opacity: 0.3;
     }

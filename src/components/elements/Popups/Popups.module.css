@@ -21,6 +21,16 @@
     animation: enter 0.2s ease-out;
 }
 
+.transparentBox {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
 @keyframes enter {
     from {
         opacity: 0;
