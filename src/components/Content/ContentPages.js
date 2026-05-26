@@ -10,6 +10,7 @@ import VehicleOperationOpeningChecks from "./VOOpeningChecks/VOOpeningChecks";
 import VOChecks from "./VOChecks/VOChecks";
 import VOOpeningGearbox from "./VOOpeningGearbox/VOOpeningGearbox";
 import VOGearbox from "./VOGearbox/VOGearbox";
+import VOGearboxPractice from "./VOGearboxPractice/VOGearboxPractice";
 
 
 export const pages = [
@@ -24,6 +25,7 @@ export const pages = [
     { component: VehicleOperationOpeningChecks, isAutoEnabled: false },
     { component: VOChecks, isAutoEnabled: false },
     { component: VOOpeningGearbox, isAutoEnabled: true },
-    { component: VOGearbox, isAutoEnabled: true }
+    { component: VOGearbox, isAutoEnabled: true },
+    { component: VOGearboxPractice, isAutoEnabled: false }
 ];
 

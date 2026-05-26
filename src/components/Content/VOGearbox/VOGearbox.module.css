@@ -1,41 +1,21 @@
-.gearboxBg1 {
-    width: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 2%;
-}
-
-@media (max-width: 1450px) {
-    .gearboxBg1 {
-        width: 70%;
-    }
-}
 
 .imgDiv {
     position: absolute;
-    top: 52%;/* התיבה המרכזית שמדמה את גודל ה-SVG בדיוק */
-
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    /* קביעת הרוחב הרספונסיבי בדומה לקוד המקורי שלך */
     width: 55vw; 
-    /* נועל את הפרופורציות של התמונה המקורית (למשל 4:3 או יחס מותאם) */
-    aspect-ratio: 720 / 460; 
-    
+    aspect-ratio: 720 / 460;
     display: block;
     z-index: 1;
 }
 
 @media (max-width: 1450px) {
     .imgDiv {
-        width: 72vw; /* גדל במסכים קטנים כדי לשמור על קריאות */
+        width: 72vw;
     }
 }
 
-/* תמונת הרקע נמתחת לכל עבר מבלי לעוות את היחס */
 .gearboxBg {
     width: 100%;
     height: 100%;
@@ -46,18 +26,35 @@
     z-index: -1;
 }
 
-/* מיקום אזור הטקסט העליון (מצב הפעלה ידנית - M) */
-.topTextRegion {
+.textboxTop {
     position: absolute;
-    top: 12%;   /* שומר על מיקום קבוע יחסית לגרפיקה ברקע */
+    top: 12%;
     left: 15%;
-    width: 70%; /* לא מאפשר לטקסט לגלוש החוצה מגבולות הלוח */
+    width: 70%;
+    text-align: center;
+    direction: rtl;
+}
+
+.textboxRight {
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    width: 15%;
+    text-align: center;
+    direction: rtl;
+}
+
+.textboxLeft {
+    position: absolute;
+    bottom: 7%;
+    left: 2%;
+    width: 60%;
     text-align: center;
     direction: rtl;
 }
 
 .regionTitle {
-    color: #FF9900;
+    color: #E69907;
     font-family: Assistant, sans-serif;
     font-size: clamp(1.1rem, 1.6vw, 1.8rem);
     font-weight: 800;
@@ -65,26 +62,9 @@
 }
 
 .regionText {
-    color: #FFFFFF;
+    color: #FFF2B4;
     font-family: Assistant, sans-serif;
     font-size: clamp(0.9rem, 1.1vw, 1.2rem);
     font-weight: 600;
     line-height: 1.4;
-}
-
-/* מיקום תיבת ה"שימו לב" בפינה הימנית התחתונה */
-.noticeRegion {
-    position: absolute;
-    bottom: 8%;
-    right: 8%;
-    width: 25%; /* נשארת בתוך התיבה השחורה המיועדת לה */
-    direction: rtl;
-}
-
-.noticeText {
-    color: #D1D1D1;
-    font-family: Assistant, sans-serif;
-    font-size: clamp(0.75rem, 0.9vw, 1rem);
-    font-weight: 600;
-    line-height: 1.3;
 }

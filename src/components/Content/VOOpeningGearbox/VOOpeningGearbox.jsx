@@ -19,6 +19,8 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
     const [carReady, setCarReady] = useState(alreadySeen);
     const [zoomOut, setZoomOut] = useState(false);
 
+    const [isTextDone, setIsTextDone] = useState(alreadySeen);
+
     const typewriterRef = useRef(null);
 
     if (!data || !data.general || !data.cVOOpeningGearbox) return null;
@@ -51,6 +53,7 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
                 if (index >= vehicleOperationBubbleText.length) {
                     clearInterval(typewriterRef.current);
                     sessionStorage.setItem(SEEN_KEY, "true");
+                    setIsTextDone(true);
                     onComplete?.();
                 }
             }, 40);
@@ -65,18 +68,20 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
     }, [carReady]);
 
     const handleNext = () => {
+        if (!canProceed || !isTextDone) return;
         setZoomOut(true);
-
         setTimeout(() => {
             onNext?.();
         }, 1400);
     };
 
+    const isNextEnabled = canProceed && isTextDone;
+
     return (
         <div className={`${styles.contentPage} ${zoomOut ? styles.pageFade : ""}`}>
 
             <div className="backBtnDiv">
-                <img src={backButton} className="back-btn" onClick={onBack} />
+                <img src={backButton} className="back-btn" onClick={onBack} alt="חזרה" />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
 
@@ -109,10 +114,10 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
             <div className={styles.gravelRoad}></div>
 
             <div
-                className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`}
+                className={`${isNextEnabled ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`}
                 onClick={handleNext}
             >
-                <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>
+                <p className={isNextEnabled ? "next-btn-text" : "next-btn-text-disabled"}>
                     {nextBtn}
                 </p>
             </div>

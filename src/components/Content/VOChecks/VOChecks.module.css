@@ -37,7 +37,7 @@
     height: 18px;
     border: 2px solid #E69907;
     border-radius: 4px;
-    background-color: white;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +66,7 @@
 }
 
 .checkLabelActive {
-    font-weight: 700;
+    /* font-weight: 700; */
     color: #E69907;
 }
 
@@ -128,13 +128,13 @@
 }
 
 .dotActive {
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: translate(-50%, -50%) scale(1.2);
     background: radial-gradient(circle, #f8bc4d 0%, #E69907 70%);
     box-shadow: 0 0 0 3px #f7b63f71;
 }
 
 .dotDone.dotActive:hover {
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
 @keyframes pulse {

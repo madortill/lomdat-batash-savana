@@ -14,9 +14,9 @@ const Gearbox = ({ onNext, onBack }) => {
     const cVOGearboxTitle = data.cVOGearbox[0].text;
     const cVOGearTopTitle = data.cVOGearbox[1].text;
     const cVOGearTop = data.cVOGearbox[2].text;
-    const cVOGearRight = data.cVOGearbox[3].text;
-    const cVOGearLeftTitle = data.cVOGearbox[4].text;
-    const cVOGearLeft = data.cVOGearbox[5].text;
+    const cVOGearRight = data.cVOGearbox[5].text;
+    const cVOGearLeftTitle = data.cVOGearbox[3].text;
+    const cVOGearLeft = data.cVOGearbox[4].text;
 
     return (
         <div className={styles.contentPage}>
@@ -36,12 +36,12 @@ const Gearbox = ({ onNext, onBack }) => {
                 </div>
 
                 <div className={styles.textboxRight}>
-                    <p className={styles.noticeText}>{cVOGearRight}</p>
+                    <p className={styles.regionText}>{cVOGearRight}</p>
                 </div>
 
                 <div className={styles.textboxLeft}>
                     <h2 className={styles.regionTitle}>{cVOGearLeftTitle}</h2>
-                    <p className={styles.noticeText}>{cVOGearLeft}</p>
+                    <p className={styles.regionText}>{cVOGearLeft}</p>
                 </div>
             </div>
 
