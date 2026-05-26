@@ -1,0 +1,157 @@
+.checksText {
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.checklist {
+    position: absolute;
+    top: 33vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 0.5rem 2.5rem;
+    direction: rtl;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s;
+    pointer-events: none;
+}
+
+.checklistVisible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.checkItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    direction: rtl;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #E69907;
+    border-radius: 4px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.checkboxDone {
+    background-color: #61A747;
+    border-color: #61A747;
+}
+
+.checkmark {
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.checkLabel {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1rem, 1.1vw, 1.4rem);
+    color: #073799;
+    white-space: nowrap;
+    transition: font-weight 0.1s ease;
+}
+
+.checkLabelActive {
+    font-weight: 700;
+    color: #E69907;
+}
+
+.carWrapper {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%) scale(0.68);
+    transform-origin: bottom center;
+    width: 60vw;
+    transition: transform 0.7s cubic-bezier(0.34, 1.26, 0.64, 1);
+}
+
+.carWrapperGrown {
+    transform: translateX(-50%) scale(1);
+}
+
+.carImage {
+    width: 100%;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, background-color 0.2s;
+}
+
+.dotGlowing {
+    background: radial-gradient(circle, #ff6b35 0%, #e8431a 60%, rgba(232,67,26,0.3) 100%);
+    box-shadow:
+        0 0 0 3px rgba(232, 100, 30, 0.4),
+        0 0 12px 4px rgba(232, 100, 30, 0.5);
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+.dotGlowing:hover {
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.dotDone {
+    background: radial-gradient(circle, #7fcc5f 0%, #61A747 70%);
+    box-shadow: 0 0 0 3px rgba(97, 167, 71, 0.4);
+    animation: none;
+    cursor: pointer;
+}
+
+.dotDone:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    background: radial-gradient(circle, #f8bc4d 0%, #E69907 70%);
+    box-shadow: 0 0 0 3px #f7b63f71;
+}
+
+.dotActive {
+    transform: translate(-50%, -50%) scale(1.3);
+    background: radial-gradient(circle, #f8bc4d 0%, #E69907 70%);
+    box-shadow: 0 0 0 3px #f7b63f71;
+}
+
+.dotDone.dotActive:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 3px rgba(232,100,30,0.4), 0 0 10px 3px rgba(232,100,30,0.4); }
+    50%  { box-shadow: 0 0 0 6px rgba(232,100,30,0.15), 0 0 18px 7px rgba(232,100,30,0.25); }
+    100% { box-shadow: 0 0 0 3px rgba(232,100,30,0.4), 0 0 10px 3px rgba(232,100,30,0.4); }
+}
+
+.gravelRoad {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 13.5%;
+    background-color: #60491E;
+}
+
+.nextBtn {
+    margin-top: auto;
+}

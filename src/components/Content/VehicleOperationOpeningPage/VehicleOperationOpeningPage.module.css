@@ -5,9 +5,61 @@
     transform: translateX(-50%);
 }
 
-.vehicleOperationText2 {
+.bottomVehicleOperation {
     position: absolute;
-    top: 50vh;
+    bottom: 27vh;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.nextBtn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15vh;
+    width: 18vw;
+    height: 5vh;
+    transform: translateX(-50%) scale(1);
+    transition: transform 0.15s ease;
+}
+
+.nextBtn:hover {
+    transform: translateX(-50%) scale(1.15); 
+    cursor: pointer;
+}
+
+.bigCirclesFlexDiv {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    top: 32vh;
+}
+
+.roadCircleDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0vh 2vw;
+}
+
+.roadCircle {
+    width: clamp(10rem, 12vw, 14rem);
+}
+
+.circleText {
+    color: white;
+    font-weight: 800;
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    font-family: Rubik, sans-serif;
+    position: absolute;
+    width: 7vw;
+    text-align: center;
+}
+
+.middleCircleText {
+    font-size: clamp(1rem, 1.4vw, 1.6rem);;
 }

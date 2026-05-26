@@ -6,6 +6,11 @@ import ContentGeneralData from "./ContentGeneralData/ContentGeneralData";
 import ContentIndicatorLights from "./ContentIndicatorLights/ContentIndicatorLights";
 import ContentMetrics from "./ContentMetrics/ContentMetrics";
 import VehicleOperationOpeningPage from "./VehicleOperationOpeningPage/VehicleOperationOpeningPage";
+import VehicleOperationOpeningChecks from "./VOOpeningChecks/VOOpeningChecks";
+import VOChecks from "./VOChecks/VOChecks";
+import VOOpeningGearbox from "./VOOpeningGearbox/VOOpeningGearbox";
+import VOGearbox from "./VOGearbox/VOGearbox";
+
 
 export const pages = [
     { component: ContentIntro, isAutoEnabled: false},
@@ -15,6 +20,10 @@ export const pages = [
     { component: ContentGeneralData, isAutoEnabled: false },
     { component: ContentIndicatorLights, isAutoEnabled: false },
     { component: ContentMetrics, isAutoEnabled: false },
-    { component: VehicleOperationOpeningPage, isAutoEnabled: true }
+    { component: VehicleOperationOpeningPage, isAutoEnabled: true },
+    { component: VehicleOperationOpeningChecks, isAutoEnabled: false },
+    { component: VOChecks, isAutoEnabled: false },
+    { component: VOOpeningGearbox, isAutoEnabled: true },
+    { component: VOGearbox, isAutoEnabled: true }
 ];
 
