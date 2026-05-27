@@ -1,41 +1,40 @@
 import { useEffect, useState, useRef } from "react";
 import { useData } from "../../../context/DataContext";
-import styles from "./VOOpeningGearbox.module.css";
+import styles from "./VOOpeningWheel.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
 import yellowSavanna from "../../../assets/img/simulationSavannaHappyGal.svg";
 
-const SEEN_KEY = "VOOpeningGearbox_seen";
+const SEEN_KEY = "VOOpeningWheel_seen";
 
-const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
+const Wheel = ({ onComplete, onNext, onBack, canProceed }) => {
     const { data } = useData();
 
     const alreadySeen = sessionStorage.getItem(SEEN_KEY) === "true";
+    // const alreadySeen = false;
 
     const [displayedText, setDisplayedText] = useState(
-        alreadySeen ? (data?.cVOOpeningGearbox?.[1]?.text ?? "") : ""
+        alreadySeen ? (data?.cOpeningWheel?.[1]?.text ?? "") : ""
     );
 
     const [bubbleVisible, setBubbleVisible] = useState(alreadySeen);
-    const [carReady, setCarReady] = useState(alreadySeen);
-    const [zoomOut, setZoomOut] = useState(false);
-
+    const [animationDone, setAnimationDone] = useState(alreadySeen);
     const [isTextDone, setIsTextDone] = useState(alreadySeen);
 
     const typewriterRef = useRef(null);
 
-    if (!data || !data.general || !data.cVOOpeningGearbox) return null;
+    if (!data || !data.general || !data.cOpeningWheel) return null;
 
     const backBtn = data.general[0].text;
     const nextBtn = data.general[1].text;
-    const vehicleOperationTitle = data.cVOOpeningGearbox[0].text;
-    const vehicleOperationBubbleText = data.cVOOpeningGearbox[1].text;
+    const vehicleOperationTitle = data.cOpeningWheel[0].text;
+    const vehicleOperationBubbleText = data.cOpeningWheel[1].text;
+
+    const handleAnimationEnd = () => {
+        setAnimationDone(true);
+    };
 
     useEffect(() => {
-        setCarReady(true);
-    }, []);
-
-    useEffect(() => {
-        if (!carReady) return;
+        if (!animationDone) return;
         if (alreadySeen) return;
 
         const bubbleDelay = setTimeout(() => {
@@ -65,20 +64,17 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
             clearInterval(typewriterRef.current);
         };
 
-    }, [carReady]);
+    }, [animationDone]);
 
     const handleNext = () => {
         if (!canProceed || !isTextDone) return;
-        setZoomOut(true);
-        setTimeout(() => {
-            onNext?.();
-        }, 1400);
+        onNext?.();
     };
 
     const isNextEnabled = canProceed && isTextDone;
 
     return (
-        <div className={`${styles.contentPage} ${zoomOut ? styles.pageFade : ""}`}>
+        <div className={styles.contentPage}>
 
             <div className="backBtnDiv">
                 <img src={backButton} className="back-btn" onClick={onBack} alt="חזרה" />
@@ -102,7 +98,10 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
             </div>
 
             <div className={styles.zoomScene}>
-                <div className={`${styles.zoomTarget} ${zoomOut ? styles.zoomIntoWindow : ""}`}>
+                <div 
+                    className={`${styles.zoomTarget} ${!alreadySeen ? styles.zoomFromWindow : ""}`}
+                    onAnimationEnd={handleAnimationEnd}
+                >
                     <img
                         src={yellowSavanna}
                         alt="yellow Savanna"
@@ -126,4 +125,4 @@ const OpeningGearbox = ({ onComplete, onNext, onBack, canProceed }) => {
     );
 };
 
-export default OpeningGearbox;
+export default Wheel;

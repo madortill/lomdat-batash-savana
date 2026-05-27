@@ -35,8 +35,8 @@
 .checkbox {
     width: 18px;
     height: 18px;
-    border: 2px solid #E69907;
-    border-radius: 4px;
+    border: 3px solid #E69907;
+    border-radius: 6px;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -60,14 +60,14 @@
 .checkLabel {
     font-family: Assistant, sans-serif;
     font-size: clamp(1rem, 1.1vw, 1.4rem);
-    color: #073799;
+    color: #E69907;
     white-space: nowrap;
+    font-weight: 700;
     transition: font-weight 0.1s ease;
 }
 
 .checkLabelActive {
-    /* font-weight: 700; */
-    color: #E69907;
+    color: #073799;
 }
 
 .carWrapper {
@@ -82,6 +82,10 @@
 
 .carWrapperGrown {
     transform: translateX(-50%) scale(1);
+}
+
+.carWrapperShrunk {
+    transform: translateX(-50%) scale(0.68) !important;
 }
 
 .carImage {
@@ -103,11 +107,11 @@
 }
 
 .dotGlowing {
-    background: radial-gradient(circle, #ff6b35 0%, #e8431a 60%, rgba(232,67,26,0.3) 100%);
+    background: radial-gradient(circle, #ff6b35 0%, #e8431a 60%, rgba(232, 67, 26, 0.3) 100%);
     box-shadow:
-        0 0 0 3px rgba(232, 100, 30, 0.4),
-        0 0 12px 4px rgba(232, 100, 30, 0.5);
-    animation: pulse 1.4s ease-in-out infinite;
+        0 0 0 3px rgb(250, 105, 26),
+        0 0 12px 4px rgb(255, 145, 86);
+    animation: pulse 1.2s ease-in-out infinite;
 }
 
 .dotGlowing:hover {
@@ -138,9 +142,18 @@
 }
 
 @keyframes pulse {
-    0%   { box-shadow: 0 0 0 3px rgba(232,100,30,0.4), 0 0 10px 3px rgba(232,100,30,0.4); }
-    50%  { box-shadow: 0 0 0 6px rgba(232,100,30,0.15), 0 0 18px 7px rgba(232,100,30,0.25); }
-    100% { box-shadow: 0 0 0 3px rgba(232,100,30,0.4), 0 0 10px 3px rgba(232,100,30,0.4); }
+    0% {
+        box-shadow: 0 0 0 3px rgba(232, 100, 30, 0.4), 0 0 10px 3px rgba(232, 100, 30, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(232, 100, 30, 0.15), 0 0 18px 7px rgba(232, 100, 30, 0.25);
+        scale: 1.1;
+    }
+
+    100% {
+        box-shadow: 0 0 0 3px rgba(232, 100, 30, 0.4), 0 0 10px 3px rgba(232, 100, 30, 0.4);
+    }
 }
 
 .gravelRoad {

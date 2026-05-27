@@ -21,20 +21,21 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
 
     if (!data?.general || !data?.cVOChecks) return null;
 
-    const backBtn     = data.general[0].text;
-    const nextBtn     = data.general[1].text;
+    const backBtn = data.general[0].text;
+    const nextBtn = data.general[1].text;
     const checksTitle = data.cVOChecks[0].text;
-    const checksText  = data.cVOChecks[1].text;
-    const checks      = data.cVOChecks[2].items;
+    const checksText = data.cVOChecks[1].text;
+    const checks = data.cVOChecks[2].items;
 
     const alreadySeen = sessionStorage.getItem(SEEN_KEY) === "true";
 
-    const [carGrown, setCarGrown]       = useState(alreadySeen);
+    const [carGrown, setCarGrown] = useState(alreadySeen);
     const [dotsVisible, setDotsVisible] = useState(alreadySeen);
-    const [completed, setCompleted]     = useState(() =>
+    const [carShrinking, setCarShrinking] = useState(false);
+    const [completed, setCompleted] = useState(() =>
         alreadySeen ? new Set(checks.map((_, i) => i)) : new Set()
     );
-    const [activeDot, setActiveDot]     = useState(null);
+    const [activeDot, setActiveDot] = useState(null);
 
     useEffect(() => {
         if (alreadySeen) return;
@@ -49,6 +50,7 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
     }, [carGrown]);
 
     const handleDotClick = (index) => {
+        if (carShrinking) return;
         setActiveDot(index);
         setCompleted(prev => {
             const next = new Set([...prev, index]);
@@ -58,6 +60,15 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
             }
             return next;
         });
+    };
+
+    const handleNextClick = () => {
+        if (!canProceed) return;
+        setDotsVisible(false);
+        setCarShrinking(true);
+        setTimeout(() => {
+            onNext?.();
+        }, 700);
     };
 
     return (
@@ -86,7 +97,11 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
 
             <div className={styles.gravelRoad} />
 
-            <div className={`${styles.carWrapper} ${carGrown ? styles.carWrapperGrown : ""}`}>
+            <div className={`
+                ${styles.carWrapper} 
+                ${carGrown ? styles.carWrapperGrown : ""} 
+                ${carShrinking ? styles.carWrapperShrunk : ""}
+            `}>
                 <img
                     src={yellowSavanna}
                     alt="yellow Savanna"
@@ -95,7 +110,7 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
                 />
 
                 {dotsVisible && DOT_POSITIONS.slice(0, checks.length).map((dot) => {
-                    const isDone   = completed.has(dot.index);
+                    const isDone = completed.has(dot.index);
                     const isActive = activeDot === dot.index;
                     return (
                         <button
@@ -115,7 +130,7 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
 
             <div
                 className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`}
-                onClick={onNext}
+                onClick={handleNextClick}
             >
                 <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>{nextBtn}</p>
             </div>
