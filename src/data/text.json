@@ -995,6 +995,28 @@
                 "id": "EndBtnText",
                 "text": "חזרה למארז"
             }
+        ],
+        "navTopics": [
+            {
+                "id": "topicIntroduction",
+                "label": "מבוא ומושגים"
+            },
+            {
+                "id": "topicABS",
+                "label": "מערכת ABS"
+            },
+            {
+                "id": "topicBattery",
+                "label": "מערכת המצבר"
+            },
+            {
+                "id": "topicCooling",
+                "label": "מערכת הקירור"
+            },
+            {
+                "id": "topicSummary",
+                "label": "סיכום ומבחן"
+            }
         ]
     },
     "en": {

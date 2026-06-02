@@ -19,24 +19,24 @@ import VOBreakPractice from "./VOBreakPractice/VOBreakPractice";
 import Safety from "./Safety/Safety";
 
 export const pages = [
-    { component: ContentIntro, isAutoEnabled: false},
-    { component: ContentIntroPage2, isAutoEnabled: false },
-    { component: ContentIntroPage3, isAutoEnabled: true },
-    { component: ContentKnowingTheVehicle, isAutoEnabled: true },
-    { component: ContentGeneralData, isAutoEnabled: false },
-    { component: ContentIndicatorLights, isAutoEnabled: false },
-    { component: ContentMetrics, isAutoEnabled: false },
-    { component: VehicleOperationOpeningPage, isAutoEnabled: true },
-    { component: VehicleOperationOpeningChecks, isAutoEnabled: false },
-    { component: VOChecks, isAutoEnabled: false },
-    { component: VOOpeningGearbox, isAutoEnabled: true },
-    { component: VOGearbox, isAutoEnabled: true },
-    { component: VOGearboxPractice, isAutoEnabled: false },
-    { component: VOOpeningWheel, isAutoEnabled: false },
-    { component: VOWheel, isAutoEnabled: false },
-    { component: VOOpeningBreak, isAutoEnabled: false },
-    { component: VOBreak, isAutoEnabled: true },
-    { component: VOBreakPractice, isAutoEnabled: false },
-    { component: Safety, isAutoEnabled: false }
+    { component: ContentIntro, isAutoEnabled: false, label: "מבוא"},
+    { component: ContentIntroPage2, isAutoEnabled: false, label: "מבוא"},
+    { component: ContentIntroPage3, isAutoEnabled: true, label: "מבוא"},
+    { component: ContentKnowingTheVehicle, isAutoEnabled: true, label: "מבוא"},
+    { component: ContentGeneralData, isAutoEnabled: false, label: "מבוא"},
+    { component: ContentIndicatorLights, isAutoEnabled: false, label: "מבוא"},
+    { component: ContentMetrics, isAutoEnabled: false, label: "מבוא"},
+    { component: VehicleOperationOpeningPage, isAutoEnabled: true, label: "מבוא"},
+    { component: VehicleOperationOpeningChecks, isAutoEnabled: false, label: "מבוא"},
+    { component: VOChecks, isAutoEnabled: false, label: "מבוא"},
+    { component: VOOpeningGearbox, isAutoEnabled: true, label: "מבוא"},
+    { component: VOGearbox, isAutoEnabled: true, label: "מבוא"},
+    { component: VOGearboxPractice, isAutoEnabled: false, label: "מבוא"},
+    { component: VOOpeningWheel, isAutoEnabled: false, label: "מבוא"},
+    { component: VOWheel, isAutoEnabled: false, label: "מבוא"},
+    { component: VOOpeningBreak, isAutoEnabled: false, label: "מבוא"},
+    { component: VOBreak, isAutoEnabled: true, label: "מבוא"},
+    { component: VOBreakPractice, isAutoEnabled: false, label: "מבוא"},
+    { component: Safety, isAutoEnabled: false, label: "מבוא"}
 ];
 

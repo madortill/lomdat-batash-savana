@@ -1,4 +1,144 @@
 
-.navBarClosed {
-    width: 15vw;
+.backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 200;
+    width: clamp(80px, 9vw, 110px);
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.45);
+    direction: rtl;
+}
+
+.navbar.open {
+    width: clamp(180px, 22vw, 260px);
+}
+
+.wheelSection {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 0.5rem 0.6rem;
+    flex-shrink: 0;
+    border-bottom: 2px solid #E69907;
+    user-select: none;
+}
+
+.wheelImg {
+    width: clamp(55px, 7vw, 85px);
+    transition: transform 0.3s ease;
+}
+
+.wheelSection:hover .wheelImg {
+    animation: spin 1.8s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.currentLabel {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(0.65rem, 1.1vw, 0.85rem);
+    font-weight: 700;
+    color: #F9DB88;
+    text-align: center;
+    margin: 0.35rem 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    padding: 0 0.2rem;
+}
+
+.topicsWrapper {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 0;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.topicsWrapper::-webkit-scrollbar { width: 4px; }
+.topicsWrapper::-webkit-scrollbar-track { background: #1a1a1a; }
+.topicsWrapper::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+
+.topicsOpen {
+    max-height: 100vh;
+}
+
+/* ── Individual topic ── */
+.topicItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #2e2e2e;
+    min-height: 52px;
+    box-sizing: border-box;
+    transition: background-color 0.15s;
+    gap: 0.5rem;
+}
+
+.unlocked {
+    cursor: pointer;
+    color: #ccc;
+}
+
+.unlocked:hover {
+    background: #333;
+}
+
+.locked {
+    cursor: not-allowed;
+    color: #555;
+    opacity: 0.45;
+}
+
+.current {
+    background: linear-gradient(to left, #3d3200, #2a2200) !important;
+    color: #F9DB88 !important;
+    font-weight: 700;
+    border-right: 4px solid #E69907;
+}
+
+.current.unlocked:hover {
+    background: linear-gradient(to left, #504200, #3a3000) !important;
+}
+
+.topicLabel {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    line-height: 1.4;
+    text-align: right;
+    flex: 1;
+}
+
+.activeDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E69907;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px #E69907;
+}
+
+.lockIcon {
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    opacity: 0.7;
 }
