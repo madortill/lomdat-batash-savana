@@ -1,0 +1,58 @@
+.text {
+    position: absolute;
+    width: 80vw;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.breakImg {
+    position: absolute;
+    width: 30vw;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+}
+
+.smallText {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+}
+
+.commentWrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5%;
+    width: 60%;
+}
+
+.imgDiv {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30vh;
+    width: 50vw;
+    height: 50vh;
+}
+
+@media (max-width: 1450px) {
+    .breakImg {
+        width: 70%;
+    }
+}
+
+@media (1050px <= width <= 1250px) {
+    .breakImg {
+        width: 80%;
+    }
+}
+
+@media (800px <= width <= 1050px) {
+    .breakImg {
+        width: 90%;
+    }
+}

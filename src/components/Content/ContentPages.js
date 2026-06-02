@@ -13,7 +13,9 @@ import VOGearbox from "./VOGearbox/VOGearbox";
 import VOGearboxPractice from "./VOGearboxPractice/VOGearboxPractice";
 import VOOpeningWheel from "./VOOpeningWheel/VOOpeningWheel";
 import VOWheel from "./VOWheel/VOWheel";
-
+import VOOpeningBreak from "./VOOpeningBreak/VOOpeningBreak";
+import VOBreak from "./VOBreak/VOBreak";
+import VOBreakPractice from "./VOBreakPractice/VOBreakPractice";
 
 export const pages = [
     { component: ContentIntro, isAutoEnabled: false},
@@ -30,6 +32,9 @@ export const pages = [
     { component: VOGearbox, isAutoEnabled: true },
     { component: VOGearboxPractice, isAutoEnabled: false },
     { component: VOOpeningWheel, isAutoEnabled: false },
-    { component: VOWheel, isAutoEnabled: false }
+    { component: VOWheel, isAutoEnabled: false },
+    { component: VOOpeningBreak, isAutoEnabled: false },
+    { component: VOBreak, isAutoEnabled: true },
+    { component: VOBreakPractice, isAutoEnabled: false }
 ];
 
