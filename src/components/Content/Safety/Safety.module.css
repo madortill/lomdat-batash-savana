@@ -1,0 +1,152 @@
+.subText {
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.roadWrapper {
+    position: absolute;
+    width: 70%;
+    top: 55vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carsRow {
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+    margin-bottom: -0.5vw;
+    position: relative;
+    z-index: 2;
+}
+
+.carBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.carBtn img {
+    width: 17vw;
+    min-width: 100px;
+    transition: filter 0.3s ease;
+}
+
+.carBtn span {
+    color: white;
+    font-weight: 700;
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    margin-top: -5vw;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.road {
+    width: 100%;
+    height: 5vw;
+    background: black;
+    position: relative;
+}
+
+.road::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 0.5vw;
+    background-image: repeating-linear-gradient(to right,
+            rgba(255, 255, 255, 0.705) 0,
+            rgba(255, 255, 255, 0.705) 40px,
+            transparent 40px,
+            transparent 80px);
+    transform: translateY(-50%);
+}
+
+.carBtn:hover {
+    transform: scale(1.1);
+}
+
+.visited img {
+    filter: grayscale(100%) brightness(1.4) contrast(0.8);
+}
+
+.visited span,
+.visited .checkmark {
+    filter: grayscale(0%);
+}
+
+.checkmark {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #61A747;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 4;
+}
+
+.nextBtn {
+    position: absolute;
+    bottom: 5vh;
+}
+
+.warningSign {
+    position: absolute;
+    bottom: 5vw;
+    left: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 2.5vw solid transparent;
+    border-right: 2.5vw solid transparent;
+    border-bottom: 4.5vw solid #f5c555;
+    position: relative;
+}
+
+.exclamation {
+    position: absolute;
+    top: 1.5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1rem, 2.3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.pole {
+    width: 0.5vw;
+    min-width: 4px;
+    height: 7vw;
+    background: #B3B2B2;
+    background: linear-gradient(90deg, rgba(179, 178, 178, 0.589) 0%, rgba(217, 217, 217, 1) 50%, rgba(179, 178, 178, 0.582) 100%);
+}
+
+.redShadowPopup {
+    filter: drop-shadow(0px 0px 30px #CC3132) !important;
+}

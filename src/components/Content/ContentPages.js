@@ -16,6 +16,7 @@ import VOWheel from "./VOWheel/VOWheel";
 import VOOpeningBreak from "./VOOpeningBreak/VOOpeningBreak";
 import VOBreak from "./VOBreak/VOBreak";
 import VOBreakPractice from "./VOBreakPractice/VOBreakPractice";
+import Safety from "./Safety/Safety";
 
 export const pages = [
     { component: ContentIntro, isAutoEnabled: false},
@@ -35,6 +36,7 @@ export const pages = [
     { component: VOWheel, isAutoEnabled: false },
     { component: VOOpeningBreak, isAutoEnabled: false },
     { component: VOBreak, isAutoEnabled: true },
-    { component: VOBreakPractice, isAutoEnabled: false }
+    { component: VOBreakPractice, isAutoEnabled: false },
+    { component: Safety, isAutoEnabled: false }
 ];
 

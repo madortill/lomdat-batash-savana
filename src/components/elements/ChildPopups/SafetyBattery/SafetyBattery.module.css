@@ -1,0 +1,94 @@
+.popup {
+    width: 60vw;
+    padding: 2rem 2.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    direction: rtl;
+}
+
+.title {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+    font-weight: 800;
+    color: #073799;
+    text-align: center;
+    margin: 12px 0px;
+}
+
+.bodyText {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+    font-weight: 500;
+    color: #073799;
+    text-align: center;
+    line-height: 1.65;
+    margin: 0;
+    width: 70%;
+}
+
+.imageWrapper {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.arrowIcon {
+    position: absolute;
+    bottom: 10%;  
+    left: 19%;       
+    width: 10%;    
+    height: auto;
+    pointer-events: none;
+}
+
+.imageLabel {
+    font-family: Assistant, sans-serif;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    font-weight: 500;
+    color: #073799;
+    position: absolute;
+    bottom: 9%;
+    left: 8%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.commentWrapper {
+    width: 100%;
+}
+
+.confirmBtn {
+    background-color: #E69907;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    min-width: 45px;
+    min-width: 25px;
+    transition: transform 0.15s ease;
+    z-index: 10;
+    color: #FFF2B4;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-family: Assistant, sans-serif;
+    font-weight: 800;
+}
+
+.confirmBtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}

@@ -878,6 +878,114 @@
                 "text": "לחצו על דוושת בלם החנייה כדי לחנות!"
             }
         ],
+        "cSafety": [
+            {
+                "id": "SafetyTitle",
+                "text": "הוראות בטיחות"
+            },
+            {
+                "id": "SafetyText",
+                "text": "דגשי בטיחות חשובים:"
+            },
+            {
+                "id": "SafetyCoolingText",
+                "text": "מערכת הקירור"
+            },
+            {
+                "id": "SafetyBatteryText",
+                "text": "מצברי הרכב"
+            },
+            {
+                "id": "SafetyABSText",
+                "text": "מערכת ABS"
+            }
+        ],
+        "cSafetyBattery": [
+            {
+                "id": "cSafetyBatteryTitle",
+                "text": "מצברי הרכב"
+            },
+            {
+                "id": "cSafetyBatteryText",
+                "text": "ברכב הסוואנה 2 מצברים המותקנים על מסגרת השלדה מאחורי דלת הנוסע הקדמי. בורג חף לחיבור כבל העזר החיובי (+) ממוקם על מסגרת השלדה, מאחורי תיבת הצבר האחורית."
+            },
+            {
+                "id": "cSafetyBatteryArrowText",
+                "text": "תיבת הצבר האחורית"
+            },
+            {
+                "id": "cSafetyBatteryCommentText",
+                "text": "במקרה של תקלה ויש צורך בהתנעת חירום בסיוע מצבר עזר - אל תנסה להתניע את הרכב אם לא עברת הדרכה ואופן הנעת הרכב בחירום. בכל מקרה של תקלה יש ליידע את קצין הרכב ביחידתך או להסתייע בבעל מקצוע (חשמלאי רכב)."
+            },
+            {
+                "id": "cSafetyBatteryBtnText",
+                "text": "הבנתי!"
+            }
+        ],
+        "cSafetyABS": [
+            {
+                "id": "cSafetyABSTitle",
+                "text": "מערכת ABS"
+            },
+            {
+                "id": "cSafetyABSHeaderRight",
+                "text": "מה המערכת עושה?"
+            },
+            {
+                "id": "cSafetyABSHeaderLeft",
+                "text": "איך פועלים בחירום?"
+            },
+            {
+                "id": "cSafetyABSTextRight",
+                "text": "מערכת ה-ABS מזהה מתי גלגלים עומדים להינעל ומונעת זאת, גם בבלימה חזקה. בזכותה הרכב נשאר יציב, מה שמאפשר להמשיך להשתמש בהגה ולעקוף מכשולים בבטחה בזמן הבלימה."
+            },
+            {
+                "id": "cSafetyABSTextLeft",
+                "text": "במצב חירום, יש ללחוץ בכל הכוח על דוושת הבלם. המערכת תפעל מיד ותורגש באמצעות רעידות חזקות בדוושה – זהו סימן תקין שהמערכת עובדת, ויש להמשיך ללחוץ חזק עד לעצירה מלאה."
+            },
+            {
+                "id": "cSafetyABSArrowTextRight",
+                "text": "רכב מאבד שליטה (ללא ABS)"
+            },
+            {
+                "id": "cSafetyABSArrowTextLeft",
+                "text": "רכב עם מערכת ABS"
+            },
+            {
+                "id": "cSafetyABSCommentText",
+                "text": "מערכת ה-ABS אינה יכולה לפצות על אי שמירת מרחק, פניות חדות או שטח פני דרך חלק!"
+            },
+            {
+                "id": "cSafetyABSBtnText",
+                "text": "הבנתי!"
+            }
+        ],
+        "cSafetyCooling": [
+            {
+                "id": "cSafetyCoolingTitle",
+                "text": "מערכת הקירור - קירור המנוע"
+            },
+            {
+                "id": "cSafetyCoolingTextRight",
+                "text": "אל תפתח את מכסה המקרן כשהמנוע חם. המתן להתקררות המנוע."
+            },
+            {
+                "id": "cSafetyCoolingTextCenter",
+                "text": "אסור בהחלט להסיר את מכסה נוזל הקירור כשהמנוע פועל או בשעה כשהוא חם מאוד."
+            },
+            {
+                "id": "cSafetyCoolingTextLeft",
+                "text": "אל תוסיף נוזל קירור כאשר המנוע לוהט, אחרת עלול לפרוץ ממערכת הקירור קיטור ונוזלים רותחים."
+            },
+            {
+                "id": "cSafetyCoolingCommentText",
+                "text": "אי השמעות להוראות עלולות לגרום לכוויות קשות!"
+            },
+            {
+                "id": "cSafetyCoolingBtnText",
+                "text": "הבנתי!"
+            }
+        ],
         "End": [
             {
                 "id": "EndTitle",
