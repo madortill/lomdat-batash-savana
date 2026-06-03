@@ -1,11 +1,15 @@
+
 .scene {
     position: relative;
-    width: min(92vw, 1100px);
-    height: min(55vw, 520px);
+    width: min(94vw, 1200px);
+    min-height: clamp(280px, 48vw, 560px);
     display: flex;
     justify-content: center;
     align-items: center;
     background: transparent !important;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2.5rem);
+    box-sizing: border-box;
 }
 
 .animationLayer {
@@ -18,12 +22,12 @@
 .wheelPart {
     position: absolute;
     top: 50%;
-    width: min(26vw, 260px);
+    width: clamp(120px, 22vw, 260px);
     height: auto;
     opacity: 0;
-    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.28));
+    filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 15px rgba(255, 243, 180, 0.329));
     transition:
-        transform 0.85s cubic-bezier(.18,.9,.2,1),
+        transform 0.85s cubic-bezier(.18, .9, .2, 1),
         opacity 0.2s ease;
 }
 
@@ -49,23 +53,27 @@
     transform: translate(185%, -50%);
 }
 
-/* ---------- Card ---------- */
 .card {
     position: relative;
     z-index: 10;
-    width: min(70vw, 720px);
-    min-height: 270px;
+
+    width: clamp(280px, 58vw, 720px);
+    min-height: unset;
+
+    padding: clamp(1.2rem, 2.2vw, 2rem) clamp(1rem, 2.5vw, 2rem);
+    box-sizing: border-box;
+
     background: #FFF2B4;
-    border: 3px solid #E7B43A;
     border-radius: 12px;
     box-shadow:
-        0 0 0 1px rgba(231,180,58,.25),
-        0 12px 30px rgba(0,0,0,.18);
+        0 0 0 1px rgba(231, 180, 58, .25),
+        0 12px 30px rgba(0, 0, 0, .18);
+
     opacity: 0;
     transform: scale(.82);
     transition:
         opacity .35s ease .45s,
-        transform .45s cubic-bezier(.34,1.56,.64,1) .45s;
+        transform .45s cubic-bezier(.34, 1.56, .64, 1) .45s;
 }
 
 .sceneOpen .card {
@@ -74,59 +82,91 @@
 }
 
 .title {
-    margin-top: 3rem;
-
+    margin: 2vh 0vw 1vh 0vw;
+    padding: 0 1rem;
     text-align: center;
-
     color: #073799;
-
-    font-family: Rubik;
-    font-size: clamp(1.8rem, 2vw, 2.4rem);
+    font-family: Rubik, sans-serif;
+    font-size: clamp(1.1rem, 2vw, 2.5rem);
     font-weight: 700;
 }
 
 .text {
-    width: 82%;
-
-    margin: 2rem auto;
-
+    width: min(90%, 560px);
+    margin: 0 auto clamp(1rem, 2vw, 1.4rem);
     text-align: center;
-
     color: #4066B0;
-
     font-family: Assistant, sans-serif;
-    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    font-size: clamp(0.95rem, 1.1vw, 1.2rem);
     font-weight: 600;
-    line-height: 1.7;
+    line-height: 1.45;
 }
 
 .confirmBtn {
-    position: absolute;
-
-    left: 50%;
-    bottom: 1.4rem;
-
-    transform: translateX(-50%);
-
-    min-width: 120px;
-    height: 42px;
-
-    border: none;
-    border-radius: 8px;
-
-    background: #E69907;
-
-    color: white;
-
+    background-color: #E69907;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.4rem;
+    min-height: 25px;
+    transition: transform 0.15s ease;
+    z-index: 10;
+    color: #FFF2B4;
+    font-size: clamp(1rem, 1.1vw, 1.2rem);
     font-family: Assistant, sans-serif;
-    font-size: 1rem;
     font-weight: 800;
-
-    cursor: pointer;
-
-    transition: transform .15s ease;
+    margin: 0rem auto; 
+    width: fit-content;
+    border: none;
 }
 
 .confirmBtn:hover {
-    transform: translateX(-50%) scale(1.05);
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@media (max-width: 680px) {
+    .scene {
+        width: 100%;
+        min-height: auto;
+        padding: 1.5rem 1rem;
+    }
+
+    .card {
+        width: min(92vw, 420px);
+        padding: 1.1rem 0.9rem;
+    }
+
+    .title {
+        padding: 0;
+    }
+
+    .text {
+        width: 92%;
+        line-height: 1.4;
+    }
+
+    .wheelPart {
+        width: clamp(90px, 32vw, 150px);
+    }
+
+    .sceneOpen .left {
+        transform: translate(-145%, -50%) scale(0.8);
+    }
+
+    .sceneOpen .right {
+        transform: translate(145%, -50%) scale(0.8);
+    }
+}
+
+@media (min-width: 1200px) {
+    .sceneOpen .left {
+        transform: translate(-200%, -50%);
+    }
+
+    .sceneOpen .right {
+        transform: translate(200%, -50%);
+    }
 }

@@ -3,7 +3,6 @@ import { useData } from "../../../context/DataContext";
 import styles from "./ContentIntroPage2.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
 import flipCar from "../../../assets/img/flipCar.svg";
-import checkmark from "../../../assets/img/checkmark.svg";
 
 const CARD_SIZES = [
     { width: "clamp(280px, 38vw, 520px)", height: "clamp(100px, 15vw, 190px)" }, // large
@@ -53,7 +52,6 @@ const ContentIntroPage2 = ({ onComplete, onNext, onBack, canProceed }) => {
             <h1 className="main-header-text">{intro2Title}</h1>
             <p className={`standard-text ${styles.intro2Text1}`}>{intro2Text1}</p>
 
-
             <div className={styles.cardsContainer}>
                 {cards.map((card, i) => (
                     <div key={i} className={styles.cardColumn}>
@@ -63,7 +61,7 @@ const ContentIntroPage2 = ({ onComplete, onNext, onBack, canProceed }) => {
                             onClick={() => flipCard(i)}
                         >
                             {flippedCards.has(i) && (
-                                <img src={checkmark} alt="completed" className={styles.checkmark} />
+                                <div className={styles.checkmark}>✓</div>
                             )}
 
                             <div className={`${styles.cardInner} ${flippedState.has(i) ? styles.flipped : ""}`}>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useData } from "../../../../context/DataContext";
 import styles from "./Air.module.css";
 import backButton from "../../../../assets/img/backBtn.svg";
@@ -8,9 +8,14 @@ import Tabs from "../../../elements/Tabs/Tabs";
 const Air = ({ onBack, cardKey }) => {
     const { data } = useData();
 
+    const [hasVisitedTab2, setHasVisitedTab2] = useState(() => {
+        const savedProgress = localStorage.getItem(`air_tab2_visited_${cardKey}`);
+        return savedProgress === "true";
+    });
+
     useEffect(() => {
         localStorage.setItem(`completed_${cardKey}`, "true");
-    }, []);
+    }, [cardKey]);
 
     if (!data || !data.general || !data.cAir) return null;
 
@@ -18,6 +23,21 @@ const Air = ({ onBack, cardKey }) => {
     const nextBtn = data.general[1].text;
     const title = data.cAir[0].text;
     const { tab1, tab2 } = data.cAir[1];
+
+    const canProceed = hasVisitedTab2;
+
+    const handleTabChange = (index) => {
+        if (index === 1 && !hasVisitedTab2) {
+            setHasVisitedTab2(true);
+            localStorage.setItem(`air_tab2_visited_${cardKey}`, "true");
+        }
+    };
+
+    const handleNextClick = () => {
+        if (canProceed) {
+            onBack({ completed: true });
+        }
+    };
 
     const buildTabContent = (tab) => (
         <div className={styles.tabContentInner}>
@@ -64,14 +84,17 @@ const Air = ({ onBack, cardKey }) => {
                     activeColor="#F9DB88"
                     borderColor="#073799"
                     contentBg="#F9DB88"
+                    onChangeTab={handleTabChange}
                 />
             </div>
 
             <div
-                className="next-btn"
-                onClick={() => onBack({ completed: true })}
+                className={`${canProceed ? "next-btn" : "next-btn-disabled"}`}
+                onClick={handleNextClick}
             >
-                <p className="next-btn-text">{nextBtn}</p>
+                <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>
+                    {nextBtn}
+                </p>
             </div>
         </div>
     );

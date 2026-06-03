@@ -41,7 +41,8 @@
 }
 
 .middleCircleText {
-    font-size: clamp(1rem, 1.4vw, 1.6rem);;
+    font-size: clamp(1rem, 1.4vw, 1.6rem);
+    ;
 }
 
 .tabsInfo {
@@ -84,4 +85,45 @@
     font-weight: 500;
     color: #073799;
     margin: 0;
+}
+
+.commentDiv {
+    position: absolute;
+    top: 70vh;
+    left: 14vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: clamp(140px, 12vw, 200px);
+}
+
+.arrow {
+    width: clamp(50px, 5vw, 80px);
+    height: auto;
+    margin-bottom: 0.5rem;
+    transform: scaleX(-1) rotate(-105deg);
+}
+
+.commentDiv .circleText {
+    position: relative;
+    color: #073799;
+    width: 80%;
+    font-size: clamp(0.8rem, 0.9vw, 1.1rem);
+    font-weight: 600;
+    font-family: Assistant, sans-serif;
+    left: -1.5rem;
+    margin-top: 1rem;
+}
+
+@media (1400px <=width <=1700px) {
+    .commentDiv {
+        left: 10vw;
+    }
+}
+
+@media (500px <=width <=1400px) {
+    .commentDiv {
+        left: 8vw;
+    }
 }

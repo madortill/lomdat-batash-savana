@@ -4,7 +4,8 @@ import { useData } from "../../context/DataContext";
 import styles from "./NavPage.module.css";
 import backButton from "../../assets/img/backBtn.svg";
 import bigYellowSavanna from "../../assets/img/bigYellowSavanna.svg";
-import NavBar from "../elements/NavBar/NavBar";
+import NavBar from "../../assets/img/navbarClosed.svg";
+;
 
 
 
@@ -32,7 +33,7 @@ const NavPage = () => {
                 <div className={styles.yellowOverlay}></div>
             </div>
             <div className={styles.navBar}>
-                <NavBar />
+                <img src={NavBar} alt="navbar" className={styles.navBar} />
             </div>
             <div className={`next-btn ${styles.nextBtn}`} onClick={() => navigate("/Content")} >
                 <p className="next-btn-text">{nextBtn}</p>

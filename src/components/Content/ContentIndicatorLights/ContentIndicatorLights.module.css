@@ -8,7 +8,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem 4rem; 
+    gap: 3rem 4rem;
     width: 65%;
     max-width: 1000px;
     margin: 2rem auto;
@@ -37,11 +37,13 @@
     height: 7vh;
     object-fit: contain;
     filter: grayscale(1) opacity(0.3);
-    transition: filter 0.4s ease;
-}
-
-.lightIcon:hover {
-    transform: scale(1.12);
+    transform: scale(1);
+    transform-origin: center;
+    transition:
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.4s ease,
+        opacity 0.25s ease;
+    will-change: transform;
 }
 
 .done .lightIcon {
@@ -54,17 +56,18 @@
     filter: none;
     cursor: pointer;
 }
-/* 
-.glowing:hover {
-    transform: scale(1.05);
-} */
+
+.done .lightIcon:hover,
+.glowing .lightIcon:hover {
+    transform: scale(1.08) translateY(-2px);
+    filter: brightness(1.15) drop-shadow(0 0 20px rgba(255, 219, 90, 0.521));
+}
 
 .hidden .lightIcon {
     filter: grayscale(1) opacity(0);
     pointer-events: none;
 }
 
-/* ── Glow ring ── */
 .glowRing {
     position: absolute;
     inset: -10px;
@@ -75,12 +78,22 @@
 }
 
 @keyframes pulse {
-    0%   { transform: scale(1.2);    opacity: 0.6;   }
-    50%  { transform: scale(1.4); opacity: 0.2; }
-    100% { transform: scale(1.2);    opacity: 0.6;   }
+    0% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
 }
 
-/* ── Checkmark badge ── */
 .checkmarkWrapper {
     position: absolute;
     top: -6px;
@@ -92,7 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .checkmarkIcon {
@@ -101,7 +114,6 @@
     font-weight: bold;
 }
 
-/* ── Popup overlay ── */
 .popupOverlay {
     position: fixed;
     inset: 0;
@@ -123,7 +135,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
     direction: rtl;
 }
 
@@ -160,7 +172,6 @@
     border-radius: 12px;
 }
 
-/* ── Popup dots ── */
 .popupDots {
     display: flex;
     gap: 8px;
@@ -173,14 +184,13 @@
     border-radius: 50%;
     background: #ccc;
     cursor: default;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease;
 }
 
 .activeDot {
     background-color: #e1a92a;
 }
 
-/* ── Popup nav buttons ── */
 .popupButtons {
     display: flex;
     flex-direction: row;
@@ -193,18 +203,21 @@
 .popupBackBtn {
     cursor: pointer;
     color: #b3861d;
-    font-family: 'Assistant', sans-serif;
+    font-family: Assistant, sans-serif;
     font-weight: 600;
     font-size: 1rem;
     display: flex;
     align-items: center;
     padding: 8px 16px;
     border-radius: 12px;
-    transition: background-color 0.15s;
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease;
 }
 
 .popupBackBtn:hover {
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.03);
 }
 
 /* ── Page next button ── */

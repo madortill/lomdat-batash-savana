@@ -1,47 +1,85 @@
 .container {
-  width: 340px;
-  padding: 32px 28px 28px;
+  width: clamp(25rem, 32vw, 34rem);
+  max-width: 90vw;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.1rem, 2.6vw, 1.75rem) clamp(1.5rem, 3.5vw, 2.5rem);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: clamp(0.6rem, 1.4vw, 0.9rem);
   direction: rtl;
+  box-sizing: border-box;
 }
 
 .icon {
-  width: 56px;
-  height: 56px;
+  width: clamp(2.75rem, 4.5vw, 3.5rem);
+  height: clamp(2.75rem, 4.5vw, 3.5rem);
+  object-fit: contain;
+}
+
+.largeIcon {
+  width: clamp(7rem, 12vw, 10rem);
+  height: auto;
+  max-height: clamp(6rem, 10vw, 8.5rem);
 }
 
 .title {
-  font-size: 17px;
+  font-family: Rubik, sans-serif;
+  font-size: clamp(1.1rem, 1.45vw, 1.6rem);
   font-weight: 700;
-  color: #c0392b;
   margin: 0;
 }
 
 .text {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.65;
-  margin: 0;
+  color: #073799;
+  font-family: Assistant, sans-serif;
+  font-size: clamp(1rem, 1.15vw, 1.4rem);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.45;
+  margin: 0.2rem 0 clamp(1rem, 2.5vh, 1.6rem);
+  max-width: 100%;
 }
 
 .confirmBtn {
-  background-color: #e8a020;
-  color: white;
+  background-color: #E69907;
+  border-radius: 0.625rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.45rem, 0.8vw, 0.6rem) clamp(1.2rem, 2.4vw, 1.6rem);
+  min-height: clamp(2rem, 3vw, 2.4rem);
+  transition: transform 0.15s ease;
+  z-index: 10;
+  color: #FFF2B4;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
+  font-family: Assistant, sans-serif;
+  font-weight: 800;
+  margin: 0 auto;
+  width: fit-content;
   border: none;
-  padding: 10px 32px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background-color 0.15s;
-  margin-top: 4px;
 }
 
 .confirmBtn:hover {
-  background-color: #c8880c;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(90vw, 24rem);
+    padding: 1.25rem 1rem 1.5rem;
+    gap: 0.65rem;
+  }
+
+  .largeIcon {
+    width: min(38vw, 8rem);
+    max-height: 7rem;
+  }
+
+  .text {
+    line-height: 1.35;
+    margin-bottom: 1rem;
+  }
 }

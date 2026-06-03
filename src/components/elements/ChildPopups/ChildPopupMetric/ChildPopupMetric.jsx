@@ -27,9 +27,9 @@ const ChildPopupMetric = ({
             <div className={styles.card}>
                 <h2 className={styles.title}>{title}</h2>
                 <p className={styles.text}>{text}</p>
-                <button className={styles.confirmBtn} onClick={onClose}>
+                <div className={styles.confirmBtn} onClick={onClose}>
                     {confirmText}
-                </button>
+                </div>
             </div>
         </div>
     );
