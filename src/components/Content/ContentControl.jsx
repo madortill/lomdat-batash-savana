@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { pages } from "./ContentPages.js";
-import Navbar from "../elements/Navbar/Navbar";
+import Navbar from "../elements/Navbar/NavBar";
 
 const ContentControl = () => {
     const navigate = useNavigate();
