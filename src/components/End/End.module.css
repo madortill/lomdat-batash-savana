@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: "rubik-bold";
     src: url("/fonts/rubik-extra-bold.ttf") format("truetype");
@@ -40,7 +39,7 @@ div.nextBtn {
 }
 
 div.nextBtn:hover {
-    transform: translateX(-50%) scale(1.15); 
+    transform: translateX(-50%) scale(1.15);
     cursor: pointer;
 }
 
@@ -58,3 +57,82 @@ div.nextBtn:hover {
     width: 60vw;
 }
 
+.confettiLayer {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confettiPiece {
+    position: absolute;
+    top: -3rem;
+    left: var(--x);
+    width: var(--size);
+    height: calc(var(--size) * 1.75);
+    border-radius: 0.14rem;
+    opacity: 0;
+    transform: translateY(-3rem) rotate(var(--start-rotate));
+    animation: confettiFall var(--duration) ease-in forwards;
+    animation-delay: var(--delay);
+}
+
+.confettiPiece0 {
+    background-color: #E69907;
+}
+
+.confettiPiece1 {
+    background-color: #073799;
+}
+
+.confettiPiece2 {
+    background-color: #FFF2B4;
+}
+
+.confettiPiece3 {
+    background-color: #61A747;
+}
+
+.confettiPiece4 {
+    background-color: #CC3132;
+}
+
+.confettiPiece5 {
+    background-color: #F9DB88;
+}
+
+.confettiPiece6 {
+    background-color: #4066B0;
+}
+
+.confettiPiece7 {
+    background-color: #FFDE9E;
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 0;
+        transform: translateY(-3rem) translateX(0) rotate(var(--start-rotate));
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(110vh) translateX(var(--drift)) rotate(var(--end-rotate));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .confettiPiece {
+        animation: none;
+        opacity: 0;
+    }
+}

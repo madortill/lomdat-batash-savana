@@ -17,7 +17,7 @@ const cardComponents = {
 };
 
 import speedIcon from "../../../assets/img/generalDataCards/speed.svg";
-import weightIcon from "../../../assets/img/generalDataCards/kettlebell.svg";
+import weightIcon from "../../../assets/img/generalDataCards/weightGeneral.svg";
 import liquidsIcon from "../../../assets/img/generalDataCards/waterDrops.svg";
 import rulerIcon from "../../../assets/img/generalDataCards/ruler.svg";
 import wheelIcon from "../../../assets/img/generalDataCards/wheel.svg";
@@ -44,11 +44,11 @@ const ContentGeneralData = ({ onComplete, onNext, onBack, canProceed }) => {
     const cards = data.cGeneralDataCards;
 
     const [activeCard, setActiveCard] = useState(
-        () => localStorage.getItem(ACTIVE_KEY) || null
+        () => sessionStorage.getItem(ACTIVE_KEY) || null
     );
 
     const [visitedCards, setVisitedCards] = useState(() => {
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved = sessionStorage.getItem(STORAGE_KEY);
         return saved ? new Set(JSON.parse(saved)) : new Set();
     });
 
@@ -59,18 +59,18 @@ const ContentGeneralData = ({ onComplete, onNext, onBack, canProceed }) => {
     }, [visitedCards]);
 
     const openCard = (key) => {
-        localStorage.setItem(ACTIVE_KEY, key);
+        sessionStorage.setItem(ACTIVE_KEY, key);
         setActiveCard(key);
     };
 
     const handleCardBack = (cardKey, result) => {
-        localStorage.removeItem(ACTIVE_KEY);
+        sessionStorage.removeItem(ACTIVE_KEY);
         setActiveCard(null);
 
         if (result.completed) {
             setVisitedCards(prev => {
                 const updated = new Set(prev).add(cardKey);
-                localStorage.setItem(VISITED_KEY, JSON.stringify([...updated]));
+                sessionStorage.setItem(VISITED_KEY, JSON.stringify([...updated]));
                 return updated;
             });
         }
