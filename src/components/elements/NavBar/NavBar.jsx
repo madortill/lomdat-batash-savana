@@ -30,12 +30,12 @@ const NavBar = ({ topics = [], currentPage = 0, accessiblePageCount = 1, onNavig
     const safeCurrentTopicIndex = currentTopicIndex >= 0 ? currentTopicIndex : 0;
     const currentTopic = normalizedTopics[safeCurrentTopicIndex];
 
-    const getTopicBg = (isCurrent, isAccessible) => isCurrent ? topicBlueBg : isAccessible ? topicGrayBg : topicBlackBg;
+    const getTopicBg = (isCurrent, isAccessible) => isCurrent ? topicBlueBg : isAccessible ? topicBlackBg : topicBlackBg;
 
     const handleTopicClick = (topic) => {
         if (topic.pageIndex >= accessiblePageCount) return;
+
         onNavigate?.(topic.pageIndex);
-        setIsOpen(false);
     };
 
     return (
