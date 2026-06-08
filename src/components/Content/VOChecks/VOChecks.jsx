@@ -5,15 +5,16 @@ import backButton from "../../../assets/img/backBtn.svg";
 import yellowSavanna from "../../../assets/img/simulationSavannaHappyGal.svg";
 
 const SEEN_KEY = "VOChecks_seen";
+const NEXT_ANIMATION_KEY = "VOChecks_next_animation_seen";
 
 const DOT_POSITIONS = [
-    { index: 0, x: 18, y: 55 },
-    { index: 1, x: 52, y: 18 },
-    { index: 2, x: 25, y: 82 },
-    { index: 3, x: 10, y: 45 },
-    { index: 4, x: 38, y: 28 },
-    { index: 5, x: 62, y: 35 },
-    { index: 6, x: 80, y: 65 },
+    { index: 0, x: 28, y: 43 },
+    { index: 1, x: 18, y: 40 },
+    { index: 2, x: 82, y: 82 },
+    { index: 3, x: 7, y: 55 },
+    { index: 4, x: 14, y: 50 },
+    { index: 5, x: 10, y: 45 },
+    { index: 6, x: 10, y: 22 },
 ];
 
 const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
@@ -32,40 +33,59 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
     const [carGrown, setCarGrown] = useState(alreadySeen);
     const [dotsVisible, setDotsVisible] = useState(alreadySeen);
     const [carShrinking, setCarShrinking] = useState(false);
+
     const [completed, setCompleted] = useState(() =>
         alreadySeen ? new Set(checks.map((_, i) => i)) : new Set()
     );
+
     const [activeDot, setActiveDot] = useState(null);
 
     useEffect(() => {
         if (alreadySeen) return;
+
         const t = setTimeout(() => setCarGrown(true), 300);
         return () => clearTimeout(t);
-    }, []);
+    }, [alreadySeen]);
 
     useEffect(() => {
         if (!carGrown || alreadySeen) return;
+
         const t = setTimeout(() => setDotsVisible(true), 700);
         return () => clearTimeout(t);
-    }, [carGrown]);
+    }, [carGrown, alreadySeen]);
 
     const handleDotClick = (index) => {
         if (carShrinking) return;
+
         setActiveDot(index);
-        setCompleted(prev => {
+
+        setCompleted((prev) => {
             const next = new Set([...prev, index]);
+
             if (next.size === checks.length) {
                 sessionStorage.setItem(SEEN_KEY, "true");
                 onComplete?.();
             }
+
             return next;
         });
     };
 
     const handleNextClick = () => {
-        if (!canProceed) return;
+        if (!canProceed || carShrinking) return;
+
+        const nextAnimationAlreadySeen =
+            sessionStorage.getItem(NEXT_ANIMATION_KEY) === "true";
+
+        if (nextAnimationAlreadySeen) {
+            onNext?.();
+            return;
+        }
+
+        sessionStorage.setItem(NEXT_ANIMATION_KEY, "true");
         setDotsVisible(false);
         setCarShrinking(true);
+
         setTimeout(() => {
             onNext?.();
         }, 700);
@@ -73,21 +93,31 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
 
     return (
         <div className={styles.contentPage}>
-
             <div className="backBtnDiv">
-                <img src={backButton} className="back-btn" onClick={onBack} alt="back" />
+                <img
+                    src={backButton}
+                    className="back-btn"
+                    onClick={onBack}
+                    alt="back"
+                />
                 <p className="back-btn-text">{backBtn}</p>
             </div>
 
             <h1 className="main-header-text">{checksTitle}</h1>
-            <p className={`standard-text ${styles.checksText}`}>{checksText}</p>
+
+            <p className={`standard-text ${styles.checksText}`}>
+                {checksText}
+            </p>
 
             <div className={`${styles.checklist} ${dotsVisible ? styles.checklistVisible : ""}`}>
                 {checks.map((check, index) => (
                     <div key={index} className={styles.checkItem}>
                         <div className={`${styles.checkbox} ${completed.has(index) ? styles.checkboxDone : ""}`}>
-                            {completed.has(index) && <span className={styles.checkmark}>✓</span>}
+                            {completed.has(index) && (
+                                <span className={styles.checkmark}>✓</span>
+                            )}
                         </div>
+
                         <span className={`${styles.checkLabel} ${activeDot === index ? styles.checkLabelActive : ""}`}>
                             {check.label}
                         </span>
@@ -97,11 +127,13 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
 
             <div className={styles.gravelRoad} />
 
-            <div className={`
-                ${styles.carWrapper} 
-                ${carGrown ? styles.carWrapperGrown : ""} 
-                ${carShrinking ? styles.carWrapperShrunk : ""}
-            `}>
+            <div
+                className={`
+                    ${styles.carWrapper}
+                    ${carGrown ? styles.carWrapperGrown : ""}
+                    ${carShrinking ? styles.carWrapperShrunk : ""}
+                `}
+            >
                 <img
                     src={yellowSavanna}
                     alt="yellow Savanna"
@@ -109,32 +141,35 @@ const Checks = ({ onComplete, onNext, onBack, canProceed }) => {
                     draggable={false}
                 />
 
-                {dotsVisible && DOT_POSITIONS.slice(0, checks.length).map((dot) => {
-                    const isDone = completed.has(dot.index);
-                    const isActive = activeDot === dot.index;
-                    return (
-                        <button
-                            key={dot.index}
-                            className={`
-                                ${styles.dot}
-                                ${isDone ? styles.dotDone : styles.dotGlowing}
-                                ${isActive ? styles.dotActive : ""}
-                            `}
-                            style={{ left: `${dot.x}%`, top: `${dot.y}%` }}
-                            onClick={() => handleDotClick(dot.index)}
-                            aria-label={checks[dot.index]?.label}
-                        />
-                    );
-                })}
+                {dotsVisible &&
+                    DOT_POSITIONS.slice(0, checks.length).map((dot) => {
+                        const isDone = completed.has(dot.index);
+                        const isActive = activeDot === dot.index;
+
+                        return (
+                            <button
+                                key={dot.index}
+                                className={`
+                                    ${styles.dot}
+                                    ${isDone ? styles.dotDone : styles.dotGlowing}
+                                    ${isActive ? styles.dotActive : ""}
+                                `}
+                                style={{ left: `${dot.x}%`, top: `${dot.y}%` }}
+                                onClick={() => handleDotClick(dot.index)}
+                                aria-label={checks[dot.index]?.label}
+                            />
+                        );
+                    })}
             </div>
 
             <div
                 className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`}
                 onClick={handleNextClick}
             >
-                <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>{nextBtn}</p>
+                <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>
+                    {nextBtn}
+                </p>
             </div>
-
         </div>
     );
 };

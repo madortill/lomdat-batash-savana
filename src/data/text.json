@@ -12,8 +12,24 @@
         ],
         "navbar": [
             {
-                "text": "מבוא",
-                "id": "navbarIntro"
+                "id": "intro",
+                "text": "מבוא"
+            },
+            {
+                "id": "knowingVehicle",
+                "text": "הכרת הרכב"
+            },
+            {
+                "id": "indicatorLights",
+                "text": "נורות חיווי"
+            },
+            {
+                "id": "vehicleOperation",
+                "text": "תפעול הרכב"
+            },
+            {
+                "id": "safety",
+                "text": "דגשי בטיחות"
             }
         ],
         "Instructions": [

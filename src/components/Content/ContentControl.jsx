@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { pages } from "./ContentPages.js";
-import Navbar from "../elements/NavBar/NavBar";
+import NavBar from "../elements/NavBar/NavBar";
+import { useData } from "../../context/DataContext";
 
 const ContentControl = () => {
     const navigate = useNavigate();
+    const { data } = useData();
 
     const [step, setStep] = useState(() => {
         const saved = sessionStorage.getItem("currentStep");
@@ -20,24 +22,25 @@ const ContentControl = () => {
         return sessionStorage.getItem(`canProceed_step${stepIndex}`) === "true";
     };
 
-    const [canProceed, setCanProceed] = useState(() => getCanProceedForStep(0));
+    const [canProceed, setCanProceed] = useState(() => getCanProceedForStep(step));
 
     useEffect(() => {
-        sessionStorage.setItem("currentStep", step);
+        sessionStorage.setItem("currentStep", step.toString());
         setCanProceed(getCanProceedForStep(step));
 
         if (step > highestStep) {
             setHighestStep(step);
             sessionStorage.setItem("highestStep", step.toString());
         }
-    }, [step]);
+    }, [step, highestStep]);
 
     const handleNext = () => {
         if (!canProceed) return;
+
         if (step === pages.length - 1) {
             navigate("/End");
         } else {
-            setStep(s => s + 1);
+            setStep((s) => s + 1);
         }
     };
 
@@ -45,7 +48,7 @@ const ContentControl = () => {
         if (step === 0) {
             navigate("/NavPage");
         } else {
-            setStep(s => s - 1);
+            setStep((s) => s - 1);
         }
     };
 
@@ -54,15 +57,15 @@ const ContentControl = () => {
     };
 
     const CurrentPage = pages[step].component;
-    const topics = pages.map(p => ({ label: p.label ?? `שלב ${p + 1}` }));
 
     return (
         <div className="content-container">
-            <Navbar
-                topics={topics}
-                currentStep={step}
-                accessibleCount={highestStep + 1}
+            <NavBar
+                topics={pages}
+                currentPage={step}
+                accessiblePageCount={highestStep + 1}
                 onNavigate={handleNavbarNavigate}
+                labels={data?.navbar}
             />
 
             <CurrentPage

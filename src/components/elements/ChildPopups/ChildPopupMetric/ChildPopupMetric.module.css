@@ -1,5 +1,8 @@
-
 .scene {
+    --card-width: clamp(280px, 58vw, 720px);
+    --wheel-size: clamp(95px, 15vw, 190px);
+    --wheel-inset: calc(var(--wheel-size) * 0.14);
+
     position: relative;
     width: min(94vw, 1200px);
     min-height: clamp(280px, 48vw, 560px);
@@ -22,11 +25,13 @@
 .wheelPart {
     position: absolute;
     top: 50%;
-    width: clamp(120px, 22vw, 260px);
+    width: var(--wheel-size);
     height: auto;
     opacity: 0;
     filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 15px rgba(255, 243, 180, 0.329));
     transition:
+        left 0.85s cubic-bezier(.18, .9, .2, 1),
+        right 0.85s cubic-bezier(.18, .9, .2, 1),
         transform 0.85s cubic-bezier(.18, .9, .2, 1),
         opacity 0.2s ease;
 }
@@ -46,29 +51,27 @@
 }
 
 .sceneOpen .left {
-    transform: translate(-185%, -50%);
+    left: calc(50% - (var(--card-width) / 2) + var(--wheel-inset));
+    transform: translate(-50%, -50%);
 }
 
 .sceneOpen .right {
-    transform: translate(185%, -50%);
+    right: calc(50% - (var(--card-width) / 2) + var(--wheel-inset));
+    transform: translate(50%, -50%);
 }
 
 .card {
     position: relative;
     z-index: 10;
-
-    width: clamp(280px, 58vw, 720px);
+    width: var(--card-width);
     min-height: unset;
-
     padding: clamp(1.2rem, 2.2vw, 2rem) clamp(1rem, 2.5vw, 2rem);
     box-sizing: border-box;
-
     background: #FFF2B4;
     border-radius: 12px;
     box-shadow:
         0 0 0 1px rgba(231, 180, 58, .25),
         0 12px 30px rgba(0, 0, 0, .18);
-
     opacity: 0;
     transform: scale(.82);
     transition:
@@ -82,7 +85,7 @@
 }
 
 .title {
-    margin: 2vh 0vw 1vh 0vw;
+    margin: 2vh 0 1vh;
     padding: 0 1rem;
     text-align: center;
     color: #073799;
@@ -117,7 +120,7 @@
     font-size: clamp(1rem, 1.1vw, 1.2rem);
     font-family: Assistant, sans-serif;
     font-weight: 800;
-    margin: 0rem auto; 
+    margin: 0 auto;
     width: fit-content;
     border: none;
 }
@@ -129,44 +132,31 @@
 
 @media (max-width: 680px) {
     .scene {
+        --card-width: min(92vw, 420px);
+        --wheel-size: clamp(75px, 22vw, 120px);
+        --wheel-inset: calc(var(--wheel-size) * 0.45);
+
         width: 100%;
         min-height: auto;
         padding: 1.5rem 1rem;
     }
+}
 
-    .card {
-        width: min(92vw, 420px);
-        padding: 1.1rem 0.9rem;
-    }
+@media (max-height: 720px) and (min-width: 760px) {
+    .scene {
+        --card-width: clamp(300px, 52vw, 620px);
+        --wheel-size: clamp(90px, 14vw, 165px);
+        --wheel-inset: calc(var(--wheel-size) * 0.42);
 
-    .title {
-        padding: 0;
-    }
-
-    .text {
-        width: 92%;
-        line-height: 1.4;
-    }
-
-    .wheelPart {
-        width: clamp(90px, 32vw, 150px);
-    }
-
-    .sceneOpen .left {
-        transform: translate(-145%, -50%) scale(0.8);
-    }
-
-    .sceneOpen .right {
-        transform: translate(145%, -50%) scale(0.8);
+        min-height: clamp(240px, 42vw, 440px);
+        padding: clamp(0.75rem, 2vw, 1.5rem);
     }
 }
 
 @media (min-width: 1200px) {
-    .sceneOpen .left {
-        transform: translate(-200%, -50%);
-    }
-
-    .sceneOpen .right {
-        transform: translate(200%, -50%);
+    .scene {
+        --card-width: clamp(620px, 48vw, 760px);
+        --wheel-size: clamp(150px, 13vw, 230px);
+        --wheel-inset: calc(var(--wheel-size) * -0.08);
     }
 }

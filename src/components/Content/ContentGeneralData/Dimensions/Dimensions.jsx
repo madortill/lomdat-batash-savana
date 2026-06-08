@@ -8,29 +8,29 @@ const CARD_KEY = "vehicleDimensions";
 
 const ANNOTATIONS = {
     length: {
-        line: { x1: 55, y1: 210, x2: 545, y2: 210 },
-        ticks: [{ x1: 55, y1: 198, x2: 55, y2: 222 },
-        { x1: 545, y1: 198, x2: 545, y2: 222 }],
-        labelPos: { x: 300, y: 200 },
+        line: { x1: 75, y1: 180, x2: 555, y2: 180 },
+        ticks: [{ x1: 75, y1: 168, x2: 75, y2: 192 },
+        { x1: 555, y1: 168, x2: 555, y2: 192 }],
+        labelPos: { x: 300, y: 170 },
         labelAnchor: "middle",
     },
     width: {
-        line: { x1: 80, y1: 210, x2: 370, y2: 210 },
-        ticks: [{ x1: 80, y1: 198, x2: 80, y2: 222 },
-        { x1: 370, y1: 198, x2: 370, y2: 222 }],
-        labelPos: { x: 225, y: 234 },
+        line: { x1: 230, y1: 190, x2: 400, y2: 190 },
+        ticks: [{ x1: 230, y1: 178, x2: 230, y2: 202 },
+        { x1: 400, y1: 178, x2: 400, y2: 202 }],
+        labelPos: { x: 310, y: 180 },
         labelAnchor: "middle",
     },
     height: {
-        line: { x1: 540, y1: 30, x2: 540, y2: 238 },
-        ticks: [{ x1: 520, y1: 80, x2: 572, y2: 80 },
-        { x1: 520, y1: 220, x2: 572, y2: 220 }],
+        line: { x1: 532, y1: 80, x2: 532, y2: 220 },
+        ticks: [{ x1: 520, y1: 80, x2: 544, y2: 80 },
+        { x1: 520, y1: 220, x2: 544, y2: 220 }],
         labelPos: { x: 480, y: 155 },
         labelAnchor: "middle",
     },
     wheels: {
-        line: { x1: 130, y1: 210, x2: 470, y2: 210 },
-        ticks: [{ x1: 130, y1: 198, x2: 130, y2: 222 },
+        line: { x1: 140, y1: 210, x2: 470, y2: 210 },
+        ticks: [{ x1: 140, y1: 198, x2: 140, y2: 222 },
         { x1: 470, y1: 198, x2: 470, y2: 222 }],
         labelPos: { x: 300, y: 200 },
         labelAnchor: "middle",
@@ -48,39 +48,47 @@ const Dimensions = ({ onBack }) => {
 
     const wasCompleted = localStorage.getItem(`completed_${CARD_KEY}`) === "true";
 
+    const defaultButtonId =
+        buttons.find((button) => button.id === "length")?.id ||
+        buttons[0]?.id ||
+        null;
+
     const [seenButtons, setSeenButtons] = useState(() => {
-        if (wasCompleted) return new Set(buttons.map(b => b.id));
+        if (wasCompleted) return new Set(buttons.map((button) => button.id));
+
         const saved = localStorage.getItem(`seenButtons_${CARD_KEY}`);
-        return saved ? new Set(JSON.parse(saved)) : new Set();
+
+        if (saved) {
+            const parsed = new Set(JSON.parse(saved));
+            if (defaultButtonId) parsed.add(defaultButtonId);
+            return parsed;
+        }
+
+        return defaultButtonId ? new Set([defaultButtonId]) : new Set();
     });
+
+    const [activeButton, setActiveButton] = useState(
+        () => localStorage.getItem(`activeButton_${CARD_KEY}`) || defaultButtonId
+    );
 
     const carImages = {
         length: carSilhouette,
         height: carSilhouette,
         wheels: carSilhouette,
-        width:  carSilhouetteBack,
+        width: carSilhouetteBack,
     };
-
-    const [activeButton, setActiveButton] = useState(
-        () => localStorage.getItem(`activeButton_${CARD_KEY}`) || buttons[0]?.id || null
-    );
 
     const allSeen = buttons.length > 0 && seenButtons.size === buttons.length;
 
     const handleButtonClick = (id) => {
-        if (id === activeButton) return;
-
-        if (activeButton) {
-            setSeenButtons(prev => {
-                if (prev.has(activeButton)) return prev;
-                const updated = new Set(prev).add(activeButton);
-                localStorage.setItem(`seenButtons_${CARD_KEY}`, JSON.stringify([...updated]));
-                return updated;
-            });
-        }
-
         setActiveButton(id);
         localStorage.setItem(`activeButton_${CARD_KEY}`, id);
+
+        setSeenButtons((prev) => {
+            const updated = new Set(prev).add(id);
+            localStorage.setItem(`seenButtons_${CARD_KEY}`, JSON.stringify([...updated]));
+            return updated;
+        });
     };
 
     const finish = (completedValue) => {
@@ -143,7 +151,17 @@ const Dimensions = ({ onBack }) => {
                         <svg
                             viewBox="0 0 600 320"
                             xmlns="http://www.w3.org/2000/svg"
-                            style={{ width: "100%", maxWidth: "580px", height: "auto", display: "block", margin: "0 auto", position: "absolute", bottom: "10%"}}
+                            style={{
+                                width: "100%",
+                                maxWidth: "580px",
+                                height: "auto",
+                                display: "block",
+                                margin: "0 auto",
+                                position: "absolute",
+                                bottom: "10%",
+                                pointerEvents: "none",
+                                zIndex: 1
+                            }}
                             aria-hidden="true"
                         >
                             <image
@@ -155,7 +173,6 @@ const Dimensions = ({ onBack }) => {
                                 preserveAspectRatio="xMidYMid meet"
                             />
 
-                            {/* Annotation — only rendered when there is an active button */}
                             {annotation && (
                                 <g>
                                     {/* Main measurement line */}

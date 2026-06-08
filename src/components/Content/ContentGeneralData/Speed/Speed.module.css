@@ -1,96 +1,90 @@
-
 .contentFrame {
     position: relative;
     background-color: #FFE89A;
-    width: 80vw;
-    height: 70vh;
-    border-radius: 30px;
+    width: min(80vw, 1450px);
+    height: clamp(420px, 70vh, 720px);
+    border-radius: clamp(20px, 2vw, 30px);
     margin: 0 auto;
     top: 20vh;
     z-index: 1;
+    overflow: hidden;
 }
 
 .imagesRow {
     position: absolute;
-    top: 8%;
+    top: clamp(1.5rem, 5vh, 3.5rem);
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    width: 100%;
-    gap: 2rem;
+    align-items: flex-start;
+    width: min(92%, 1050px);
+    gap: clamp(1rem, 3vw, 2rem);
 }
 
 .imageCard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    flex: unset;
+    gap: clamp(0.5rem, 1vw, 0.75rem);
+    width: clamp(230px, 28vw, 430px);
+    max-width: 100%;
+    min-width: 0;
 }
 
 .imageLabel {
     font-family: Assistant, sans-serif;
-    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-size: clamp(0.95rem, 1.6vw, 1.4rem);
     font-weight: 500;
     color: #073799;
     margin: 0;
+    text-align: center;
 }
 
 .imageWrapper {
     position: relative;
-    width: 90%;
-    /* max-width: 75%; */
-    border-radius: 30px;
+    width: 100%;
+    border-radius: clamp(16px, 2vw, 30px);
 }
 
 .roadImg {
     width: 100%;
     height: auto;
+    max-height: clamp(180px, 35vh, 300px);
     object-fit: cover;
-    border-radius: 30px;
+    border-radius: clamp(16px, 2vw, 30px);
     display: block;
     filter: brightness(1.4) saturate(1.4) sepia(20%) contrast(115%);
     opacity: 0.95;
-    border: #4769A7 solid 6px;
+    border: #4769A7 solid clamp(3px, 0.5vw, 6px);
+    box-sizing: border-box;
 }
 
 .textOverlay {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: clamp(0.5rem, 1.2vw, 0.95rem);
+    right: clamp(0.5rem, 1.2vw, 0.95rem);
     background: linear-gradient(to bottom, #4D71C0 0%, #073799 100%);
     border-radius: 5px;
-    padding: 8px 12px;
-    max-width: 50%;
+    padding: clamp(0.35rem, 0.8vw, 0.5rem) clamp(0.55rem, 1vw, 0.75rem);
+    max-width: 58%;
 }
 
 .overlayText {
-    font-family: rubik, sans-serif;
-    font-size: clamp(1rem, 1.1vw, 1.2rem);
+    font-family: Rubik, sans-serif;
+    font-size: clamp(0.78rem, 1vw, 1.15rem);
     font-weight: 400;
     color: #ffffff;
     text-align: right;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.35;
 }
 
 .commentWrapper {
-    width: 70%;
+    width: min(70%, 850px);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 10%;
-    
-}
-
-@media (max-width: 600px) {
-    .imagesRow {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .imageCard {
-        max-width: 90%;
-        width: 90%;
-    }
+    bottom: clamp(1.5rem, 8vh, 4.5rem);
 }

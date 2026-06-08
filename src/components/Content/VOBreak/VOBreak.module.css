@@ -1,9 +1,29 @@
+
 .text {
     position: absolute;
     width: 80vw;
     top: 20vh;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.imgDiv {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30vh;
+    width: 50vw;
+    height: 50vh;
+    z-index: 2;
+    transition:
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: center bottom;
+}
+
+.imgDivZoom {
+    top: 47vh;
+    transform: translateX(-50%) scale(1.35);
 }
 
 .breakImg {
@@ -20,6 +40,11 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: clamp(0.9rem, 1vw, 1.1rem);
+    opacity: 1;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    z-index: 5;
 }
 
 .commentWrapper {
@@ -28,20 +53,37 @@
     transform: translateX(-50%);
     bottom: 5%;
     width: 60%;
+    opacity: 1;
+    z-index: 20;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
 }
 
-.imgDiv {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 30vh;
-    width: 50vw;
-    height: 50vh;
+.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.smallText.fadeOut {
+    transform: translateX(-50%) translateY(0.6rem);
+}
+
+.commentWrapper.fadeOut {
+    transform: translateX(-50%) translateY(0.8rem);
+}
+
+.nextBtnLocked {
+    pointer-events: none;
 }
 
 @media (max-width: 1450px) {
     .breakImg {
         width: 70%;
+    }
+
+    .imgDivZoom {
+        transform: translateX(-50%) scale(1.35);
     }
 }
 
@@ -49,10 +91,18 @@
     .breakImg {
         width: 80%;
     }
+
+    .imgDivZoom {
+        transform: translateX(-50%) scale(1.35);
+    }
 }
 
 @media (800px <= width <= 1050px) {
     .breakImg {
         width: 90%;
+    }
+
+    .imgDivZoom {
+        transform: translateX(-50%) scale(1.35);
     }
 }

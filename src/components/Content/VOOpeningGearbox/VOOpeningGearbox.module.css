@@ -43,15 +43,29 @@
 .textBox::after {
     content: "";
     position: absolute;
-    bottom: -3.8rem; 
-    left: 7%; 
+    bottom: -3.8rem;
+    left: 7%;
     width: 4rem;
     height: 4rem;
     background-color: #4769A7;
     clip-path: path('M 0 0 C 10 10 15 15 15 30 C 15 35 10 40 10 40 C 30 35 40 20 40 0 Z');
-    transform: scaleX(-1) rotate(15deg) scale(1.6);
+    transform: scaleX(-1) rotate(15deg) scale(var(--tail-scale, 1.25));
     z-index: -1;
     aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 1450px) {
+    .speechBubble::after {
+        --tail-scale: 1.05;
+        bottom: clamp(-2.25rem, -3.5vw, -1.35rem);
+    }
+}
+
+@media (max-width: 1150px) {
+    .speechBubble::after {
+        --tail-scale: 0.9;
+        bottom: clamp(-1.9rem, -3vw, -1.15rem);
+    }
 }
 
 .yellowSavanna {

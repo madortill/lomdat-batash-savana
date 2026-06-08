@@ -19,24 +19,27 @@ import VOBreakPractice from "./VOBreakPractice/VOBreakPractice";
 import Safety from "./Safety/Safety";
 
 export const pages = [
-    { component: ContentIntro, isAutoEnabled: false, label: "מבוא"},
-    { component: ContentIntroPage2, isAutoEnabled: false, label: "עמוד"},
-    { component: ContentIntroPage3, isAutoEnabled: true, label: "עמוד"},
-    { component: ContentKnowingTheVehicle, isAutoEnabled: true, label: "הכרת הרכב"},
-    { component: ContentGeneralData, isAutoEnabled: false, label: "עמוד"},
-    { component: ContentIndicatorLights, isAutoEnabled: false, label: "נורות חיווי"},
-    { component: ContentMetrics, isAutoEnabled: false, label: "עמוד"},
-    { component: VehicleOperationOpeningPage, isAutoEnabled: true, label: "תפעול הרכב"},
-    { component: VehicleOperationOpeningChecks, isAutoEnabled: false, label: "עמוד"},
-    { component: VOChecks, isAutoEnabled: false, label: "עמוד"},
-    { component: VOOpeningGearbox, isAutoEnabled: true, label: "עמוד"},
-    { component: VOGearbox, isAutoEnabled: true, label: "עמוד"},
-    { component: VOGearboxPractice, isAutoEnabled: false, label: "עמוד"},
-    { component: VOOpeningWheel, isAutoEnabled: false, label: "עמוד"},
-    { component: VOWheel, isAutoEnabled: false, label: "עמוד"},
-    { component: VOOpeningBreak, isAutoEnabled: false, label: "עמוד"},
-    { component: VOBreak, isAutoEnabled: true, label: "עמוד"},
-    { component: VOBreakPractice, isAutoEnabled: false, label: "עמוד"},
-    { component: Safety, isAutoEnabled: false, label: "דגשי בטיחות"}
-];
+    { component: ContentIntro, isAutoEnabled: false, label: "מבוא", navId: "intro" },
+    { component: ContentIntroPage2, isAutoEnabled: false, label: "עמוד" },
+    { component: ContentIntroPage3, isAutoEnabled: true, label: "עמוד" },
 
+    { component: ContentKnowingTheVehicle, isAutoEnabled: true, label: "הכרת הרכב", navId: "knowingVehicle" },
+    { component: ContentGeneralData, isAutoEnabled: false, label: "נתונים כלליים" },
+
+    { component: ContentIndicatorLights, isAutoEnabled: false, label: "נורות חיווי", navId: "indicatorLights" },
+    { component: ContentMetrics, isAutoEnabled: false, label: "מדדים" },
+
+    { component: VehicleOperationOpeningPage, isAutoEnabled: true, label: "תפעול הרכב", navId: "vehicleOperation" },
+    { component: VehicleOperationOpeningChecks, isAutoEnabled: false, label: "עמוד" },
+    { component: VOChecks, isAutoEnabled: false, label: "עמוד" },
+    { component: VOOpeningGearbox, isAutoEnabled: true, label: "עמוד" },
+    { component: VOGearbox, isAutoEnabled: true, label: "עמוד" },
+    { component: VOGearboxPractice, isAutoEnabled: false, label: "עמוד" },
+    { component: VOOpeningWheel, isAutoEnabled: false, label: "עמוד" },
+    { component: VOWheel, isAutoEnabled: false, label: "עמוד" },
+    { component: VOOpeningBreak, isAutoEnabled: false, label: "עמוד" },
+    { component: VOBreak, isAutoEnabled: true, label: "עמוד" },
+    { component: VOBreakPractice, isAutoEnabled: false, label: "עמוד" },
+
+    { component: Safety, isAutoEnabled: false, label: "דגשי בטיחות", navId: "safety" }
+];

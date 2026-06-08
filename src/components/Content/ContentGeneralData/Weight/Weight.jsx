@@ -6,6 +6,7 @@ import kettlebell from "../../../../assets/img/generalDataCards/kettlebell.svg";
 
 const Weight = ({ onBack }) => {
     const { data } = useData();
+
     useEffect(() => {
         localStorage.setItem("completed_weight", "true");
     }, []);
@@ -34,8 +35,12 @@ const Weight = ({ onBack }) => {
             <div className={styles.contentFrame}>
                 <div className={styles.weightContainer}>
                     {items.map((item, i) => (
-                        <div key={item.id} className={styles.weightItem}>
+                        <div
+                            key={item.id}
+                            className={`${styles.weightItem} ${styles[`weightItem${i}`]}`}
+                        >
                             <p className={styles.weightLabel}>{item.label}</p>
+
                             <div className={styles.kettlebellWrapper}>
                                 <img
                                     src={kettlebell}
