@@ -11,7 +11,7 @@ const ContentKnowingTheVehicle = ({ onNext, onBack }) => {
     const { data } = useData();
 
     const [hasVisitedTab2, setHasVisitedTab2] = useState(() => {
-        const savedProgress = localStorage.getItem("knowingVehicle_tab2_visited");
+        const savedProgress = sessionStorage.getItem("knowingVehicle_tab2_visited");
         return savedProgress === "true";
     });
 
@@ -31,7 +31,7 @@ const ContentKnowingTheVehicle = ({ onNext, onBack }) => {
     const handleTabChange = (index) => {
         if (index === 1 && !hasVisitedTab2) {
             setHasVisitedTab2(true);
-            localStorage.setItem("knowingVehicle_tab2_visited", "true");
+            sessionStorage.setItem("knowingVehicle_tab2_visited", "true");
         }
     };
 

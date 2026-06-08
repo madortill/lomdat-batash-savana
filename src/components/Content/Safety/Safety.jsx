@@ -15,7 +15,7 @@ const Safety = ({ onComplete, onNext, onBack, canProceed }) => {
     const [activePopup, setActivePopup] = useState(null);
 
     const [visitedPopups, setVisitedPopups] = useState(() => {
-        const savedProgress = localStorage.getItem(STORAGE_KEY);
+        const savedProgress = sessionStorage.getItem(STORAGE_KEY);
         return savedProgress ? JSON.parse(savedProgress) : {
             battery: false,
             abs: false,
@@ -38,7 +38,7 @@ const Safety = ({ onComplete, onNext, onBack, canProceed }) => {
         setVisitedPopups(prev => {
             const updated = { ...prev, [popupName]: true };
 
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
 
             if (updated.battery && updated.abs && updated.cooling) {
                 onComplete?.();

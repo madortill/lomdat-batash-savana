@@ -46,7 +46,7 @@ const Dimensions = ({ onBack }) => {
     const dimensionsText = data.cDimensions[1].text;
     const buttons = data.cDimensions.slice(2);
 
-    const wasCompleted = localStorage.getItem(`completed_${CARD_KEY}`) === "true";
+    const wasCompleted = sessionStorage.getItem(`completed_${CARD_KEY}`) === "true";
 
     const defaultButtonId =
         buttons.find((button) => button.id === "length")?.id ||
@@ -56,7 +56,7 @@ const Dimensions = ({ onBack }) => {
     const [seenButtons, setSeenButtons] = useState(() => {
         if (wasCompleted) return new Set(buttons.map((button) => button.id));
 
-        const saved = localStorage.getItem(`seenButtons_${CARD_KEY}`);
+        const saved = sessionStorage.getItem(`seenButtons_${CARD_KEY}`);
 
         if (saved) {
             const parsed = new Set(JSON.parse(saved));
@@ -68,7 +68,7 @@ const Dimensions = ({ onBack }) => {
     });
 
     const [activeButton, setActiveButton] = useState(
-        () => localStorage.getItem(`activeButton_${CARD_KEY}`) || defaultButtonId
+        () => sessionStorage.getItem(`activeButton_${CARD_KEY}`) || defaultButtonId
     );
 
     const carImages = {
@@ -82,21 +82,21 @@ const Dimensions = ({ onBack }) => {
 
     const handleButtonClick = (id) => {
         setActiveButton(id);
-        localStorage.setItem(`activeButton_${CARD_KEY}`, id);
+        sessionStorage.setItem(`activeButton_${CARD_KEY}`, id);
 
         setSeenButtons((prev) => {
             const updated = new Set(prev).add(id);
-            localStorage.setItem(`seenButtons_${CARD_KEY}`, JSON.stringify([...updated]));
+            sessionStorage.setItem(`seenButtons_${CARD_KEY}`, JSON.stringify([...updated]));
             return updated;
         });
     };
 
     const finish = (completedValue) => {
         if (completedValue) {
-            localStorage.setItem(`completed_${CARD_KEY}`, "true");
+            sessionStorage.setItem(`completed_${CARD_KEY}`, "true");
         }
-        localStorage.removeItem(`seenButtons_${CARD_KEY}`);
-        localStorage.removeItem(`activeButton_${CARD_KEY}`);
+        sessionStorage.removeItem(`seenButtons_${CARD_KEY}`);
+        sessionStorage.removeItem(`activeButton_${CARD_KEY}`);
         onBack({ completed: completedValue });
     };
 

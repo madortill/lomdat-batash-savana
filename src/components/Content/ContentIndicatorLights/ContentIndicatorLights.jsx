@@ -104,7 +104,7 @@ const ContentIndicatorLights = ({ onComplete, onNext, onBack, canProceed }) => {
   const lights = data.indicatorLights;
 
   const [completedCount, setCompletedCount] = useState(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = sessionStorage.getItem(STORAGE_KEY);
     return saved ? parseInt(saved, 10) : 0;
   });
 
@@ -125,7 +125,7 @@ const ContentIndicatorLights = ({ onComplete, onNext, onBack, canProceed }) => {
     if (openIndex === completedCount) {
       const newCount = completedCount + 1;
       setCompletedCount(newCount);
-      localStorage.setItem(STORAGE_KEY, newCount.toString());
+      sessionStorage.setItem(STORAGE_KEY, newCount.toString());
     }
     setOpenIndex(null);
   };

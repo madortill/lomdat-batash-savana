@@ -12,7 +12,7 @@ const Speed = ({ onBack, cardKey }) => {
     const { data } = useData();
 
     useEffect(() => {
-        localStorage.setItem(`completed_${cardKey}`, "true");
+        sessionStorage.setItem(`completed_${cardKey}`, "true");
     }, []);
 
     if (!data || !data.general || !data.cSpeed) return null;

@@ -76,8 +76,12 @@
                 "text": "נושאי הלומדה"
             },
             {
-                "id": "navPageText",
+                "id": "navPageTextClosed",
                 "text": "לחצו על הגלגל כדי לראות את נושאי הלומדה"
+            },
+            {
+                "id": "navPageTextOpen",
+                "text": "לחצו על הנושא הראשון והתחילו ללמוד!"
             }
         ],
         "CIntro": [

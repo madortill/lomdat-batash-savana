@@ -8,7 +8,7 @@ const Weight = ({ onBack }) => {
     const { data } = useData();
 
     useEffect(() => {
-        localStorage.setItem("completed_weight", "true");
+        sessionStorage.setItem("completed_weight", "true");
     }, []);
 
     if (!data || !data.cWeight) return null;

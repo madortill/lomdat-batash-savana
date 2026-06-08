@@ -9,12 +9,12 @@ const Air = ({ onBack, cardKey }) => {
     const { data } = useData();
 
     const [hasVisitedTab2, setHasVisitedTab2] = useState(() => {
-        const savedProgress = localStorage.getItem(`air_tab2_visited_${cardKey}`);
+        const savedProgress = sessionStorage.getItem(`air_tab2_visited_${cardKey}`);
         return savedProgress === "true";
     });
 
     useEffect(() => {
-        localStorage.setItem(`completed_${cardKey}`, "true");
+        sessionStorage.setItem(`completed_${cardKey}`, "true");
     }, [cardKey]);
 
     if (!data || !data.general || !data.cAir) return null;
@@ -29,7 +29,7 @@ const Air = ({ onBack, cardKey }) => {
     const handleTabChange = (index) => {
         if (index === 1 && !hasVisitedTab2) {
             setHasVisitedTab2(true);
-            localStorage.setItem(`air_tab2_visited_${cardKey}`, "true");
+            sessionStorage.setItem(`air_tab2_visited_${cardKey}`, "true");
         }
     };
 

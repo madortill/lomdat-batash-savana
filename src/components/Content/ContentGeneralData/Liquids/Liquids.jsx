@@ -9,7 +9,7 @@ const CARD_KEY = "liquids";
 const Liquids = ({ onBack }) => {
     const { data } = useData();
 
-    const wasCompleted = localStorage.getItem(`completed_${CARD_KEY}`) === "true";
+    const wasCompleted = sessionStorage.getItem(`completed_${CARD_KEY}`) === "true";
 
     const [opened, setOpened] = useState([]);
     const [seen, setSeen] = useState(
@@ -39,7 +39,7 @@ const Liquids = ({ onBack }) => {
             setSeen(updatedSeen);
 
             if (updatedSeen.length === items.length) {
-                localStorage.setItem(`completed_${CARD_KEY}`, "true");
+                sessionStorage.setItem(`completed_${CARD_KEY}`, "true");
             }
         }
     };

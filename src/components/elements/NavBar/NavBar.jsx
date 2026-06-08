@@ -6,13 +6,24 @@ import topicBlueBg from "../../../assets/img/topicBlueBg.svg";
 import topicGrayBg from "../../../assets/img/topicGrayBg.svg";
 import topicBlackBg from "../../../assets/img/topicBlackBg.svg";
 
-const NavBar = ({ topics = [], currentPage = 0, accessiblePageCount = 1, onNavigate, labels = [] }) => {
+const NavBar = ({ topics = [], currentPage = 0, accessiblePageCount = 1, onNavigate, labels = [], variant = "default", onFirstOpen, onOpenChange }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const labelsMap = useMemo(() => {
         if (Array.isArray(labels)) return Object.fromEntries(labels.filter(i => i?.id).map(i => [i.id, i.text]));
         return labels ?? {};
     }, [labels]);
+
+    const handleOpen = () => {
+        setIsOpen(true);
+        onFirstOpen?.();
+        onOpenChange?.(true);
+    };
+
+    const handleClose = () => {
+        setIsOpen(false);
+        onOpenChange?.(false);
+    };
 
     const normalizedTopics = useMemo(() => {
         if (!Array.isArray(topics)) return [];
@@ -30,7 +41,11 @@ const NavBar = ({ topics = [], currentPage = 0, accessiblePageCount = 1, onNavig
     const safeCurrentTopicIndex = currentTopicIndex >= 0 ? currentTopicIndex : 0;
     const currentTopic = normalizedTopics[safeCurrentTopicIndex];
 
-    const getTopicBg = (isCurrent, isAccessible) => isCurrent ? topicBlueBg : isAccessible ? topicBlackBg : topicBlackBg;
+    const getTopicBg = (isCurrent, isAccessible) => {
+        if (isCurrent) return topicBlueBg;
+        if (isAccessible) return topicBlackBg;
+        return topicGrayBg;
+    };
 
     const handleTopicClick = (topic) => {
         if (topic.pageIndex >= accessiblePageCount) return;
@@ -40,12 +55,12 @@ const NavBar = ({ topics = [], currentPage = 0, accessiblePageCount = 1, onNavig
 
     return (
         <>
-            {isOpen && <button type="button" className={styles.backdrop} onClick={() => setIsOpen(false)} aria-label="סגירת תפריט ניווט" />}
+            {isOpen && <button type="button" className={styles.backdrop} onClick={handleClose} aria-label="סגירת תפריט ניווט" />}
 
-            <nav className={`${styles.navbar} ${isOpen ? styles.open : ""}`} dir="rtl" aria-label="ניווט ראשי">
+            <nav className={`${styles.navbar} ${isOpen ? styles.open : ""} ${variant === "navPage" ? styles.navPageMode : ""}`} dir="rtl" aria-label="ניווט ראשי">
                 {isOpen ? (
                     <div className={styles.openPanel}>
-                        <button type="button" className={styles.wheelButton} onClick={() => setIsOpen(false)} aria-expanded={isOpen} aria-label="סגור תפריט">
+                        <button type="button" className={styles.wheelButton} onClick={handleClose} aria-expanded={isOpen} aria-label="סגור תפריט">
                             <img src={navWheel} alt="" aria-hidden="true" className={styles.wheelImg} />
                         </button>
 
@@ -66,7 +81,7 @@ const NavBar = ({ topics = [], currentPage = 0, accessiblePageCount = 1, onNavig
                         </div>
                     </div>
                 ) : (
-                    <button type="button" className={styles.closedNav} onClick={() => setIsOpen(true)} aria-expanded={isOpen} aria-label="פתח תפריט ניווט">
+                    <button type="button" className={styles.closedNav} onClick={handleOpen} aria-expanded={isOpen} aria-label="פתח תפריט ניווט">
                         <img src={navWheel} alt="" aria-hidden="true" className={styles.closedWheel} />
                         <div className={styles.closedTopic} style={{ backgroundImage: `url(${topicBlackBg})` }}>
                             <span className={styles.closedLabel}>{currentTopic?.displayLabel}</span>

@@ -4,7 +4,8 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 const Instructions = lazy(() => import("./components/Instructions/Instructions"));
 const Opening = lazy(() => import("./components/Opening/Opening"));
 const NavPage = lazy(() => import("./components/NavPage/NavPage"));
-const Content = lazy(() => import("./components/Content/ContentControl"));
+const loadContent = () => import("./components/Content/ContentControl");
+const Content = lazy(loadContent);
 const End = lazy(() => import("./components/End/End"));
 
 import "./App.css";
@@ -21,7 +22,7 @@ function App() {
             <Route path="/Opening" element={<Opening />} />
             <Route path="/NavPage" element={<NavPage />} />
             <Route path="/Content" element={<Content />} />
-            <Route path="/end" element={<End />} />
+            <Route path="/End" element={<End />} />
           </Routes>
         </Suspense>
       </div>
