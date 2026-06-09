@@ -5,6 +5,7 @@ import styles from "./Opening.module.css";
 import backButton from "../../assets/img/backBtn.svg";
 import road from "../../assets/img/road.svg";
 import yellowSavanna from "../../assets/img/yellowSavanna.svg";
+import { loadNavPage } from "../../App";
 
 
 
@@ -28,6 +29,14 @@ const Opening = () => {
         }, 1400);
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            loadNavPage();
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className={`${styles.openingPage} ${isExiting ? styles.fadeOut : ""}`}>
             <div className="backBtnDiv">
@@ -36,8 +45,8 @@ const Opening = () => {
             </div>
             <h1 className={styles.openingHeaderText}>{openingTitle}</h1>
             <p className={styles.openingText}>{openingText}</p>
-            <img src={road} alt="road" className={styles.openingRoad}/>
-            <img src={yellowSavanna} alt="yellow Savanna" className={`${styles.yellowSavanna} ${isExiting ? styles.driveAway : styles.driveIn}`}/>
+            <img src={road} alt="road" className={styles.openingRoad} />
+            <img src={yellowSavanna} alt="yellow Savanna" className={`${styles.yellowSavanna} ${isExiting ? styles.driveAway : styles.driveIn}`} />
             <div className={`next-btn ${styles.nextBtn}`} onClick={handleNextClick} >
                 <p className="next-btn-text">{nextBtn}</p>
             </div>

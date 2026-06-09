@@ -97,8 +97,8 @@
 
 .dot {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50%;
     border: none;
     cursor: pointer;

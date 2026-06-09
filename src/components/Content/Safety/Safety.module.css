@@ -42,7 +42,7 @@
 .carBtn span {
     color: white;
     font-weight: 700;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 1.5vw, 1.3rem);
     margin-top: -5vw;
     pointer-events: none;
@@ -133,7 +133,7 @@
     left: 50%;
     transform: translateX(-50%);
     color: black;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 2.3vw, 2.5rem);
     font-weight: 800;
     line-height: 1.1;

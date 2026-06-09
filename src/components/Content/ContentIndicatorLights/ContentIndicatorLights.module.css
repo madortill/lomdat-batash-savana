@@ -203,7 +203,7 @@
 .popupBackBtn {
     cursor: pointer;
     color: #b3861d;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-weight: 600;
     font-size: 1rem;
     display: flex;

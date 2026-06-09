@@ -80,7 +80,7 @@
 }
 
 .tabText {
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 2vw, 1.4rem);
     font-weight: 500;
     color: #073799;
@@ -111,7 +111,7 @@
     width: 80%;
     font-size: clamp(0.8rem, 0.9vw, 1.1rem);
     font-weight: 600;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     left: -1.5rem;
     margin-top: 1rem;
 }

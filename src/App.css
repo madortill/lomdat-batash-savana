@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     direction: rtl;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
 }
 
 html {
@@ -24,6 +24,7 @@ html {
     align-content: center;
     align-items: center;
     justify-content: space-evenly;
+    z-index: 10;
 }
 
 .back-btn {
@@ -32,7 +33,7 @@ html {
 }
 
 .back-btn-text {
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-weight: 700;
     color: #073799;
     font-size: 1vw;
@@ -54,7 +55,7 @@ html {
     left: 50%;
     transform: translateX(-50%);
     color: #073799;
-    font-family: Rubik;
+    font-family: "Rubik", "sans-serif";
     font-size: clamp(2rem, 3vw, 3rem);
     font-style: normal;
     font-weight: 700;
@@ -107,7 +108,7 @@ html {
     color: #FFF2B4;
     font-size: 1.5vw;
     pointer-events: none;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-weight: 800;
 }
 
@@ -115,7 +116,7 @@ html {
     color: #FFFFFF;
     font-size: 1.5vw;
     pointer-events: none;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-weight: 800;
 }
 

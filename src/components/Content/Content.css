@@ -1,7 +1,7 @@
 
 .standard-text {
     color: #073799;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 2vw, 1.4rem);
     font-weight: 600;
     text-align: center;
@@ -11,7 +11,7 @@
 
 .arrow-text {
     color: #073799;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 1.1vw, 1.2rem);
     font-weight: 400;
     text-align: center;

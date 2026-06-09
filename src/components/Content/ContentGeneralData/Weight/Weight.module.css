@@ -82,7 +82,7 @@
 }
 
 .weightLabel {
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 1.5vw, 1.4rem);
     font-weight: 800;
     color: #073799;
@@ -118,7 +118,7 @@
 
 .weightValue {
     position: absolute;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(0.9rem, 1.25vw, 1.35rem);
     font-weight: 900;
     color: #ffffff;

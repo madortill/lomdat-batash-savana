@@ -125,7 +125,7 @@
 }
 
 .driveTitle {
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     color: #F9DB88;
     font-size: clamp(0.9rem, 1.5vw, 1.4rem);
     font-weight: 700;
@@ -146,7 +146,7 @@
 
 .driveDescription {
     position: absolute;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     color: #FFFFFF;
     font-size: clamp(0.9rem, 1.2vw, 1.2rem);
     top: 50%;

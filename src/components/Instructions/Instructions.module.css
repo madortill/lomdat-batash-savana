@@ -1,3 +1,10 @@
+.page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .instructionsGal {
     position: absolute;
     width: clamp(11rem, 14vw, 20rem);
@@ -9,7 +16,7 @@
 
 .bubbleText {
     color: #FFF2B4;
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 600;
     text-align: center;
@@ -38,7 +45,7 @@
     content: "";
     position: absolute;
     bottom: -3.8rem;
-    left: 7%;
+    left: 10%;
     width: 4rem;
     height: 4rem;
     background-color: #4769A7;
@@ -72,8 +79,230 @@
     transform: scale(0.95);
 }
 
+.languageBtnWrapper:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .languageIcon {
     width: clamp(4rem, 3.8vw, 4.5rem);
     height: auto;
     display: block;
+}
+
+.audioDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    gap: 1.5rem;
+}
+
+.audioBtn {
+    /* border: solid #073799 2px; */
+    border: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #FFF2B4;
+    color: #073799;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 0.8rem;
+    transition: transform 0.15s ease
+}
+
+.audioBtn img {
+    margin-right: 0.4vw;
+}
+
+.audioBtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.noAudioBtn {
+    /* border: solid #073799 2px; */
+    border: none;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #FFF2B4;
+    color: #073799;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 0.8rem;
+    transition: transform 0.15s ease
+}
+
+.noAudioBtn img {
+    margin-right: 0.4vw;
+}
+
+.noAudioBtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.audioBtnSelected {
+    background-color: #E69907;
+    color: #FFF2B4;
+    border-color: #E69907;
+    /* border: #FFF2B4 2px solid; */
+}
+
+.audioBtnSelected img {
+    filter: brightness(0) saturate(100%) invert(92%) sepia(18%) saturate(585%) hue-rotate(352deg) brightness(109%) contrast(101%);
+}
+
+/* step === 2 */
+
+.step2Page {
+    background-color: rgba(223, 211, 153, 0.87);
+}
+
+/* מבנה בועות בסיסי יציב בפינות */
+.helpBubble {
+    position: absolute;
+    background-color: #FFF2B4;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.helpText,
+.navHelpText {
+    color: #073799;
+    font-family: "Rubik", sans-serif;
+    font-size: clamp(0.78rem, 1.15vw, 1.15rem);
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.35;
+    width: 100%;
+    margin-top: 1vh;
+}
+
+.helpArrow {
+    width: clamp(2.5rem, 4.5vw, 5rem);
+    height: auto;
+    display: block;
+}
+
+/* בועת חזרה (למעלה מימין) */
+.backHelp {
+    top: 0;
+    right: 0;
+    width: clamp(14rem, 20vw, 24rem);
+    height: clamp(14rem, 20vw, 24rem);
+    border-radius: 0 0 0 100%;
+    padding-bottom: 4vh;
+    padding-left: 4vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.backHelpDiv {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 10vw;
+}
+
+.backArrow {
+    transform: rotate(270deg) scaleY(-1);
+    margin-right: 5rem;
+    margin-bottom: 1.2rem;
+}
+
+@media (max-width: 1450px) {
+    .backHelpDiv {
+        top: 9vh;
+    }
+
+    .backArrow {
+        margin-right: 3rem;
+    }
+}
+
+/* בועת התקדם (למטה משמאל) */
+.nextHelp {
+    bottom: 0;
+    left: 0;
+    width: clamp(14rem, 18vw, 22rem);
+    height: clamp(14rem, 18vw, 22rem);
+    border-radius: 0 100% 0 0;
+    padding-top: 5vh;
+    padding-right: 4vw;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.nextHelpDiv {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.nextArrow {
+    transform: rotate(230deg) scaleX(-1);
+    margin-left: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+@media (max-width: 1450px) {
+    .nextHelpDiv {
+        bottom: 9vh;
+    }
+}
+
+/* בועת תפריט ניווט (למטה מימין) */
+.navHelp {
+    bottom: 0;
+    right: 0;
+    width: clamp(20rem, 24vw, 32rem);
+    height: clamp(20rem, 25vw, 32rem);
+    border-radius: 100% 0 0 0;
+    padding-top: 6vh;
+    padding-left: 5vw;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navHelpInner {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+}
+
+.navArrow {
+    transform: rotate(100deg) scaleX(-1);
+    margin-bottom: 1rem;
+}
+
+.navbarPreview {
+    width: clamp(6rem, 8vw, 11rem);
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin-right: 1vw;
+}
+
+.navHelpInnerDiv {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 5rem;
 }

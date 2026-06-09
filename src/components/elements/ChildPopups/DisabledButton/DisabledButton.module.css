@@ -1,0 +1,93 @@
+.container {
+    position: relative;
+    width: clamp(25rem, 38vw, 38rem);
+    min-height: clamp(16rem, 34vh, 24rem);
+    padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3.2rem);
+    box-sizing: border-box;
+    background-color: #FFF2B4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.8rem, 1.8vh, 1.3rem);
+}
+
+.closeBtn {
+    position: absolute;
+    top: clamp(1rem, 2vw, 1.5rem);
+    right: clamp(1rem, 2vw, 1.5rem);
+    width: clamp(2.4rem, 3vw, 3.2rem);
+    height: clamp(2.4rem, 3vw, 3.2rem);
+    border: none;
+    border-radius: 50%;
+    background-color: #E69907;
+    color: #FFF2B4;
+    font-family: "Assistant", sans-serif;
+    font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+}
+
+.closeBtn:hover {
+    transform: scale(1.08);
+}
+
+.topText,
+.bottomText {
+    color: #073799;
+    font-family: "Assistant", sans-serif;
+    font-size: clamp(1.05rem, 1.3vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    margin: 0;
+}
+
+.middle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(3.5rem, 7vh, 5rem);
+}
+
+.disabledBtn {
+    position: absolute;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #BFBFBF;
+    width: 5vw;
+    height: 5vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    pointer-events: none;
+    font-family: "Assistant", sans-serif;
+    font-weight: 800;
+}
+
+.arrow {
+    position: absolute;
+    right: -9rem;
+    bottom: clamp(-2.2rem, -3vh, -1.4rem);
+    width: clamp(3rem, 4.5vw, 5rem);
+    transform: rotate(260deg);
+}
+
+@media (max-width: 1300px) {
+    .arrow {
+        right: -8rem;
+        bottom: -2vh;
+        transform: rotate(270deg);
+    }
+}

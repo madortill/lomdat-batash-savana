@@ -8,7 +8,8 @@ import MobileBlocker from "./components/MobileBlocker/MobileBlocker";
 
 const Instructions = lazy(() => import("./components/Instructions/Instructions"));
 const Opening = lazy(() => import("./components/Opening/Opening"));
-const NavPage = lazy(() => import("./components/NavPage/NavPage"));
+export const loadNavPage = () => import("./components/NavPage/NavPage");
+const NavPage = lazy(loadNavPage);
 const loadContent = () => import("./components/Content/ContentControl");
 const Content = lazy(loadContent);
 const End = lazy(() => import("./components/End/End"));

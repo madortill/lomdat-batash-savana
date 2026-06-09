@@ -34,7 +34,7 @@
 }
 
 .imageLabel {
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-size: clamp(0.95rem, 1.6vw, 1.4rem);
     font-weight: 500;
     color: #073799;
