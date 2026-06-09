@@ -18,8 +18,8 @@
 }
 
 .textBox {
-    position: relative; 
-    width: clamp(28vw, 36vw, 45vw); 
+    position: relative;
+    width: clamp(28vw, 36vw, 45vw);
     height: 30vh;
     background-color: #4769A7;
     border-radius: 30px;
@@ -31,14 +31,14 @@
     align-items: center;
     padding: 2vw;
     box-sizing: border-box;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .textBox::after {
     content: "";
     position: absolute;
-    bottom: -3.8rem; 
-    left: 7%; 
+    bottom: -3.8rem;
+    left: 7%;
     width: 4rem;
     height: 4rem;
     background-color: #4769A7;
@@ -50,6 +50,11 @@
 
 .languagesDiv {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.25rem, 0.8vw, 0.7rem);
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .languageBtn {
@@ -60,8 +65,15 @@
 .languageBtnWrapper {
     cursor: pointer;
     transition: transform 0.2s;
+    flex: 0 0 auto;
 }
 
 .languageBtnWrapper:active {
     transform: scale(0.95);
+}
+
+.languageIcon {
+    width: clamp(4rem, 3.8vw, 4.5rem);
+    height: auto;
+    display: block;
 }

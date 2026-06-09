@@ -9,7 +9,7 @@ import audio from "../../assets/img/audio.svg";
 
 // language selection
 const LanguageIcon = ({ circleColor, textColor, label }) => (
-    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={styles.languageIcon} viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d_25_60)">
             <circle cx="35.941" cy="31.941" r="31.941" fill={circleColor} />
         </g>

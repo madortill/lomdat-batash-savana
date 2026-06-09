@@ -20,17 +20,23 @@
 }
 
 .mobileBox h2 {
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-size: clamp(1.2rem, 4vw, 2rem);
     margin-bottom: 1vh;
     color: #073799;
 }
 
 .mobileBox h3 {
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-size: clamp(1.2rem, 2.6vw, 1.8rem);
     color: #4769A7;
 }
 
 .mobileBox p {
-    font-size: clamp(1rem, 1.2vw, 1.3rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
     color: #073799;
+}
+
+.gal {
+    margin-top: 2vh;
+    max-width: 50%;
+    min-width: 60px;
 }
