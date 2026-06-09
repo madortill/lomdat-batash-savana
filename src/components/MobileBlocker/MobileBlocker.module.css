@@ -1,0 +1,36 @@
+.mobileBlocker {
+    position: fixed;
+    inset: 0;
+    background: #FFF2B4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.mobileBox {
+    background: white;
+    padding: 4vh 5vw;
+    margin: 5vw;
+    border-radius: 16px;
+    border: solid 2px #E69907;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 10px 60px #E69907;
+}
+
+.mobileBox h2 {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    margin-bottom: 1vh;
+    color: #073799;
+}
+
+.mobileBox h3 {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: #4769A7;
+}
+
+.mobileBox p {
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+    color: #073799;
+}

@@ -1035,6 +1035,20 @@
                 "text": "הבנתי!"
             }
         ],
+        "inbetweenPopups": {
+            "beforeWheelChange": {
+                "text": "מעולה, חזרתם לשלוט על הרכב!",
+                "buttonText": "להמשיך בנסיעה!"
+            },
+            "beforeSafety": {
+                "text": "כל הכבוד! סיימתם את הנסיעה וכך גם את נושא תפעול הרכב",
+                "buttonText": "יאללה, לנושא האחרון!"
+            },
+            "beforeKnowingTheVehicle": {
+                "text": "עכשיו שלמדנו קצת על הרכב המסחרי האחוד, נתמקד ספציפית ברכב הסוואנה ובמאפיניו!",
+                "buttonText": "אני מוכן להתחיל!"
+            }
+        },
         "End": [
             {
                 "id": "EndTitle",

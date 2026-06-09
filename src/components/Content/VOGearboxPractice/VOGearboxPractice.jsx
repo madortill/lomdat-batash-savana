@@ -5,6 +5,8 @@ import backButton from "../../../assets/img/backBtn.svg";
 import gearboxBg from "../../../assets/img/gearboxBg2.svg";
 import worriedGal from "../../../assets/img/gal/worriedGalCut.svg";
 import gearboxController from "../../../assets/img/gearboxController.svg";
+import Popups from "../../elements/Popups/Popups";
+import InbetweenPopup from "../../elements/ChildPopups/InbetweenPopup/InbetweenPopup";
 
 const STORAGE_KEY = "VOGearboxPractice_done";
 const TARGET_GEAR = 2;
@@ -36,6 +38,20 @@ const GearboxPractice = ({ onComplete, onNext, onBack, canProceed }) => {
             return next;
         });
     };
+
+    const [showInbetweenPopup, setShowInbetweenPopup] = useState(false);
+
+    const handleNextClick = () => {
+        if (!canProceed) return;
+        setShowInbetweenPopup(true);
+    };
+
+    const handlePopupClose = () => {
+        setShowInbetweenPopup(false);
+        onNext?.();
+    };
+
+    const popupData = data.inbetweenPopups?.beforeWheelChange;
 
     const atTarget = gear === TARGET_GEAR;
     const atMin = gear === MIN_GEAR;
@@ -84,9 +100,24 @@ const GearboxPractice = ({ onComplete, onNext, onBack, canProceed }) => {
                 </div>
             </div>
 
-            <div className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`} onClick={onNext}>
+            <div className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`} onClick={handleNextClick}>
                 <p className={canProceed ? "next-btn-text" : "next-btn-text-disabled"}>{nextBtn}</p>
             </div>
+
+            {showInbetweenPopup && (
+                <Popups
+                    onClose={() => setShowInbetweenPopup(false)}
+                    showClose={false}
+                    closeOnBackdrop={false}
+                >
+                    <InbetweenPopup
+                        text={popupData.text}
+                        confirmText={popupData.buttonText}
+                        onClose={handlePopupClose}
+                    />
+                </Popups>
+            )}
+
         </div>
     );
 };

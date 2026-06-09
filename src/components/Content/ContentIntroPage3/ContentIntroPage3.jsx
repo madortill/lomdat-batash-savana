@@ -3,6 +3,9 @@ import { useData } from "../../../context/DataContext";
 import styles from "./ContentIntroPage3.module.css";
 import backButton from "../../../assets/img/backBtn.svg";
 
+import Popups from "../../elements/Popups/Popups";
+import InbetweenPopup from "../../elements/ChildPopups/InbetweenPopup/InbetweenPopup";
+
 const ContentIntroPage3 = ({ onNext, onBack }) => {
     const { data } = useData();
 
@@ -12,6 +15,19 @@ const ContentIntroPage3 = ({ onNext, onBack }) => {
     const nextBtn = data.general[1].text;
     const intro3Title = data.CIntro3[0].text;
     const tableData = data.CIntro3[1].tableData;
+
+    const [showInbetweenPopup, setShowInbetweenPopup] = useState(false);
+
+    const handleNextClick = () => {
+        setShowInbetweenPopup(true);
+    };
+
+    const handlePopupClose = () => {
+        setShowInbetweenPopup(false);
+        onNext?.();
+    };
+
+    const popupData = data.inbetweenPopups.beforeKnowingTheVehicle;
 
     return (
         <div className={styles.contentPage}>
@@ -33,9 +49,23 @@ const ContentIntroPage3 = ({ onNext, onBack }) => {
                     ))}
                 </tbody>
             </table>
-            <div className={`next-btn ${styles.nextBtn}`} onClick={onNext} >
+            <div className={`next-btn ${styles.nextBtn}`} onClick={handleNextClick} >
                 <p className="next-btn-text">{nextBtn}</p>
             </div>
+
+            {showInbetweenPopup && (
+                <Popups
+                    onClose={() => setShowInbetweenPopup(false)}
+                    showClose={false}
+                    closeOnBackdrop={false}
+                >
+                    <InbetweenPopup
+                        text={popupData.text}
+                        confirmText={popupData.buttonText}
+                        onClose={handlePopupClose}
+                    />
+                </Popups>
+            )}
         </div>
     );
 };

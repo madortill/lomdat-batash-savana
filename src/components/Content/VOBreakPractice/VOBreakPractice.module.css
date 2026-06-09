@@ -87,8 +87,8 @@
 }
 
 .pedalHitboxPressed {
-    bottom: 9%;
-    left: 11%;
+    bottom: 55%;
+    left: 17%;
 }
 
 @keyframes pulseGlow {

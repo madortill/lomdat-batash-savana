@@ -1,128 +1,3 @@
-/* .popup {
-    width: 60vw;
-    padding: 2rem 2.5rem 1.8rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    direction: rtl;
-}
-
-.title {
-    font-family: Assistant, sans-serif;
-    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-    font-weight: 800;
-    color: #073799;
-    text-align: center;
-    margin: 12px 0px;
-}
-
-.contentGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    width: 90%;
-    margin-bottom: 0.5rem;
-    justify-items: center;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-.imageWrapper {
-    position: relative;
-    width: 100%;
-    max-width: 240px;
-    margin-bottom: 1rem;
-    background-color: #e0e0e0;
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-.redBorder {
-    border: solid 3px #CC3132;
-}
-
-.image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    display: block;
-}
-
-.imgRight {
-    object-position: 80% 40%;
-}
-
-.imgCenter {
-    object-position: 20% 40%;
-}
-
-.imgLeft {
-    object-position: 20% 40%;
-}
-
-.columnText {
-    font-family: Assistant, sans-serif;
-    font-size: clamp(0.85rem, 1.1vw, 1.05rem);
-    font-weight: 500;
-    color: #CC3132;
-    line-height: 1.5;
-    margin: 0;
-    width: 90%;
-}
-
-.bottomRow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.commentWrapper {
-    flex: 1;
-}
-
-.confirmBtn {
-    background-color: #E69907;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 2.5rem;
-    min-width: 120px;
-    height: fit-content;
-    transition: transform 0.15s ease;
-    z-index: 10;
-    color: #FFF2B4;
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
-    font-family: Assistant, sans-serif;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-.confirmBtn:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-} */
-
-
-
-
-
-
-
 
 .popup {
     width: 60vw;
@@ -184,14 +59,15 @@
 
 .imgRight {
     object-position: 80% 40%;
+    transform: scale(1.3);
 }
 
 .imgCenter {
-    object-position: 20% 40%;
+    object-position: 80% 40%;
 }
 
 .imgLeft {
-    object-position: 20% 40%;
+    object-position: 80% 40%;
 }
 
 .columnText {

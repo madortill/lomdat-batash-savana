@@ -46,7 +46,7 @@ const End = () => {
                             style={{
                                 "--x": `${(piece * 17) % 100}%`,
                                 "--delay": `${(piece % 20) * 0.045}s`,
-                                "--duration": `${2.4 + (piece % 7) * 0.18}s`,
+                                "--duration": `${2.4 + (piece % 7) * 0.1}s`,
                                 "--drift": `${((piece % 9) - 4) * 1.4}rem`,
                                 "--start-rotate": `${(piece * 31) % 360}deg`,
                                 "--end-rotate": `${360 + ((piece * 47) % 540)}deg`,
