@@ -75,9 +75,6 @@ const ContentIntro = ({ onComplete, onNext, onBack, canProceed }) => {
                     <button className={styles.arrow} onClick={prev}>‹</button>
                     {/* Slide */}
                     <div className={styles.slide}>
-                        {/* {seenSlides.has(current) && (
-                            <img src={checkmark} alt="visited" className={styles.slideCheckmark} />
-                        )} */}
                         <div className={styles.imageContainer}>
                             <img
                                 src={imageMap[image]}
@@ -108,7 +105,7 @@ const ContentIntro = ({ onComplete, onNext, onBack, canProceed }) => {
                     text={cIntroCommentText}
                     mood="orange"
                     characterSide="right"
-                    size="large"
+                    size="medium"
                 />
             </div>
             <div className={`${canProceed ? "next-btn" : "next-btn-disabled"} ${styles.nextBtn}`} onClick={onNext} >

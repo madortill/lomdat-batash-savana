@@ -15,7 +15,7 @@ const ChildPopupTab = ({
   const tabs = data.page2?.tabs ?? [];
 
   const getInitialVisitedTabs = () => {
-    const saved = localStorage.getItem(storageKey);
+    const saved = sessionStorage.getItem(storageKey);
 
     if (!saved) {
       return new Set([0]);
@@ -35,7 +35,7 @@ const ChildPopupTab = ({
   const allTabsVisited = tabs.length > 0 && visitedTabs.size >= tabs.length;
 
   useEffect(() => {
-    localStorage.setItem(
+    sessionStorage.setItem(
       storageKey,
       JSON.stringify({
         visitedTabs: Array.from(visitedTabs),

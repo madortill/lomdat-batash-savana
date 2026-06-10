@@ -200,47 +200,6 @@
     }
 }
 
-@media (max-height: 720px) and (min-width: 760px) {
-    .navbar {
-        right: 0.9rem;
-        bottom: 0.65rem;
-    }
-
-    .closedNav {
-        width: 5.7rem;
-        min-height: 6.1rem;
-    }
-
-    .closedWheel {
-        width: 4.9rem;
-    }
-
-    .closedTopic {
-        width: 5.9rem;
-    }
-
-    .openPanel {
-        width: 7rem;
-    }
-
-    .wheelButton {
-        width: 6.2rem;
-        height: 5.6rem;
-    }
-
-    .wheelImg {
-        width: 5.7rem;
-    }
-
-    .topicItem {
-        width: 6.4rem;
-    }
-
-    .topicLabel {
-        font-size: clamp(0.82rem, 1.15vw, 1.05rem);
-    }
-}
-
 @media (max-width: 900px) {
     .navbar {
         right: 0.75rem;
@@ -333,49 +292,4 @@
 
 .navPageMode .topicLabel {
     font-size: clamp(1.15rem, 1.75vw, 1.65rem);
-}
-
-@media (max-height: 720px) and (min-width: 760px) {
-    .navPageMode {
-        left: clamp(9.2rem, 23vw, 17rem);
-        bottom: clamp(2rem, 6vh, 4rem);
-    }
-
-    .navPageMode .closedNav {
-        width: clamp(7.4rem, 10vw, 9.4rem);
-        min-height: clamp(8rem, 10.8vw, 10rem);
-    }
-
-    .navPageMode .closedWheel {
-        width: clamp(6.8rem, 9.2vw, 8.8rem);
-    }
-
-    .navPageMode .closedTopic {
-        width: clamp(7.1rem, 9.8vw, 9.2rem);
-    }
-
-    .navPageMode .closedLabel {
-        font-size: clamp(0.98rem, 1.35vw, 1.2rem);
-    }
-
-    .navPageMode .openPanel {
-        width: clamp(7.8rem, 10.3vw, 9.8rem);
-    }
-
-    .navPageMode .wheelButton {
-        width: clamp(7.4rem, 10vw, 9.5rem);
-        height: clamp(6.6rem, 9vw, 8.4rem);
-    }
-
-    .navPageMode .wheelImg {
-        width: clamp(7rem, 9.5vw, 9rem);
-    }
-
-    .navPageMode .topicItem {
-        width: clamp(7.2rem, 9.8vw, 9.3rem);
-    }
-
-    .navPageMode .topicLabel {
-        font-size: clamp(0.95rem, 1.3vw, 1.18rem);
-    }
 }

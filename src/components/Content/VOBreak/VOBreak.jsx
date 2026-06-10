@@ -41,7 +41,7 @@ const Break = ({ onNext, onBack }) => {
             </div>
 
             <div className={`${styles.commentWrapper} ${isAnimatingNext ? styles.fadeOut : ""}`}>
-                <CommentGal text={commentText} mood="red" characterSide="right" size="small" />
+                <CommentGal text={commentText} mood="red" characterSide="right" size="medium" />
             </div>
 
             <div className={`next-btn ${styles.nextBtn} ${isAnimatingNext ? styles.nextBtnLocked : ""}`} onClick={handleNext}>

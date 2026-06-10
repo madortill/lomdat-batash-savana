@@ -1,34 +1,123 @@
 .wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-}
+    --char-size: clamp(4.5rem, 8vw, 8.5rem);
+    --box-radius: clamp(1rem, 2vw, 1.9rem);
+    --box-padding-y: clamp(0.75rem, 1.7vw, 1.25rem);
+    --box-padding-x: clamp(1rem, 2.4vw, 2rem);
+    --char-overlap-x: calc(var(--char-size) * -0.1);
+    --char-overlap-y: calc(var(--char-size) * -0.25);
+    --char-space: calc(var(--char-size) * 0.95);
 
-.reverse {
-    flex-direction: row-reverse;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-top: calc(var(--char-size) * 0.18);
 }
 
 .textBox {
-    flex: 1;
-    border-radius: 30px;
-    border: 2.5px solid;
+    position: relative;
+    width: 100%;
+    min-height: clamp(3.8rem, 8vh, 6.4rem);
+    border-radius: var(--box-radius);
+    border: clamp(0.12rem, 0.2vw, 0.18rem) solid;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
 }
 
 .text {
-    font-family: Assistant, sans-serif;
+    font-family: "Assistant", sans-serif;
     font-weight: 600;
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.45;
+    margin: 0;
+    max-width: 100%;
 }
 
-/* Box colors */
-.green  { background-color: #D0DC93; border-color: #356125; }
-.orange { background-color: #FFDE9E; border-color: #C5571C; }
-.red    { background-color: #FFD7B2; border-color: #CC3132; }
+.character {
+    position: absolute;
+    top: var(--char-overlap-y);
+    width: var(--char-size);
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
+}
 
-/* Text colors — matching border colors */
-.textGreen  { color: #356125; }
-.textOrange { color: #C5571C; }
-.textRed    { color: #CC3132; }
+.rightCharacter .character {
+    right: var(--char-overlap-x);
+}
+
+.leftCharacter .character {
+    left: var(--char-overlap-x);
+}
+
+.rightCharacter .textBox {
+    padding: var(--box-padding-y) var(--char-space) var(--box-padding-y) var(--box-padding-x);
+}
+
+.leftCharacter .textBox {
+    padding: var(--box-padding-y) var(--box-padding-x) var(--box-padding-y) var(--char-space);
+}
+
+.small {
+    --char-size: clamp(3rem, 5vw, 6rem);
+    --box-radius: clamp(0.9rem, 1.7vw, 1.5rem);
+    --box-padding-y: clamp(0.55rem, 1.2vw, 0.85rem);
+    --box-padding-x: clamp(0.85rem, 1.8vw, 1.25rem);
+}
+
+.small .text {
+    font-size: clamp(0.82rem, 1.15vw, 1rem);
+}
+
+.medium {
+    --char-size: clamp(4.5rem, 6vw, 7.8rem);
+    --box-radius: clamp(1rem, 2vw, 1.85rem);
+    --box-padding-y: clamp(0.75rem, 1.5vw, 1.05rem);
+    --box-padding-x: clamp(1rem, 2.1vw, 1.5rem);
+}
+
+.medium .text {
+    font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+}
+
+.large {
+    --char-size: clamp(5.8rem, 10vw, 10rem);
+    --box-radius: clamp(1.1rem, 2.2vw, 2rem);
+    --box-padding-y: clamp(0.9rem, 1.8vw, 1.35rem);
+    --box-padding-x: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.large .text {
+    font-size: clamp(1rem, 1.45vw, 1.35rem);
+}
+
+.green {
+    background-color: #D0DC93;
+    border-color: #356125;
+}
+
+.orange {
+    background-color: #FFDE9E;
+    border-color: #C5571C;
+}
+
+.red {
+    background-color: #FFD7B2;
+    border-color: #CC3132;
+}
+
+.textGreen {
+    color: #356125;
+}
+
+.textOrange {
+    color: #C5571C;
+}
+
+.textRed {
+    color: #CC3132;
+}

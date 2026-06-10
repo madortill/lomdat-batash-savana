@@ -41,7 +41,7 @@ html {
 
 .back-btn:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 ::selection {
@@ -101,7 +101,7 @@ html {
 
 .next-btn:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 .next-btn-text {
