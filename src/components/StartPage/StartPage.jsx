@@ -6,7 +6,7 @@ import backButton from "../../assets/img/backBtn.svg";
 import savannaCard from "../../assets/img/savannaCard.png";
 import letsStartBtn from "../../assets/img/letsStart.svg";
 
-const StartPage = ({ onSendData }) => {
+const StartPage = () => {
     const [showAbout, setShowAbout] = useState(false);
     const [infoSymbol, setInfoSymbol] = useState("i");
     const navigate = useNavigate();
@@ -17,48 +17,46 @@ const StartPage = ({ onSendData }) => {
     };
 
     const nextPage = () => {
-        onSendData(1);
+        navigate("/OpeningInstructions");
     };
 
     return (
         <div className={styles.StartPage}>
             <div className="backBtnDiv">
-                <img src={backButton}
-                    className="back-btn"
-                    onClick={() => {
-                        window.location.href = "https://madortill.github.io/batash-package/";
-                    }} alt="חזרה" />
+                <img src={backButton} className="back-btn" onClick={() => { window.location.href = "https://madortill.github.io/batash-package/"; }} alt="חזרה" />
                 <p className={styles.backBtnText}>חזרה לבחירת הרכב</p>
             </div>
 
             <div onClick={toggleAbout} className={styles.aboutBtnContainer}>
-                <button className={styles["about-btn"]}>
-                    {infoSymbol}
-                </button>
+                <button className={styles.aboutBtn}>{infoSymbol}</button>
                 <p>אודות</p>
             </div>
 
-            <div className={`${styles["div-about"]} ${showAbout ? styles["fade-in"] : styles["fade-out"]}`}>
+            <div className={`${styles.divAbout} ${showAbout ? styles.fadeIn : styles.fadeOut}`}>
                 {showAbout && (
                     <>
-                        <h3 className={styles["list-text-about"]}>מפתחת ראשית:</h3>
-                        <p className={styles["list-text-about"]}>רב"ט צאלה בלמקר</p>
-                        <h3 className={styles["list-text-about"]}>גרפיקה:</h3>
-                        <p className={styles["list-text-about"]}>רב"ט צאלה בלמקר</p>
-                        <h3 className={styles["list-text-about"]}>מומחי תוכן:</h3>
-                        <p className={styles["list-text-about"]}>רס"ל עדן מאיר</p>
-                        <p className={styles["list-text-about"]}>רנ"ג יוסי אלוני</p>
-                        <h3 className={styles["list-text-about"]}>רמ"ד טי"ל:</h3>
-                        <p className={styles["list-text-about"]}>קטיה מדבדב</p>
-                        <h3 className={styles["list-text-about"]}>גרסה:</h3>
-                        <p className={styles["list-text-about"]}>יוני 2026</p>
+                        <h3 className={styles.listTextAbout}>מפתחת ראשית:</h3>
+                        <p className={styles.listTextAbout}>רב"ט צאלה בלמקר</p>
+
+                        <h3 className={styles.listTextAbout}>גרפיקה:</h3>
+                        <p className={styles.listTextAbout}>רב"ט צאלה בלמקר</p>
+
+                        <h3 className={styles.listTextAbout}>מומחי תוכן:</h3>
+                        <p className={styles.listTextAbout}>רס"ל עדן מאיר</p>
+                        <p className={styles.listTextAbout}>רנ"ג יוסי אלוני</p>
+
+                        <h3 className={styles.listTextAbout}>רמ"ד טי"ל:</h3>
+                        <p className={styles.listTextAbout}>קטיה מדבדב</p>
+
+                        <h3 className={styles.listTextAbout}>גרסה:</h3>
+                        <p className={styles.listTextAbout}>יוני 2026</p>
                     </>
                 )}
             </div>
 
-            <div className={styles["start-main-content"]}>
-                <p className={styles["start-main-content-text"]}>סוואנה</p>
-                <img src={savannaCard} alt="savannaCard" className={styles.davidCard} onClick={() => navigate("/OpeningInstructions")}/>
+            <div className={styles.startMainContent}>
+                <p className={styles.startMainContentText}>סוואנה</p>
+                <img src={savannaCard} alt="savannaCard" className={styles.davidCard} />
             </div>
 
             <img src={letsStartBtn} alt="startBtn" className={styles.letsStartBtn} onClick={nextPage} />

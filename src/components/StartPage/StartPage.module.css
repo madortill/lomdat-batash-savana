@@ -1,4 +1,5 @@
-.about-btn {
+
+.aboutBtn {
     border: none;
     color: #FEECD8;
     font-size: 2rem;
@@ -25,11 +26,11 @@
     align-items: center;
 }
 
-.about-btn:hover {
+.aboutBtn:hover {
     transform: scale(1.15);
 }
 
-.div-about {
+.divAbout {
     position: absolute;
     color: #FFF2B4;
     width: 15rem;
@@ -45,34 +46,35 @@
     z-index: 2;
 }
 
-.list-text-about {
+.listTextAbout {
     transition: background-color 0.5s ease;
     margin: 5%;
 }
 
-.list-text-about:hover {
+.listTextAbout:hover {
     background-color: #dbdbdb;
 }
 
-.fade-in {
+.fadeIn {
     opacity: 1;
     pointer-events: auto;
     max-height: 500px;
 }
 
-.fade-out {
+.fadeOut {
     opacity: 0;
     pointer-events: none;
     max-height: 0;
 }
 
-.start-main-content-text {
-    font-family: "rubik";
+.startMainContentText {
+    font-family: "Rubik", "sans-serif";
     font-size: 3.5rem;
     color: #e69907;
+    font-weight: 700;
 }
 
-.start-main-content {
+.startMainContent {
     position: absolute;
     right: 50%;
     top: 50%;
@@ -83,16 +85,16 @@
 }
 
 .davidCard {
-    height: 35rem;
+    height: 30rem;
     border-radius: 17px;
     margin-top: 1rem;
 }
 
 .letsStartBtn {
     height: 9rem;
-    position: relative;
-    top: 39rem;
-    right: 20rem;
+    position: absolute;
+    bottom: 15vh;
+    right: 70vw;
     cursor: pointer;
     animation: pulse 1.8s ease infinite;
     display: inline-block;
@@ -119,7 +121,7 @@
 }
 
 .backBtnText {
-    font-family: "Assistant", sans-serif;
+    font-family: "Assistant", "sans-serif";
     font-weight: 700;
     color: #073799;
     font-size: 1vw;
