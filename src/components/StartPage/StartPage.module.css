@@ -1,0 +1,126 @@
+.about-btn {
+    border: none;
+    color: #FEECD8;
+    font-size: 2rem;
+    background-color: #073799;
+    border-radius: 150px;
+    width: 3rem;
+    height: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+}
+
+.aboutBtnContainer {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.5rem;
+    text-align: center;
+    font-family: "assistant-bold";
+    color: #073799;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.about-btn:hover {
+    transform: scale(1.15);
+}
+
+.div-about {
+    position: absolute;
+    color: #FFF2B4;
+    width: 15rem;
+    height: 25rem;
+    left: 1rem;
+    bottom: 6rem;
+    font-family: "assistant";
+    background: #073799;
+    border-radius: 1rem;
+    box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.list-text-about {
+    transition: background-color 0.5s ease;
+    margin: 5%;
+}
+
+.list-text-about:hover {
+    background-color: #dbdbdb;
+}
+
+.fade-in {
+    opacity: 1;
+    pointer-events: auto;
+    max-height: 500px;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    max-height: 0;
+}
+
+.start-main-content-text {
+    font-family: "rubik";
+    font-size: 3.5rem;
+    color: #e69907;
+}
+
+.start-main-content {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.davidCard {
+    height: 35rem;
+    border-radius: 17px;
+    margin-top: 1rem;
+}
+
+.letsStartBtn {
+    height: 9rem;
+    position: relative;
+    top: 39rem;
+    right: 20rem;
+    cursor: pointer;
+    animation: pulse 1.8s ease infinite;
+    display: inline-block;
+    transition: transform .25s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.letsStartBtn:hover {
+    animation: none;
+    transform: scale(1.13);
+}
+
+.backBtnText {
+    font-family: "Assistant", sans-serif;
+    font-weight: 700;
+    color: #073799;
+    font-size: 1vw;
+}

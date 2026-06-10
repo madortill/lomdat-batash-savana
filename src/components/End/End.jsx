@@ -61,7 +61,9 @@ const End = () => {
                 <img
                     src={backButton}
                     className="back-btn"
-                    onClick={() => navigate("/Content")}
+                    onClick={() => {
+                        window.location.href = "https://madortill.github.io/batash-package/";
+                    }}
                     alt="חזרה"
                 />
                 <p className="back-btn-text">{backBtn}</p>

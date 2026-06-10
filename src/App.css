@@ -132,3 +132,20 @@ html {
     font-style: normal;
     line-height: normal;
 }
+
+.logos {
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+    display: flex;
+    gap: 1rem;
+}
+
+.bahad6 {
+    height: 6vw;
+}
+
+.madorTil {
+    height: 5.9vw;
+    filter: brightness(0) saturate(100%) invert(16%) sepia(80%) saturate(2410%) hue-rotate(218deg) brightness(88%) contrast(103%);
+}

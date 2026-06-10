@@ -73,7 +73,15 @@ const Instructions = () => {
         navigate("/Opening");
     };
 
-    const handleBack = () => step > 0 ? setStep((prev) => prev - 1) : navigate("/");
+    const handleBack = () => {
+        if (step > 0) {
+            setStep((prev) => prev - 1);
+            return;
+        }
+
+        sessionStorage.removeItem(INSTRUCTIONS_STEP_STORAGE_KEY);
+        navigate("/");
+    };
 
     useEffect(() => {
         sessionStorage.setItem(INSTRUCTIONS_STEP_STORAGE_KEY, String(step));
