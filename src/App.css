@@ -138,14 +138,15 @@ html {
     top: 1vw;
     left: 1vw;
     display: flex;
+    flex-direction: row-reverse;
     gap: 1rem;
 }
 
 .bahad6 {
-    height: 6vw;
+    height: 5vw;
 }
 
 .madorTil {
-    height: 5.9vw;
+    height: 4.9vw;
     filter: brightness(0) saturate(100%) invert(16%) sepia(80%) saturate(2410%) hue-rotate(218deg) brightness(88%) contrast(103%);
 }
